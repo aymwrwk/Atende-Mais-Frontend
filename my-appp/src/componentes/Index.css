@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Segoe UI Bold Italico';
+    src: url('./assets/fonts/segoeuiz.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Segoe UI Italico' ;
+    src: url('./assets/fonts/SEGOEUII.TTF') format('truetype');
+  }
