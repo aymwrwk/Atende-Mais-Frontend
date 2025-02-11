@@ -1,9 +1,827 @@
-@font-face {
-    font-family: 'Segoe UI Bold Italico';
-    src: url('./assets/fonts/segoeuiz.ttf') format('truetype');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@300..800&display=swap');
+
+:root {
+    --AuthFont: "Open Sans", system-ui;
+}
+
+
+
+* {
+
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+   /* outline: 1px solid red;*/
+
+
+}
+
+.checkbox-detalhes {
+
+  margin-left: 90px;
+  width: 70%;
+  padding: 25px;
+  position: absolute;
+  top: 18%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.checkbox-detalhes label {
+ 
+  width: 70%;
+
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.horario-texto{
+font-size: 15px;
+  width: 70%;
+
+  position: absolute;
+  top:25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-weight: bold;
+}
+
+.horario {
+ 
+  margin-left: 90px;
+  width: 70%;
+  padding: 25px;
+  position: absolute;
+  top:25%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.checkbox-detalhe {
+  width: 16px;
+  height: 16px;
+}
+
+.texto-checkbox {
+  font-size: 14px;
+  margin-bottom: 8px; /* Espaçamento entre o texto e o checkbox */
+  color: #333; /* Cor do texto */
+  font-weight: bold; /* Deixe o texto em negrito, se necessário */
+}
+
+
+.mensagem-sem-pedidos {
+  display: none;
+  color: #858383fd;
+  position: absolute;
+  top: 20%;
+  font-size: 25px;
+  text-align: center;
+}
+
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+
+.header-menu {
+  width: 100%;
+  font: 1rem;
+  text-transform: uppercase;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.menu {
+  display: flex;
+
+}
+
+.menu>li {
+  margin-left: 10px;
+
+}
+
+.menu>li>a {
+  display: block;
+  padding: 10px;
+
+
+}
+
+.menu>li:hover {}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.ul-pedidos-celular {
+  display: none;
+}
+
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+}
+
+.imagem-menu-logo {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  align-items: end;
+  background-color: aliceblue;
+  padding: 20px;
+}
+
+.div-containers-lista {
+  box-shadow: rgba(0, 0, 0, 0.507) 0px 2px 30px 2px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 23%;
+  /* Largura inicial em porcentagem */
+  min-width: 320px;
+  /* Largura mínima fixa em pixels */
+  min-height: 86vh;
+  /* Largura mínima fixa em pixels */
+  display: grid;
+  place-items: center;
+  /* Centraliza horizontalmente e verticalmente */
+  height: 86vh;
+  /* Altura total da viewport */
+  right: 6%;
+  position: absolute;
+  top: 9%;
+  padding: 100px;
+  background-color: #0E0D11 !important;
+}
+
+.container-lista {
+  background-image: url('../assets/imgs/container.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 65%;
+  height: 50%;
+  position: absolute;
+  top: 2%;
+}
+
+.container-lista1 {
+  width: 90%;
+  height: 45%;
+  background-image: url('../assets/imgs/status1.png');
+  background-size: 100%;
+  margin-left: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 50%;
+  position: absolute;
+}
+
+.ul-pedidos-celular {
+  display: none !important;
+}
+
+
+@media screen and (max-width: 1750px) {
+  
+
+}
+
+
+@media screen and (max-width: 1645px) {
+  
+
+  .conteudo-detalhes {
+    height: 17.1vh !important;
+   
+    }
+  
+
+
+
+}
+
+
+@media screen and (max-width: 1549px) {
+
+
+  .senha-all {
+    top: -98px;
+    left: 1550% !important;
+
+  }
+
+}
+
+@media screen and (max-width: 1477px) {
+
+ 
+
+  .senha-all {
+    top: -98px;
+    left: 1450% !important;
+
+  }
+
+}
+
+@media screen and (max-width: 1420px) {
+
+ 
+
+  .senha-all {
+    top: -98px;
+    left: 1400% !important;
+
+  }
+
+}
+
+@media screen and (max-width: 1375px) {
+
+
+
+  .descricao {
+    font-size: 15px !important;
+    padding: 10px !important;
+  }
+
+
+  .senha-all {
+    top: -98px;
+    left: 1300% !important;
+
+  }
+
+}
+
+@media screen and (max-width: 1300px) {
+
+
+  .senha-all {
+    top: -98px;
+    left: 1250% !important;
+
+  }
+
+}
+
+
+@media screen and (max-width: 1270px) {
+
+
+  .senha-all {
+    top: -98px;
+    left: 1170% !important;
+
+  }
+}
+
+@media screen and (max-width: 1250px) {
+
+
+  .senha-all {
+    top: -98px;
+    left: 1130% !important;
+
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+
+  .senha-all {
+    top: -98px;
+    left: 1070% !important;
+
+  }
+
+}
+
+@media screen and (max-width: 1141px) {
+
+  .descricao {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  .senha-all {
+    top: -98px;
+    left: 1000% !important;
+
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+
+  .descricao {
+    font-size: 15px !important;
+  }
+
+
+  .senha-all {
+    top: -98px;
+    left: 950% !important;
+
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .pedido-container {
+    right: 110px !important;
+    position: relative;
+    width: 90% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .senha-all {
+    top: -98px;
+    left: 950% !important;
+  }
+}
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Ajustes para telas menores que 1000px */
+@media screen and (max-width: 1000px) {
+  .pedido-container {
+    right: 130px !important;
+    width: 85% !important; /* Adapta a largura */
+  }
+
+  .conteudo-wrapper {
+    right: 10px !important;
+    width: 44% !important; /* Ajuste de largura */
+  }
+
+  .senha-all {
+    top: -98px;
+    left: 830% !important; /* Reduzindo deslocamento */
+  }
+}
+
+/* Ajustes para telas menores que 990px */
+@media screen and (max-width: 990px) {
+  .contagem-pedidos,
+  .ul-pedidos,
+  .li-pedidos {
+    display: none !important; /* Oculta itens irrelevantes */
+  }
+
+  .div-containers-lista {
+    display: none !important; /* Oculta contêineres adicionais */
+  }
+
+  .pedidos-lista-celular {
+    display: block !important; /* Mostra lista para celulares */
+  }
+
+  .pedido-container {
+    right: 1px !important;
+    width: 98% !important; /* Adapta a largura */
+  }
+
+  .senha-all {
+    top: -103px ;
+    left: 1410% ; /* Ajuste no deslocamento */
+
+    
+  }
+
+  .conteudo-wrapper {
+    width: 150% !important; /* Aumenta para ocupar toda a largura */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    max-width: none !important; /* Remove restrições de largura máxima */
+    flex-grow: 1 !important; /* Se estiver em um layout flexível, deixa crescer */
+ 
+}
+
+
+  .senha {
+    text-align: left !important;
+    margin-top: 3px !important;
+  }
+
+  .descricao {
+    font-size: 16px !important;
+  }
+}
+
+
+ .senha-all {
+    top: -103px !important;
+    left: 1410% !important; /* Ajuste no deslocamento */
+
+    
+  }
+
+/* Ajustes para telas menores que 810px */
+@media screen and (max-width: 810px) {
+  .pedido-container {
+    right: 0px !important;
+    width: 100% !important; /* Adaptação para largura */
+  }
+
+  
+
+  .senha-all {
+    top: -148px !important;
+    left: 450% !important; /* Ajuste no deslocamento */
+    height: 20vh !important;
+    padding: 15px;
+  }
+}
+
+/* Ajustes para telas menores que 700px */
+@media screen and (max-width: 700px) {
+
+  .div-descricao {
+    top: 43% !important;
+      margin-left: 83px !important;
+      width: 60% !important;
+      
+    }
+
+  .pedido-container {
+    right: 0px !important;
+    width: 100% !important; /* Adaptação para largura */
+  }
+
+
+  .senha {
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    position: absolute !important; /* Define posição absoluta */
+    top: 15px !important; /* Alinha ao topo */
+    right: 15px; /* Alinha à direita */
+  }
+}
+
+/* Ajustes para telas menores que 550px */
+@media screen and (max-width: 550px) {
+  .pedido-container {
+    right: 0px !important;
+    width: 100% !important; /* Ajuste da largura */
+  }
+
+  
+.div-descricao {
+  top: 41% !important;
+  margin-left: 87px !important;
+  width: 63% !important;
+  
+}
+
+
+  .descricao{
+    padding: 10px !important;
+  }
+
+  .descricao {
+    font-size: 14px !important;
+
+  }
+}
+
+/* Ajustes para telas menores que 480px */
+@media screen and (max-width: 480px) {
+
+   .status-container {
+    height: 156px !important;
+  }
+
+    
+  .checkbox-detalhes {
+    margin-left: 80px !important;
+    width: 70%;
+    
+  
+  }
+
+  .label-entregue{
+    margin-bottom: 15px;
+    width: 100% !important;
+    margin-top: 30px !important;
+    padding:10px 5px!important;
+    
   }
   
-  @font-face {
-    font-family: 'Segoe UI Italico' ;
-    src: url('./assets/fonts/SEGOEUII.TTF') format('truetype');
+  .checkbox-container {
+
+    margin-right: 1px !important;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
   }
+
+  .texto-entregue{
+    font-size: 13px !important;
+  }
+  
+  .texto-cancelar{
+    font-size: 13px !important;
+  }
+
+  .label-cancelar{
+   
+    margin-top: -5px !important;
+    padding: 10px 5px!important;
+  }
+  
+
+  .pedido-container {
+
+    width: 100% !important; /* Ajuste da largura */
+  }
+
+  .div-descricao {
+  top: 42% !important;
+    margin-left: 70px !important;
+    width: 60% !important;
+    
+  }
+
+  .descricao {
+    font-size: 13px !important;
+  }
+
+
+    .quantidade-all{
+      font-size: 15px !important;
+      top: -37px !important;
+      margin-left: 10px !important;
+    }
+
+    .quantidadeTexto{
+      font-size: 13px !important;
+    }
+  
+      .senha-all3{
+
+        top: 6px !important;
+        right: 12px !important;
+     
+      }
+
+    .senha3 {
+      font-size: 18px !important;
+      margin-top: -8px !important;
+     }
+     
+}
+
+
+.oie {
+  position: absolute;
+  left: -1%;
+}
+
+.container-contador,
+.pedido-container {
+  margin: 20px auto;
+  width: 55%;
+  /* Aumente de 45% para 60% ou mais conforme necessário */
+  min-width: 300px;
+  /* Ajuste a largura mínima se necessário */
+
+  margin-right: auto;
+  margin-left: 250px;
+}
+
+.pedido-container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  /* Espaçamento entre as caixas */
+  padding: 0;
+  margin: 0;
+}
+
+.pedido-container li {
+  list-style: none;
+  width: 100%;
+}
+
+.conteudo-wrapper{
+
+  position: relative; 
+}
+
+.conteudo-wrapper2{
+  padding: 10px;
+  position: relative; 
+}
+
+.quantidadeTexto {
+  font-size: 14px;
+  position: relative;
+  top: -4px;
+}
+
+.quantidade {
+  position: relative;
+  top: -10px;
+  margin-left: 30px;
+}
+
+.quantidade-all {
+  position: relative;
+  top: -30px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.senhTexto {
+  margin-right: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  top: -4px;
+}
+
+.conteudo-wrapper {
+height: 20vh;
+  width: 70% !important;
+  display: flex;
+
+}
+
+.conteudo-wrapper2 {
+  height: 20vh;
+    width: 70% !important;
+    display: flex;
+  
+  }
+
+.pedido-container{
+  width: 90%; /* Garanta que o pai tenha largura de 100% */  
+  margin: 0 auto;
+  padding: 0 20px;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+.conteudo-detalhes {
+  
+height: 17.1vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  align-items: center;
+  border-radius: 8px;
+  
+   
+  background: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.103) 7px 5px 5px 0px;
+  flex-grow: 1;
+}
+
+
+
+.checkbox-container {
+  padding: 1px;
+  margin-right: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-container label {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-container h1 {
+  font-size: 14px;
+  margin: 0;
+  z-index: 10;
+}
+
+
+
+.senha-all {
+  top: -108px;
+  left: 1840% !important;
+
+  position: relative;
+ 
+
+}
+
+.senha {
+  font-size: 1.5em;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
+}
+
+.senhaTexto{
+  font-size: 0.9em; 
+}
+
+.div-descricao {
+  
+  margin-left: 90px;
+  width: 70%;
+  padding: 10px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
+.descricao {
+margin-top: 65px;
+  font-size: 18px;
+
+  top: 25px;
+}
+
+.status-container {
+  
+  top: -0px;
+
+  left: -1px;
+  /*min-height: 151px; /* Defina conforme necessário */
+  width: 55px;
+  height: 100% !important;
+}
+
+
+.indicador-status {
+  text-align: center;
+}
+
+.indicador-status {
+  flex-shrink: 0;
+  border-radius: 5px 0px 0px 5px;
+  background-color: grey;
+  width: 60px;
+  height: 100%;
+  /*position: absolute;*/
+  top: 0;
+  left: 0;
+}
+
+.indicador-status.andamento {
+  background: linear-gradient(0deg, #FFCF4B, #ffe394);
+}
+
+.indicador-status.pronto {
+  background: linear-gradient(0deg, #0c8d39, #1BAA4D);
+}
+
+.indicador-status.entregue {
+  background: linear-gradient(0deg, #b40f35, #F6194E);
+} 

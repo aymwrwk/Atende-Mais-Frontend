@@ -11,7 +11,8 @@ const UpdateEmailAndToken = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://atende-mais.shop/auth/credenciais', null, {
+      //const response = await axios.post('https://atende-mais.shop/auth/credenciais', null, {
+      const response = await axios.post('http//192.168.1.6:8080/auth/credenciais', null, {
         params: {
           email: email,
           token: token

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 import axios from 'axios';
-//import style from './Home.css'; // Certifique-se de que este caminho está correto
-//import style from './Entregues.css';
-import './Entregues.css'; // Remova a referência a 'default'
+import './Entregues.css';
 
 
 const Entregues = () => {
@@ -19,14 +17,21 @@ const Entregues = () => {
     cancelar: 'cancelar', // status adicional, se necessário
   });
 
+  // Mock dos dados de pedidos
+  const pedidosMock = [
+    { reference_id: '123', status: 'andamento', quantity: 2, description: 'Jantinha com espeto de frango com bacon', hora: '10:00' },
+    { reference_id: '456', status: 'pronto', quantity: 1, description: 'Táboa carne e Batata Frita', hora: '11:00' },
+    { reference_id: '789', status: 'entregue', quantity: 3, description: 'Batata Especial', hora: '12:00' },
+  ];
   // Função para buscar pedidos do backend
   const buscarPedidos = async () => {
     try {
-      const response = await axios.get('https://atende-mais.shop/pedido/entregues'); // Chamada ao endpoint
-      //const response = await axios.get('http://localhost:8080/pedido/entregues'); 
-      setPedidos(response.data); // Atualiza o estado com os dados dos pedidos
-    } 
-     finally {
+      //const response = await axios.get('https://atende-mais.shop/pedido/entregues'); // Chamada ao endpoint
+      //const response = await axios.get('http://192.168.1.6:8080/pedido/entregues');
+      //setPedidos(response.data); // Atualiza o estado com os dados dos pedidos
+      setPedidos(pedidosMock);
+    }
+    finally {
       setLoading(false); // Atualiza o estado de carregamento
     }
   };
@@ -39,6 +44,7 @@ const Entregues = () => {
   useEffect(() => {
     const client = new Client({
       webSocketFactory: () => new SockJS('https://atende-mais.shop/wss-notifications'),
+      //webSocketFactory: () => new SockJS('http://192.168.1.6/wss-notifications'),
       //webSocketFactory: () => new SockJS('http://localhost:8080/ws-notifications'),
       onConnect: () => {
         console.log("Conectado ao WebSocket");
@@ -78,7 +84,7 @@ const Entregues = () => {
   const alterarStatus = async (pedidoId, hora, novoStatus) => {
     try {
       const response = await axios.post('https://atende-mais.shop/pedido/alterar-status', {
-        //const response = await axios.post('http://localhost:8080/pedido/alterar-status', {
+        //const response = await axios.post('http://192.168.1.6:8080/pedido/alterar-status', {
         pedidoId: pedidoId,
         novoStatus: novoStatus,
         hora: hora // Enviando o timestamp junto com o pedidoId
@@ -87,12 +93,12 @@ const Entregues = () => {
       console.log(response.data); // Mensagem de sucesso
 
       // Atualiza o status localmente após sucesso na requisição
-       const pedidosAtualizados = pedidos.map(pedido =>
-         pedido.reference_id === pedidoId && pedido.hora === hora
-           ? { ...pedido, status: novoStatus }
-           : pedido
-       );
-       setPedidos(pedidosAtualizados);
+      const pedidosAtualizados = pedidos.map(pedido =>
+        pedido.reference_id === pedidoId && pedido.hora === hora
+          ? { ...pedido, status: novoStatus }
+          : pedido
+      );
+      setPedidos(pedidosAtualizados);
 
 
       // Requisita uma nova busca de pedidos após 5 segundos
@@ -106,147 +112,120 @@ const Entregues = () => {
 
   return (
     <div className="header">
-      <div className="main-container-menu">
-        <div className="container-menu">
-    <h1 className="titulo-pagina-entregues">Entregues</h1>
-          <div className={classOn ? 'menu-section on' : 'menu-section'} onClick={() => setClassOn(!classOn)}>
-            <div className="menu-toggle">
-              <div className="one"></div>
-              <div className="two"></div>
-              <div className="three"></div>
-            </div>
-            <nav>
-              <ul>
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>
-                  <a href="/prefixos">Prefixos</a>
-                </li>
-                <li>
-
-                </li>
-
-
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+      <header class="header-menu">
+        <nav>
+          <ul class="menu">
+            <li><a href="/inicio">Inicio</a></li>
+            <li><a href="/prefixo">Prefixos</a></li>
+          </ul>
+        </nav>
+      </header>
 
       <div className="titl">
-      <div className="imagem-titulo">
-
+        <div className="imagem-titulo">
         </div>
       </div>
-      <div className="container-contadorr">
-
+      <div className="container-contador2">
       </div>
-      <ul>
-        {pedidos && pedidos.map((pedido, index) => {
-          const statusClass = statusMap[pedido.status.toLowerCase()] || '';
+      <div className="pedido-container2">
+        <ul>
+<br />
+          {pedidos && pedidos.map((pedido, index) => {
+            const statusClass = statusMap[pedido.status.toLowerCase()] || '';
+            return (
 
-          return (
-
-            <div className="conteudo-wrapper" key={pedido.reference_id}>
-
-              <div className="checkbox-container">
-
-
-                <label>
-
-                  <h1 className="texto-prontoo">Pronto</h1>
-                  <br />
-
-                  <input
-                    type="checkbox"
-                    className="checkbox-prontoo"
-                    checked={pedido.status === 'pronto'}
-                    onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'pronto' ? 'andamento' : 'pronto')}
-                  />
+              <div className="conteudo-wrapper2" key={pedido.reference_id}>
+                {/* Checkbox à esquerda */}
 
 
 
-                </label>
+                <div className="div-checkbox">
+                  <div className="checkbox-container">
+                    <div className="checkbox-container">
+                    <label className="label-pronto2">
+                        <input
+                          type="checkbox"
+                          className="checkbox-pronto2"
+                          checked={pedido.status === 'pronto'}
+                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
+                        />
+                        <h1 className="texto-pronto">Pronto</h1>
+                      </label>
+                      <label className="label-entregue2">
+                        <input
+                          type="checkbox"
+                          className="checkbox-entregue2"
+                          checked={pedido.status === 'entregue'}
+                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'entregue' ? 'pronto' : 'entregue')}
+                        />
+                        <h1 className="texto-entregue2">Entregue</h1>
+                      </label>
+                      <label className="label-cancelar2">
+                        <input
+                          type="checkbox"
+                          className="checkbox-cancelar2"
+                          checked={pedido.status === 'cancelar'}
+                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
+                        />
+                        <h1 className="texto-cancelar2">Cancelar</h1>
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
 
+                <div className="conteudo-detalhes">
 
-                <label>
-                  <br />
+                  <div className="status-container2">
+                    <div className={`indicador-status2 ${pedido.status}`}></div>
+                  </div>
 
-
-                  <input
-                    type="checkbox"
-                    className="checkbox-cancelarr"
-                    checked={pedido.status === 'cancelar'}
-                    onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
-                  />
-
-
-                  <h1 className="texto-cancelarr">Cancelar</h1>
-
-                </label>
-
-                <br />
-              
-                <label>
-                  <h1 className="texto-entreguee">Entregue</h1>
-                  <br />
-
-                  <input
-                    type="checkbox"
-                    className="checkbox-entreguee"
-                    checked={pedido.status === 'entregue'}
-                    onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'entregue' ? 'pronto' : 'entregue')}
-                  />
-
-
-
-                </label>
-
-                <br />
-
-
-
-
-
-              </div>
-
-
-
-
-              <div className="conteudoo">
-
-                <li>
-                  <div className="pedido-container">
+                  <div className="quantidade-all2">
                     <h2 className="quantidadeTexto">Quantidade</h2>
                     <h2 className="quantidade">{pedido.quantity}</h2>
-                    <div className="div-descricaoo">
-                      <h3 className="descricaoo">{pedido.description}</h3>
-                    </div>
-
-                    <h1 className="hora">{pedido.hora}</h1>
-                    <h1 className="horario-texto">Horário</h1>
-                    <h1 className="senhTextoo">Senha</h1>
-                    <h1 className="senhaa">{pedido.reference_id}</h1>
-
                   </div>
-                  <div className="status-container">
-
-                    <div className={`status-indicator ${statusClass}`}></div>
-
+                  <div className="senha-all4">
+                    <h2 className="senhaTexto3" style={{ fontSize: '16px' }}>Senha</h2>
+                    <h1 className="senha3" style={{ fontSize: '25px' }}>{pedido.reference_id}</h1>
                   </div>
-                </li>
+
+                  <div className="horario">
+
+                  <h1 className="hora">{pedido.hora.split(':').slice(0, 2).join(':')}</h1>
+                  <h1 className="horario-texto">Horário</h1>
+          
+                  </div>
+                  <div className="div-descricao">
+                    <p className="descricao">{pedido.description}</p>
+                  </div>
+
+                </div>
               </div>
+            );
+          })}
+        </ul>
+        <p className="mensagem-sem-pedidos1">Ainda não há pedidos entregues ou cancelados</p>
+      </div>
+      <div className="div-containers-lista2">
+        <div className="container-lista2">
+          <div className="contagem-pedidos">
+            <ul className="ul-pedidos">
+              {contagem.map((item, index) => (
+                <li className="li-pedidos" key={index}>{item}</li>
 
-            </div>
-          );
-        })}
-      </ul>
+              ))}
 
+
+            </ul>
+          </div>
+        </div>
+        <div className="container-lista2"></div>
+      </div>
     </div>
-  );
 
+
+
+  );
 };
 
 export default Entregues;

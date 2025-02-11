@@ -27,7 +27,8 @@ const LoginPage = ({ onLoginSuccess }) => {
 
     try {
         const response = await axios.post('https://atende-mais.shop/auth/login', null, {
-            params: {
+          //const response = await axios.post('http://192.168.1.6:8080///auth/login', null, {  
+        params: {
                 username: username,
                 password: password
             },
@@ -50,42 +51,44 @@ const LoginPage = ({ onLoginSuccess }) => {
 };
 
   return (
-    <div className='container-login'>
-      <h1 className='title-principal-login'>Login</h1>
-     
-      <form onSubmit={handleSubmit} className='form'>
-  <div className='inputContainer'>
-    <input
-      type="text"
-      value={username}
-      onChange={(e) => setUsername(e.target.value)}
-      required
-      className='input'
-      placeholder="Usuário"
-    />
-  </div>
-  <div className='inputContainer'>
-    <input
-      type={showPassword ? 'text' : 'password'}
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      required
-      className='input'
-      placeholder="Senha"
-    />
-    <button
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-      className='togglePassword'
-    >
-      {/* ícone do olho */}
-    </button>
-  </div>
-
-  <button type="submit" className='button'>Login</button>
-  {error && <p className='error'>{error}</p>}
-</form>
-    </div>
+    <body className='header-login-azul'>
+      <div className='container-login'>
+        <h1 className='title-principal-login'>Login</h1>
+      
+        <form onSubmit={handleSubmit} className='form'>
+        <div className='inputContainer'>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+        className='input'
+        placeholder="Usuário"
+      />
+        </div>
+        <div className='inputContainer'>
+      <input
+        type={showPassword ? 'text' : 'password'}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        className='input'
+        placeholder="Senha"
+      />
+      <button
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+        className='togglePassword'
+      >
+        {/* ícone do olho */}
+      </button>
+        </div>
+      
+        <button type="submit" className='button'>Login</button>
+        {error && <p className='error'>{error}</p>}
+      </form>
+      </div>
+    </body>
   );
 };
 

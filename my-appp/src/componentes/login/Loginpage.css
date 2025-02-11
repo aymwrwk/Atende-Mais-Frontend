@@ -1,245 +1,105 @@
-/* Auth.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@300..800&display=swap');
-
-:root {
-    --AuthFont: "Open Sans", system-ui;
+body {
+  margin: 0;
+  padding: 0;
+ 
 }
-
-* {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-body{
-    background-color: #E5E5E5;
-}
-
-
-@media screen and (max-width: 1366px) {
-    .title-principal-login {
-        
-        top: 22% !important;
-        width: 50% !important;
-        height: auto !important;
-        font-size: 28px !important;
-        padding-top: 30px !important;
-        padding-bottom: 25px !important;
-      }
-    
-      .subtitle {
-        font-size: 0.9em !important;
-        margin-top: 10px !important;
-      }
-    
-      .form {
-        padding-bottom: 60px !important;
-        padding-top: 10px !important;
-        top: 33% !important;
-        width: 50% !important;
-        height: auto !important;
-        
-      }
-    
-      .spanlogin {
-        top: 33% !important;
-        left: 62.3% !important;
-        font-size: 12px !important;
-      }
-    
-      .input {
-        width: 30%!important;
-        font-size: 14px !important;
-        margin: 10px 0 !important;
-        padding: 8px !important;
-      }
-    
-      .togglePassword {
-        font-size: 0.9em !important;
-      }
-    
-      .button {
-        width: 20% !important;
-        margin-top: 15px !important;
-        font-size: 16px !important;
-      }
-    
-      .error {
-        font-size: 0.8em !important;
-      }
-    
-    
-    }
-  
-
-
-
-@media screen and (max-width: 480px) {
-    .container-login {
-      padding: 10px !important;
-      justify-content: flex-start !important;
-      align-items: center !important;
-    }
-  
-    body{
-        background-color: #E5E5E5 !important;
-    }
-
-    .title-principal-login {
-        padding-bottom: 55px !important;
-      top: 19% !important;
-      width: 95.7% !important;
-      height: auto !important;
-      font-size: 28px !important;
-      padding-top: 15px !important;
-    }
-  
-    .subtitle {
-      font-size: 0.9em !important;
-      margin-top: 10px !important;
-    }
-  
-    .form {
-    
-      top: 33% !important;
-      width: 85% !important;
-      height: auto !important;
-      padding: 20px !important;
-    }
-  
-    .spanlogin {
-      top: 44.7% !important;
-      left: 83% !important;
-      font-size: 12px !important;
-    }
-  
-    .input {
-      width: 90%!important;
-      font-size: 14px !important;
-      margin: 10px 0 !important;
-      padding: 8px !important;
-    }
-  
-    .togglePassword {
-      font-size: 0.9em !important;
-    }
-  
-    .button {
-      width: 100% !important;
-      margin-top: 15px !important;
-      font-size: 16px !important;
-    }
-  
-    .error {
-      font-size: 0.8em !important;
-    }
-  }
-  
 
 .container-login {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Move o conteúdo para o topo */
-    
-    padding: 20px;
+  position: relative;
+  z-index: 5;
+  background: rgba(43, 43, 43, 0.979); 
+  border-radius: 5px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+  max-width: 400px;
+  padding: 2rem;
+  margin: 30vh auto;
+  text-align: center;
+  backdrop-filter: blur(-20px);
+  border: 1px solid rgba(255, 255, 255, 0); 
 }
 
-.label{
-    font-family: 'Segoe UI Bold Italico';
-}
- .title-principal-login {
-    position: absolute;
-    
-    top: 20% ;
-border-radius: 10px 10px 0px 0px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-font-weight: bolder ;
-    color: black;
-    width: 22.1%;
-    height: 10%;
-    background-color: white;
-   padding-top: 30px;
-    text-align: center;
-    font-size: 34px;
+.title-principal-login {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.subtitle {
-    
-    color: black;
-    font-family: 'Segoe UI Italico';
-    text-align: center;
-    font-size: 1em;
-}
-
-.form {
-    position: absolute;
-    top: 33%;
-    text-align: center;
-    background-color: white;
-    width: 22.1%;
-    border-radius: 10px;
-    height: 24%;
-    
-}
-
-
-.spanlogin{
-    position: absolute;
-    top: 28.2%;
-    left: 69.5% ;
-    
-     
+.inputContainer {
+  margin-bottom: 1.5rem;
 }
 
 .input {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-font-weight: bolder ;
-    box-shadow: rgba(0, 0, 0, 0.075) 5px 1px 8px;
-   border: 1.5px solid rgba(0, 0, 0, 0.301);
-    background-color: #ffffff;
-    color: #13101d;
-    margin: 6px;
-  
-    border-radius: 5px;
-    padding: 10px;
-    width: 200px;
-    outline: none;
+  background-color: #e6e6e6fa;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e6e6e6fa;
+  border-radius:  6px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-.togglePassword {
-    font-weight: bolder;
-    display: block;
-    margin: 10px auto;
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.button {
-   
-    width: 150px;
-    border-radius: 10px;
-    font-weight: bold;
-    padding: 10px;
-    border: none;
-    background-color: #3b5998;
-    color: white;
-    outline: none;
-    display: block;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.button:hover {
-    background-color: #3b5998;
+.input:focus {
+  border-color: #2d0096;
+  box-shadow: 0px 0px 5px rgba(223, 167, 151, 0.5); 
 }
 
 .error {
-    font-family: 'Segoe UI Italico';
-    margin-top: 20px;
-    color: red;
-    font-size: 0.9em;
+  color: red;
+  margin-top: 10px;
 }
+
+
+
+.header-login-azul {
+  background-color: white;
+  color: white;
+  border: none;
+  width: 100%;
+  height: 100vh;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.login {
+  background: linear-gradient(90deg, #2d0096, #7b1fa2);
+  color: #fff; 
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; 
+  margin-top: 1rem; 
+}
+
+.login:hover {
+  background: linear-gradient(90deg, #7b1fa2, #2d0096); 
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.login:active {
+  transform: translateY(1px);
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2); 
+}
+
+.button{
+  border-radius: 5px;
+  color: white;
+  border: none;
+  width: 30%;
+  padding: 10px;
+  background-color: rgb(83, 99, 247);
+}
+
+.togglePassword{
+  display: none;
+} 
