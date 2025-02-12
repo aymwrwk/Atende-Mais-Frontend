@@ -219,7 +219,7 @@ const Entregues = () => {
                 <div className="conteudo-detalhes">
 
                   <div className="status-container2">
-                    <div className={`indicador-status2 ${pedido.status}`}></div>
+                    <div className={`indicador-status ${pedido.status}`}></div>
                   </div>
 
                   <div className="quantidade-all2">

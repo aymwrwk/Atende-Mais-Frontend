@@ -213,22 +213,16 @@ const Home = () => {
           </ul>
         </nav>
       </header>
-
+     
       <div className="imagem-titulo-home"></div>
 
-      <div className="container-contador">
-        <div className="pedidos-lista-celular">
-          {error ? (
-            <p>{error}</p>
-          ) : (
-            <ul className="ul-pedidos-celular">
-              {contagem.map((item, index) => (
-                <li className="li-pedidos-celular" key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
+      <div className="contagem-pedidos-mobile">
+    <ul className="ul-pedidos-mobile">
+      {contagem.map((item, index) => (
+        <li className="li-pedidos-mobile" key={index}>{item}</li>
+      ))}
+    </ul>
+  </div>
 
       <div className="pedido-container">
         {pedidos.length === 0 ? (
