@@ -39,12 +39,26 @@ const Home = () => {
   // Função para buscar pedidos do backend
   const buscarPedidos = async () => {
     try {
-      //const response = await axios.get('https://191.101.70.241:8080/pedido/lista-pedidos', { withCredentials: true });
-      //const response = await axios.get('https://atende-mais.shop/pedido/lista-pedidos', { withCredentials: true });
-      //const response = await axios.get('http://192.168.1.6:8080/pedido/lista-pedidos', { withCredentials: true });
-      //setPedidos(response.data); // Atualiza o estado com os dados dos pedidos
-      setPedidos(pedidosMock);
-      //setLoading(false);
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+
+      const response = await axios.get('https://atende-mais.shop:8080/api/v1/pedido/lista-pedidos',
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Verifique a estrutura da resposta (ajuste conforme seu backend)
+      console.log("Resposta da API:", response.data);
+      setPedidos(response.data); // Ou response.data.prefixos se for um objeto
+      //setPedidos(pedidosMock);
 
     } catch (err) {
       setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
@@ -53,31 +67,38 @@ const Home = () => {
     }
   };
 
-  const respostaBackend = null; // Simulando uma resposta nula
+  //const respostaBackend = null; // Simulando uma resposta nula
 
-  // Função para contar e organizar os pedidos
+  // Função para buscar pedidos do backend
   const contarPedidos = async () => {
     try {
-      const response = await axios.get('https://atende-mais.shop/pedido/contar', { withCredentials: true });
-      //const response = await axios.get('http://192.168.1.6:8080/pedido/contar', { withCredentials: true });
-      setContagem(response.data);
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+
+      const response = await axios.get('https://atende-mais.shop:8080/api/v1/pedido/contar',
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Verifique a estrutura da resposta (ajuste conforme seu backend)
+      console.log("Resposta da API:", response.data);
+      setContagem(response.data); // Ou response.data.prefixos se for um objeto
       //setContagem(contagemMock)
-    } catch (error) {
-      console.error("Erro ao contar pedidos:", error.response ? error.response.data : error.message);
-      //alert("Erro ao contar pedidos: " + (error.response ? error.response.data : error.message));
+
+    } catch (err) {
+      setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
+    } finally {
+      setLoading(false); // Atualiza o estado de carregamento
     }
   };
-
-  // Função para contar e organizar os pedidos
-  /* const contarPedidos = async () => {
-     try {
-         const response = await axios.get('http://191.101.70.241:8080/pedido/contar', { withCredentials: true });
-         setContagem(response.data);
-     } catch (error) {
-         console.error("Erro ao contar pedidos:", error.response ? error.response.data : error.message);
-         alert("Erro ao contar pedidos: " + (error.response ? error.response.data : error.message));
-     }
- };*/
 
   // UseEffect para buscar pedidos e contagem ao montar o componente
   useEffect(() => {
@@ -86,41 +107,40 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+
     const client = new Client({
-      //webSocketFactory: () => new SockJS('http://192.168.1.6:8080/wss-notifications'),
-      webSocketFactory: () => new SockJS('https://atende-mais.shop/wss-notifications'),
+      webSocketFactory: () => new SockJS('https://atende-mais.shop:8080/wss-notifications?token=' + token),
+
+      connectHeaders: {
+        Authorization: `Bearer ${token}`
+      },
+
       onConnect: () => {
         console.log("Conectado ao WebSocket");
         client.subscribe('/topic/notifications', (message) => {
           console.log("Notificação recebida:", message.body);
 
-
           setTimeout(() => {
             buscarPedidos();
-          }, 3000);
-
-          setTimeout(() => {
             contarPedidos();
-          }, 5000)
-
+          }, 3000);
         });
       },
+
       onDisconnect: () => {
         console.log("Desconectado do WebSocket");
-        // Tente reconectar após 5 segundos
         setTimeout(() => client.activate(), 5000);
       },
+
       onStompError: (frame) => {
-        console.error('Broker error:', frame.headers['message']);
-        console.error('Details:', frame.body);
-      },
+        console.error('Erro STOMP:', frame.headers['message']);
+      }
     });
 
     client.activate();
 
-    return () => {
-      client.deactivate();
-    };
+    return () => client.deactivate();
   }, []);
 
   // Verificação do estado de carregamento
@@ -128,17 +148,27 @@ const Home = () => {
     return <h1>Carregando pedidos...</h1>;
   }
 
+
   // Função para alterar o status do pedido
   const alterarStatus = async (pedidoId, hora, novoStatus) => {
     try {
-      //const response = await axios.post('http://192.168.1.6:8080/pedido/alterar-status', {
-      const response = await axios.post('https://atende-mais.shop/pedido/alterar-status', {
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+
+      const response = await axios.post('https://atende-mais.shop:8080/api/v1/pedido/alterar-status', {
         pedidoId: pedidoId,
         novoStatus: novoStatus,
         hora: hora // Enviando o timestamp junto com o pedidoId
       },
         {
-          withCredentials: true // Configuração deve ser um terceiro parâmetro
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
         });
 
       console.log(response.data); // Mensagem de sucesso
@@ -193,11 +223,11 @@ const Home = () => {
           <p className="mensagem-sem-pedidos">Ainda não há pedidos</p>
         ) : (
           pedidos.map((pedido, index) => (
-            
-<div className="conteudo-wrapper" key={index}>
+
+            <div className="conteudo-wrapper" key={index}>
               {/* Checkbox à esquerda */}
 
-           
+
               <div className="div-checkbox">
                 <div className="checkbox-container">
                   <div className="checkbox-container">
@@ -223,40 +253,40 @@ const Home = () => {
                 </div>
               </div>
 
-             
+
               <div className="conteudo-detalhes">
-          
-              <div className="status-container">
-              <div className={`indicador-status ${pedido.status}`}></div>
-</div>
-  
+
+                <div className="status-container">
+                  <div className={`indicador-status ${pedido.status}`}></div>
+                </div>
+
                 <div className="quantidade-all">
                   <h2 className="quantidadeTexto">Quantidade</h2>
                   <h2 className="quantidade">{pedido.quantity}</h2>
                 </div>
                 <div className="senha-all3">
-                  <h2 className="senhaTexto3" style={{fontSize: '16px' }}>Senha</h2>
-                  <h1 className="senha3" style={{fontSize: '25px' }}>{pedido.reference_id}</h1>
+                  <h2 className="senhaTexto3" style={{ fontSize: '16px' }}>Senha</h2>
+                  <h1 className="senha3" style={{ fontSize: '25px' }}>{pedido.reference_id}</h1>
                 </div>
                 <div className="checkbox-detalhes"><p className="texto-checkbox">Pronto</p>
-                
-           <label>
-       
-             <input
-               type="checkbox"
-               className="checkbox-detalhe"
-               checked={pedido.selecionado || false}
-               onChange={() => toggleCheckbox(pedido.reference_id)}
-             />
-           </label>
-           </div>
+
+                  <label>
+
+                    <input
+                      type="checkbox"
+                      className="checkbox-detalhe"
+                      checked={pedido.selecionado || false}
+                      onChange={() => toggleCheckbox(pedido.reference_id)}
+                    />
+                  </label>
+                </div>
                 <div className="div-descricao">
                   <p className="descricao">{pedido.description}</p>
                 </div>
-                
+
               </div>
-              </div>
-          
+            </div>
+
 
           ))
         )}
