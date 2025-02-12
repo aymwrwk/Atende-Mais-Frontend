@@ -299,8 +299,6 @@ const Home = () => {
                 <li className="li-pedidos" key={index}>{item}</li>
 
               ))}
-
-
             </ul>
           </div>
         </div>

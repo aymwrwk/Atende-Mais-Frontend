@@ -144,7 +144,7 @@ const Entregues = () => {
 
 
   return (
-    
+
     <div className="header">
       <header class="header-menu">
         <nav>
@@ -176,12 +176,14 @@ const Entregues = () => {
                 <div className="div-checkbox">
                   <div className="checkbox-container">
                     <div className="checkbox-container2">
-                    <label className="label-pronto2">
+                      <label className="label-pronto2">
                         <input
                           type="checkbox"
                           className="checkbox-pronto2"
                           checked={pedido.status === 'pronto'}
-                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
+                          onChange={() =>
+                            alterarStatus(pedido.reference_id, pedido.hora, 'pronto')
+                          }
                         />
                         <h1 className="texto-pronto">Pronto</h1>
                       </label>
@@ -190,7 +192,9 @@ const Entregues = () => {
                           type="checkbox"
                           className="checkbox-entregue2"
                           checked={pedido.status === 'entregue'}
-                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'entregue' ? 'pronto' : 'entregue')}
+                          onChange={() =>
+                            alterarStatus(pedido.reference_id, pedido.hora, 'entregue')
+                          }
                         />
                         <h1 className="texto-entregue2">Entregue</h1>
                       </label>
@@ -199,10 +203,13 @@ const Entregues = () => {
                           type="checkbox"
                           className="checkbox-cancelar2"
                           checked={pedido.status === 'cancelar'}
-                          onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
+                          onChange={() =>
+                            alterarStatus(pedido.reference_id, pedido.hora, 'cancelar')
+                          }
                         />
                         <h1 className="texto-cancelar2">Cancelar</h1>
                       </label>
+
                     </div>
                   </div>
                 </div>
