@@ -143,6 +143,7 @@ const ItemOrderPage = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
       await fetch('https://atende-mais.shop:8080/api/v1/pedido/notificacoes', {

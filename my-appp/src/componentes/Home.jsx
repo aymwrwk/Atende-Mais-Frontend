@@ -44,6 +44,7 @@ const Home = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
 
@@ -61,9 +62,18 @@ const Home = () => {
       //setPedidos(pedidosMock);
 
     } catch (err) {
-      setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
+      // Caso o backend retorne um status 401 (não autorizado), exibe a mensagem adequada
+      if (err.response) {
+        if (err.response.status === 401) {
+          setError("Você não tem autorização para acessar esses pedidos.");
+        } else {
+          setError("Erro ao buscar pedidos: " + err.response.data);
+        }
+      } else {
+        setError("Erro ao buscar pedidos: " + err.message);
+      }
     } finally {
-      setLoading(false); // Atualiza o estado de carregamento
+      setLoading(false);
     }
   };
 
@@ -77,6 +87,7 @@ const Home = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
 
@@ -157,6 +168,7 @@ const Home = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
 
@@ -269,14 +281,14 @@ const Home = () => {
                   <h1 className="senha3" style={{ fontSize: '25px' }}>{pedido.reference_id}</h1>
                 </div>
                 <div className="checkbox-detalhes"><p className="texto-checkbox">Pronto</p>
-
                   <label>
-
                     <input
                       type="checkbox"
                       className="checkbox-detalhe"
-                      checked={pedido.selecionado || false}
-                      onChange={() => toggleCheckbox(pedido.reference_id)}
+                      checked={pedido.status === 'pronto'}
+                          onChange={() =>
+                            alterarStatus(pedido.reference_id, pedido.hora, 'pronto')
+                          }
                     />
                   </label>
                 </div>

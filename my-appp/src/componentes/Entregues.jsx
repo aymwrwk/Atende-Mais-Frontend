@@ -31,6 +31,7 @@ const Entregues = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
 
@@ -109,6 +110,7 @@ const Entregues = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
+        navigate('/login');
         return;
       }
 
@@ -209,7 +211,6 @@ const Entregues = () => {
                         />
                         <h1 className="texto-cancelar2">Cancelar</h1>
                       </label>
-
                     </div>
                   </div>
                 </div>
