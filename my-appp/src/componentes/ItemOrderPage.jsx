@@ -137,11 +137,19 @@ const ItemOrderPage = () => {
     console.log('XML to be sent:', xml);
 
     try {
-      await fetch('https://atende-mais.shop/pedido/notificacoes', {
-     // await fetch('http://192.168.1.6:8080/pedido/notificacoes', {
+
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+      await fetch('https://atende-mais.shop:8080/api/v1/pedido/notificacoes', {
+
         method: 'POST',
         headers: {
-          'Content-Type': 'application/xml',
+          'Authorization': `Bearer ${token}`,
         },
         body: xml,
       });

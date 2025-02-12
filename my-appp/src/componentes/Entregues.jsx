@@ -26,12 +26,30 @@ const Entregues = () => {
   // Função para buscar pedidos do backend
   const buscarPedidos = async () => {
     try {
-      //const response = await axios.get('https://atende-mais.shop/pedido/entregues'); // Chamada ao endpoint
-      //const response = await axios.get('http://192.168.1.6:8080/pedido/entregues');
-      //setPedidos(response.data); // Atualiza o estado com os dados dos pedidos
-      setPedidos(pedidosMock);
-    }
-    finally {
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+
+      const response = await axios.get('https://atende-mais.shop:8080/api/v1/pedido/entregues',
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Verifique a estrutura da resposta (ajuste conforme seu backend)
+      console.log("Resposta da API:", response.data);
+      setPedidos(response.data); // Ou response.data.prefixos se for um objeto
+      //setPedidos(pedidosMock);
+
+    } catch (err) {
+      setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
+    } finally {
       setLoading(false); // Atualiza o estado de carregamento
     }
   };
@@ -42,37 +60,40 @@ const Entregues = () => {
   }, []);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+
     const client = new Client({
-      webSocketFactory: () => new SockJS('https://atende-mais.shop/wss-notifications'),
-      //webSocketFactory: () => new SockJS('http://192.168.1.6/wss-notifications'),
-      //webSocketFactory: () => new SockJS('http://localhost:8080/ws-notifications'),
+      webSocketFactory: () => new SockJS('https://atende-mais.shop:8080/wss-notifications?token=' + token),
+
+      connectHeaders: {
+        Authorization: `Bearer ${token}`
+      },
+
       onConnect: () => {
         console.log("Conectado ao WebSocket");
         client.subscribe('/topic/notifications', (message) => {
           console.log("Notificação recebida:", message.body);
 
-          // Adiciona um atraso de 5 segundos antes de chamar buscarPedidos
           setTimeout(() => {
             buscarPedidos();
-          }, 5000);
+            contarPedidos();
+          }, 3000);
         });
       },
+
       onDisconnect: () => {
         console.log("Desconectado do WebSocket");
-        // Tente reconectar após 5 segundos
         setTimeout(() => client.activate(), 5000);
       },
+
       onStompError: (frame) => {
-        console.error('Broker error:', frame.headers['message']);
-        console.error('Details:', frame.body);
-      },
+        console.error('Erro STOMP:', frame.headers['message']);
+      }
     });
 
     client.activate();
 
-    return () => {
-      client.deactivate();
-    };
+    return () => client.deactivate();
   }, []);
 
   // Verificação do estado de carregamento
@@ -83,12 +104,24 @@ const Entregues = () => {
   // Função para alterar o status do pedido
   const alterarStatus = async (pedidoId, hora, novoStatus) => {
     try {
-      const response = await axios.post('https://atende-mais.shop/pedido/alterar-status', {
-        //const response = await axios.post('http://192.168.1.6:8080/pedido/alterar-status', {
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        return;
+      }
+
+      const response = await axios.post('https://atende-mais.shop:8080/api/v1/pedido/alterar-status', {
         pedidoId: pedidoId,
         novoStatus: novoStatus,
         hora: hora // Enviando o timestamp junto com o pedidoId
-      });
+      },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
 
       console.log(response.data); // Mensagem de sucesso
 
@@ -100,15 +133,15 @@ const Entregues = () => {
       );
       setPedidos(pedidosAtualizados);
 
-
       // Requisita uma nova busca de pedidos após 5 segundos
       setTimeout(() => {
-        buscarPedidos();
-      }, 5000);
+        // buscarPedidos();
+      }, 3000);
     } catch (error) {
       console.error('Erro ao alterar status:', error);
     }
   };
+
 
   return (
     <div className="header">
@@ -129,7 +162,7 @@ const Entregues = () => {
       </div>
       <div className="pedido-container2">
         <ul>
-<br />
+          <br />
           {pedidos && pedidos.map((pedido, index) => {
             const statusClass = statusMap[pedido.status.toLowerCase()] || '';
             return (
@@ -142,7 +175,7 @@ const Entregues = () => {
                 <div className="div-checkbox">
                   <div className="checkbox-container">
                     <div className="checkbox-container">
-                    <label className="label-pronto2">
+                      <label className="label-pronto2">
                         <input
                           type="checkbox"
                           className="checkbox-pronto2"
@@ -191,9 +224,9 @@ const Entregues = () => {
 
                   <div className="horario">
 
-                  <h1 className="hora">{pedido.hora.split(':').slice(0, 2).join(':')}</h1>
-                  <h1 className="horario-texto">Horário</h1>
-          
+                    <h1 className="hora">{pedido.hora.split(':').slice(0, 2).join(':')}</h1>
+                    <h1 className="horario-texto">Horário</h1>
+
                   </div>
                   <div className="div-descricao">
                     <p className="descricao">{pedido.description}</p>
