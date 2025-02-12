@@ -584,30 +584,37 @@ background-color: gray;
        margin-top: 0px !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: 5px !important; 
+      gap: 12px !important; 
       left: 85px !important;
     }
  
       .horario-texto{
-        font-size: 15px !important;
+        font-size: 0.8rem!important;
         top:25%;
         }
         
         .horario {
-          margin-left: 80px !important;
-          top:29% !important;  
+          position: absolute !important;
+          margin-left: 78px !important;
+          top:25% !important;  
         }
         
-        
+        .hora{
+        font-size: 0.9rem!important;
 
-        .quantidade-all2{
-          top: -28px !important;
-          left: -10px !important;
+        }        
+
+    .quantidade-all2{
+      position: absolute !important;
+      top: 5px !important;
+      text-align: left;
+      
+      margin-left: 125px !important;
         }
 
         .senha-all4{
           right: 20px !important;
-          top: 8px !important;
+          top: 15px !important;
         }
 
         .status-container2 {

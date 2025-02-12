@@ -532,25 +532,38 @@ p {
 
 /* Ajustes para telas menores que 480px */
 @media screen and (max-width: 480px) {
-
    .status-container {
     width: 70% !important;
     height: 156px !important;
   }
 
+  .checkbox-detalhe {
+    position: relative !important;
+    top: -20px !important;
+    height: 100vh !important;
+
+  }
+
+
+
+  .texto-checkbox{
+    margin-top: 40px;
+    font-size: 0.8rem !important;
+  }
+
   .quantidade-all {
     position: absolute !important;
-    top: -8px !important;
+    top: -5px !important;
     text-align: left;
     margin-left: 50px !important;
   }
 
   .quantidadeTexto{
-    font-size: 13px !important;
+    font-size: 0.8rem!important;
   }
   
   .quantidade{
-    margin-top: 15px !important;
+    margin-top: 14px !important;
   }
 
   .checkbox-detalhes {
@@ -606,16 +619,16 @@ p {
   }
 
   .descricao {
-    font-size: 13px !important;
+    font-size: 1.0rem !important;
   }
 
   .senha-all3{
-    top: 1px !important;
+    top: 5px !important;
   }
 
   .senhaTexto3{
     margin-right: 2px !important;
-    font-size: 13px !important;
+    font-size: 0.8rem !important;
   }
 
   .senha3 {
