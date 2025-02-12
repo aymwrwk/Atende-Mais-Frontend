@@ -110,9 +110,9 @@ const GerenciarPrefixos = () => {
      
         <h1 className='titulo-pagina-prefixos'>Gerenciar Prefixos</h1>
 
-      <div className='container-titulo-pagina-prefixos'>
+   
         <p className='descricao-titulo'>Os prefixos são as primeiras palavras de um produto. Por exemplo, em <strong>Jantinha</strong> com Espeto de Cupim, o prefixo é <strong>Jantinha</strong>; e em Batata Simples, o prefixo é <strong>Batata</strong>. Eles servem para agrupar e organizar itens semelhantes, facilitando a identificação e categorização.</p>
-      </div>
+      
       <div className='conatiner-main-prefixos'>
         <h1 className='h1-principal2'>Adicionar Prefixos</h1>
         {error && <p style={{ color: 'red' }}>{error}</p>} {/* Exibe mensagem de erro se houver */}

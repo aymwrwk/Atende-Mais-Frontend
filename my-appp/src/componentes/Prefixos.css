@@ -6,9 +6,6 @@ body {
 
 
 
-
-
-
 .imagem-tituloo,
 .imagem-titulooo {
   display: none;
@@ -149,17 +146,11 @@ strong {
 }
 
 @media screen and (max-width: 1366px) {
-  .descricao-titulo {
-    top: 13% !important;
-  }
-
   .h1-principal2 {
   
   text-align: center !important;
    
   }
-
- 
 
   .vertical-listt {
     left: 25% !important;
@@ -168,20 +159,31 @@ strong {
   }
 }
 
-@media screen and (max-width: 480px) {
- 
 
-  .descricao-titulo {
-    
-    top: 13% !important;
-    left: 7% !important;
-    width: 85% !important;
-    text-align: justify !important;
-    font-size: 13px !important;
+
+@media screen and (max-width: 480px) {
+
+  .input-prefixoo {
+   top: 38% !important;
   }
 
+  .button-adicionar-prefixoo {
+    top: 38% !important;
+  }
 
+  .descricao-titulo {
+    padding: 20px;
+    margin: 20px;
+    font-size: 14.5px !important;
+    width: 82vw !important;
+    top: 7% !important;
+    
+  }
 
+  .h1-principal2 {
+    top: 35% !important;
+  }
+  
 
   .vertical-listt {
     margin-right: 200px !important;
@@ -232,13 +234,17 @@ strong {
 
 
 .descricao-titulo {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17.5px;
+  border: 1px solid rgba(109, 108, 108, 0.233);
+  border-radius: 5px;
+  background-color: #e5e5e5;
+ padding: 20px;
+ margin: 20px;
+  font-size: 16.5px;
   text-align: justify, center;
   width: 87vw;
   position: absolute;
-  top: 11.5%;
-  left: 1%;
+  top: 9%;
+  left: 5%;
 }
 
 .h1-principal2 {
@@ -333,7 +339,7 @@ width: 100%;
   
     .descricao-titulo{
       padding: 16px !important;
-      font-size: 17px !important;
+      font-size: 15.5px !important;
     }
   
 

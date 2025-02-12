@@ -3,7 +3,7 @@ import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 import axios from 'axios';
 import './Entregues.css';
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 const Entregues = () => {
   const [classOn, setClassOn] = useState(false);
@@ -111,6 +111,7 @@ const Entregues = () => {
   };
 
   return (
+    
     <div className="header">
       <header class="header-menu">
         <nav>
@@ -141,7 +142,7 @@ const Entregues = () => {
 
                 <div className="div-checkbox">
                   <div className="checkbox-container">
-                    <div className="checkbox-container">
+                    <div className="checkbox-container2">
                     <label className="label-pronto2">
                         <input
                           type="checkbox"

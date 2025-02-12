@@ -117,10 +117,6 @@ const Reports = () => {
 
   return (
     <div>
-
-
-      
- 
       <header class="header-menu">
     <nav>
       <ul class="menu">
@@ -129,23 +125,16 @@ const Reports = () => {
       </ul>
     </nav>
   </header>
-     
       <div className="imagem-titulo">
-
       </div>
       <div className="imagem-tituloo">
-
-         
-    
       </div>
-
       <div className="imagem-titulooo">
-
-<ul>
-<li><a href="/inicio">Início</a></li>
-
-</ul>
-
+  <ul>
+    <li>
+      <a href="/inicio">Início</a>
+    </li>
+  </ul>
 </div>
       <header>
         <h1 className='h1-titulo-relatorios'>Relatórios</h1>
@@ -154,7 +143,7 @@ const Reports = () => {
 
     
           {/* Botões para alternar entre Diário e Semanal */}
-          <div style={{ marginBottom: '20px' }}>
+          <div className='div-botoes-relatorios' style={{ marginBottom: '20px' }}>
             <button
               onClick={() => { setViewType('daily'); setMessage(''); }}
               disabled={viewType === 'daily'}
@@ -182,9 +171,11 @@ const Reports = () => {
         <div
           key={index}
           style={{
-            width: '18%', // Garante duas colunas
-            padding: '10px',
-            margin: '11px',
+            border: '1px solid #ccc',
+            height: '10vh',
+            width: '19%', // Garante duas colunas
+            padding: '15px',
+            margin: '2px',
             textAlign: 'center',
             cursor: 'pointer',
             background: 'white',
@@ -204,7 +195,7 @@ const Reports = () => {
     
           {/* Visualização Semanal */}
           {viewType === 'weekly' && (
-            <div>
+            <div className='div-conteudo-semanal'>
               {Object.entries(getWeeklyGroups()).map(([month, sundays]) => (
                 <div key={month} style={{ marginBottom: '20px' }}>
                   <h2 className='h2-relatorios'>
@@ -234,7 +225,7 @@ const Reports = () => {
     
           {/* Exibição de mensagens */}
           {message && (
-            <div style={{ marginTop: '20px', color: 'blue' }}>
+            <div style={{ marginTop: '20px', color: 'red' }}>
               {message}
             </div>
           )}

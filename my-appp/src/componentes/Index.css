@@ -25,7 +25,7 @@
   padding: 25px;
   position: absolute;
   top: 18%;
-  left: 51.5%;
+  left: 52.8%;
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 1.2em;
@@ -521,25 +521,41 @@ p {
   }
 }
 
+
+@media screen and (max-width: 479px), 
+       screen and (max-height: 750px) {
+        
+      
+       
+        
+}
+
 /* Ajustes para telas menores que 480px */
 @media screen and (max-width: 480px) {
 
    .status-container {
+    width: 70% !important;
     height: 156px !important;
   }
 
+  .quantidade-all {
+    position: relative;
+    top: -26px !important;
+    text-align: left;
+    margin-left: -10px !important;
+  }
     
   .checkbox-detalhes {
-    margin-left: 80px !important;
+    margin-left: 75px !important;
     width: 70%;
-    
+    top: 12% !important;
   
   }
 
   .label-entregue{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     width: 100% !important;
-    margin-top: 30px !important;
+    margin-top: 10px !important;
     padding:10px 5px!important;
     
   }
@@ -574,9 +590,9 @@ p {
   }
 
   .div-descricao {
-  top: 42% !important;
+  top: 35% !important;
     margin-left: 70px !important;
-    width: 60% !important;
+    width: 65% !important;
     
   }
 
@@ -584,28 +600,14 @@ p {
     font-size: 13px !important;
   }
 
+  .senha-all3{
+    top: -1px !important;
+  }
 
-    .quantidade-all{
-      font-size: 15px !important;
-      top: -37px !important;
-      margin-left: 10px !important;
-    }
-
-    .quantidadeTexto{
-      font-size: 13px !important;
-    }
-  
-      .senha-all3{
-
-        top: 6px !important;
-        right: 12px !important;
-     
-      }
-
-    .senha3 {
-      font-size: 18px !important;
-      margin-top: -8px !important;
-     }
+  .senha3 {
+    font-size: 20px !important;
+    
+  }
      
 }
 
@@ -655,7 +657,7 @@ p {
 .quantidadeTexto {
   font-size: 14px;
   position: relative;
-  top: -4px;
+  top: 10px;
 }
 
 .quantidade {
@@ -668,7 +670,7 @@ p {
   position: relative;
   top: -30px;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .senhTexto {

@@ -4,7 +4,7 @@
 }
 
 .label-entregue{
-  margin-top: 35px;
+  margin-top: 20px;
   background-color: white;
   padding: 7px;
   border-radius: 10px;
@@ -274,15 +274,15 @@ p {
   .senha-all3 {
 
     position: absolute;
-    top: 10px;
-    right: 33px;
+    top: 1px;
+    right: 10px;
     text-align: right;
     }
     
    
     
     .senha3 {
- margin-top: -10px;
+ margin-top: -20px;
     font-size: 1.4em;
     font-weight: bold;
     }
