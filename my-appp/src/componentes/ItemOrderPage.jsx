@@ -179,14 +179,14 @@ const ItemOrderPage = () => {
           </div>
           {(index === 0 || index === 1) && (
             <div className="testeitem" style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '30px', textAlign: 'center' }}>
-              <label onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer' }}>
+              <label className='espeto-div-item'  onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer', marginTop: '-40px', width:'100%' }}>
                 Espeto:
-                <div
+                <div className='escolher-espeto'
                   onClick={(e) => {
                     e.stopPropagation();
                     handleSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue' }}
+                  style={{ display: 'inline-block', marginLeft: '5px', cursor: 'pointer', color: 'blue',  }}
                 >
                   {item.skewer || 'Escolher espeto'}
                 </div>
@@ -215,14 +215,14 @@ const ItemOrderPage = () => {
                 </div>
               )}
 
-              <label onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer' }}>
+              <label className='espeto-adicional-div' onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer' }}>
                 Espeto Adicional:
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
                     handleAdditionalSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue' }}
+                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue' , marginTop: '-2px', fontSize: '15px' }}
                 >
                   {item.additionalSkewer || 'Escolher espeto adicional'}
                 </div>
@@ -253,7 +253,7 @@ const ItemOrderPage = () => {
               )}
             </div>
           )}
-          <div style={{ marginTop: '10px', marginBottom: '-20px' }}>
+          <div className='div-botoes-mais-menos' style={{ marginTop: '10px', marginBottom: '-20px' }}>
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -262,7 +262,7 @@ const ItemOrderPage = () => {
             >
               -
             </button>
-            <span style={{ margin: '5px', fontSize: '25px', color: 'tomato' }}>{item.quantity}</span>
+            <span style={{ margin: '5px', fontSize: '25px', color: 'red' }}>{item.quantity}</span>
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -280,17 +280,18 @@ const ItemOrderPage = () => {
           placeholder="Senha"
           value={password}
           onChange={(e) => handlePasswordChange(e.target.value)}
-          style={{ marginLeft: '24%', padding: '7px' }}
+          style={{ marginLeft: '24%', padding: '7px', marginTop: '20px' }}
         />
         <button
           onClick={() => setShowConfirmation(true)}
           style={{
-            marginLeft: '140px',
+            marginLeft: '130px',
             padding: '10px',
-            backgroundColor: '#ffcf4bc9',
+            backgroundColor: '#017BFF',
             border: 'none',
             borderRadius: '5px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+    
           }}
         >
           Enviar Pedido
@@ -320,7 +321,7 @@ const ItemOrderPage = () => {
                   marginLeft: '10px',
                   fontSize: '28px',
                   fontWeight: 'bolder',
-                  color: 'tomato'
+                  color: 'red'
                 }}
               >
                 {password}
