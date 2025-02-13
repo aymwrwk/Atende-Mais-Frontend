@@ -124,7 +124,8 @@ const ItemOrderPage = () => {
           <quantity>${item.quantity}</quantity>
           <amount>5.00</amount>
         </item>
-      </items>`
+      </items>
+      `
       )
       .join('');
 
