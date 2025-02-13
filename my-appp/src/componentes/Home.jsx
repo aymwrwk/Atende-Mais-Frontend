@@ -87,7 +87,7 @@ const Home = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
-        navigate('/inicio');
+        navigate('/login');
         return;
       }
 

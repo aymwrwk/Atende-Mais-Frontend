@@ -79,26 +79,29 @@ const HomeCliente = () => {
 
   // Envia notificações de navegador para pedidos com status "pronto"
   useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-    const ordersPronto = pedidos.filter(order =>
-      monitoredSenhas.includes(order.reference_id) &&
-      order.status === 'pronto' &&
-      !notifiedOrders.includes(order.reference_id)
-    );
-    ordersPronto.forEach(order => {
-      try {
-        new Notification("Pedido Pronto!", {
-          body: `Seu pedido com senha ${order.reference_id} está pronto! Retire no bar.`,
-        });
-        setNotifiedOrders(prev => [...prev, order.reference_id]);
-      } catch (err) {
-        console.error("Erro ao enviar notificação:", err);
+    try {
+      if (typeof Notification !== 'undefined' && Notification.permission !== "granted") {
+        Notification.requestPermission();
       }
-    });
+      const ordersPronto = pedidos.filter(order =>
+        monitoredSenhas.includes(order.reference_id) &&
+        order.status === 'pronto' &&
+        !notifiedOrders.includes(order.reference_id)
+      );
+      ordersPronto.forEach(order => {
+        try {
+          new Notification("Pedido Pronto!", {
+            body: `Seu pedido com senha ${order.reference_id} está pronto! Retire no bar.`,
+          });
+          setNotifiedOrders(prev => [...prev, order.reference_id]);
+        } catch (err) {
+          console.error("Erro ao enviar notificação:", err);
+        }
+      });
+    } catch (e) {
+      console.error("Erro no useEffect de notificações:", e);
+    }
   }, [pedidos, monitoredSenhas, notifiedOrders]);
-
   // Filtra os pedidos: exibe apenas os que possuem a senha monitorada e ignora "cancelar" e "entregue"
   const filteredPedidos = pedidos.filter(order =>
     monitoredSenhas.includes(order.reference_id) &&

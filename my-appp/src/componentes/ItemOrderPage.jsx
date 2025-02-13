@@ -124,8 +124,7 @@ const ItemOrderPage = () => {
           <quantity>${item.quantity}</quantity>
           <amount>5.00</amount>
         </item>
-      </items>
-      `
+      </items>`
       )
       .join('');
 
@@ -140,7 +139,7 @@ const ItemOrderPage = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        navigate('/login');
+        navigate('/inicio');
         return;
       }
       const response = await fetch('https://atende-mais.shop:8080/api/v1/pedido/notificacoes', {
