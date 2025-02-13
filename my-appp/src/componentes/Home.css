@@ -3,6 +3,26 @@
   margin: 0;
 }
 
+
+@media screen and (max-width: 480px){
+  .ul-pedidos-mobile{
+    font-size: 0.8rem;
+    padding: 10px;
+    gap: 30px;
+    display: flex !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    
+  }
+  
+}
+
+.ul-pedidos-mobile{
+  display: none;
+}
+
 .label-entregue{
   margin-top: 20px;
   background-color: white;
@@ -34,9 +54,7 @@
   padding: 50px;
 }
 
-.ul-pedidos-celular{
-display: none;
-}
+
 
 ul,
 li,
@@ -97,10 +115,7 @@ p {
     position: absolute;
   }
   
-  .ul-pedidos-celular{
-    display: none !important;
-  }
-
+ 
 
   @media screen and (max-width: 1745px) {
 
@@ -115,6 +130,12 @@ p {
 
   @media screen and (max-width: 1645px) {
 
+    .ul-pedidos{
+      font-size: 1.2em !important;
+      margin-left: 75px;
+       color: black;
+       margin-top: 150px;
+     }
   
 
     .conteudo-detalhes {
@@ -145,7 +166,12 @@ p {
   
   @media screen and (max-width: 1477px) {
   
-   
+    .ul-pedidos{
+      font-size: 1.1em !important;
+      margin-left: 65px;
+       color: black;
+       margin-top: 150px;
+     }
   
     .senha-all {
       top: -98px;
@@ -271,6 +297,8 @@ p {
     }
   }
 
+ 
+  
   .senha-all3 {
 
     position: absolute;

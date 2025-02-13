@@ -164,11 +164,11 @@ strong {
 @media screen and (max-width: 480px) {
 
   .input-prefixoo {
-   top: 38% !important;
+   top: 48% !important;
   }
 
   .button-adicionar-prefixoo {
-    top: 38% !important;
+    top: 48% !important;
   }
 
   .descricao-titulo {
@@ -181,13 +181,13 @@ strong {
   }
 
   .h1-principal2 {
-    top: 35% !important;
+    top: 42% !important;
   }
   
 
   .vertical-listt {
     margin-right: 200px !important;
-    top: 47% !important;
+    top: 58% !important;
     width: 50%;
   }
 

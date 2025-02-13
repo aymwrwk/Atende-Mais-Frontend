@@ -899,7 +899,7 @@ p {
   text-align: center;
 }
 
-.indicador-status2 {
+.indicador-status {
   flex-shrink: 0;
   border-radius: 5px 0px 0px 5px;
   background-color: grey;
@@ -909,3 +909,15 @@ p {
   top: 0;
   left: 0;
 }
+
+.indicador-status.andamento2 {
+  background: linear-gradient(0deg, #FFCF4B, #ffe394);
+}
+
+.indicador-status.pronto2 {
+  background: linear-gradient(0deg, #0c8d39, #1BAA4D);
+}
+
+.indicador-status.entregue2 {
+  background: linear-gradient(0deg, #b40f35, #F6194E);
+} 

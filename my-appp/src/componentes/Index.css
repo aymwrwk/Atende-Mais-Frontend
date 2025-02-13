@@ -144,7 +144,7 @@ a {
 }
 
 .ul-pedidos-celular {
-  display: none;
+
 }
 
 ul,
@@ -214,7 +214,7 @@ p {
 }
 
 .ul-pedidos-celular {
-  display: none !important;
+ 
 }
 
 
@@ -355,7 +355,6 @@ p {
     font-size: 15px !important;
   }
 
-
   .senha-all {
     top: -98px;
     left: 950% !important;
@@ -408,15 +407,15 @@ p {
   .contagem-pedidos,
   .ul-pedidos,
   .li-pedidos {
-    display: none !important; /* Oculta itens irrelevantes */
+  display: none;
   }
 
   .div-containers-lista {
-    display: none !important; /* Oculta contêineres adicionais */
+    display: none;
   }
 
   .pedidos-lista-celular {
-    display: block !important; /* Mostra lista para celulares */
+    display: none;
   }
 
   .pedido-container {
@@ -525,15 +524,7 @@ p {
 
   }
 }
-
-
-@media screen and (max-width: 479px), 
-       screen and (max-height: 750px) {
-        
-      
        
-        
-}
 
 /* Ajustes para telas menores que 480px */
 @media screen and (max-width: 480px) {
@@ -661,6 +652,8 @@ p {
 }
 
 .pedido-container ul {
+  
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
