@@ -19,6 +19,23 @@ const HomeCliente = () => {
 
   axios.defaults.withCredentials = true;
 
+  // Carrega as senhas monitoradas do localStorage ao montar o componente
+  useEffect(() => {
+    const storedSenhas = localStorage.getItem('monitoredSenhas');
+    if (storedSenhas) {
+      const parsed = JSON.parse(storedSenhas);
+      setMonitoredSenhas(parsed);
+      if (parsed.length > 0) {
+        setShowModal(false);
+      }
+    }
+  }, []);
+
+  // Persiste as senhas monitoradas no localStorage
+  useEffect(() => {
+    localStorage.setItem('monitoredSenhas', JSON.stringify(monitoredSenhas));
+  }, [monitoredSenhas]);
+
   // Função para buscar os pedidos do backend
   const buscarPedidos = async () => {
     try {
@@ -79,29 +96,26 @@ const HomeCliente = () => {
 
   // Envia notificações de navegador para pedidos com status "pronto"
   useEffect(() => {
-    try {
-      if (typeof Notification !== 'undefined' && Notification.permission !== "granted") {
-        Notification.requestPermission();
-      }
-      const ordersPronto = pedidos.filter(order =>
-        monitoredSenhas.includes(order.reference_id) &&
-        order.status === 'pronto' &&
-        !notifiedOrders.includes(order.reference_id)
-      );
-      ordersPronto.forEach(order => {
-        try {
-          new Notification("Pedido Pronto!", {
-            body: `Seu pedido com senha ${order.reference_id} está pronto! Retire no bar.`,
-          });
-          setNotifiedOrders(prev => [...prev, order.reference_id]);
-        } catch (err) {
-          console.error("Erro ao enviar notificação:", err);
-        }
-      });
-    } catch (e) {
-      console.error("Erro no useEffect de notificações:", e);
+    if (typeof Notification !== 'undefined' && Notification.permission !== "granted") {
+      Notification.requestPermission();
     }
+    const ordersPronto = pedidos.filter(order =>
+      monitoredSenhas.includes(order.reference_id) &&
+      order.status === 'pronto' &&
+      !notifiedOrders.includes(order.reference_id)
+    );
+    ordersPronto.forEach(order => {
+      try {
+        new Notification("Pedido Pronto!", {
+          body: `Seu pedido com senha ${order.reference_id} está pronto! Retire no bar.`,
+        });
+        setNotifiedOrders(prev => [...prev, order.reference_id]);
+      } catch (err) {
+        console.error("Erro ao enviar notificação:", err);
+      }
+    });
   }, [pedidos, monitoredSenhas, notifiedOrders]);
+
   // Filtra os pedidos: exibe apenas os que possuem a senha monitorada e ignora "cancelar" e "entregue"
   const filteredPedidos = pedidos.filter(order =>
     monitoredSenhas.includes(order.reference_id) &&
@@ -109,6 +123,22 @@ const HomeCliente = () => {
     order.status !== 'entregue'
   );
 
+  useEffect(() => {
+    const updatedSenhas = monitoredSenhas.filter(senha => {
+      // Filtra os pedidos que têm essa senha
+      const orders = pedidos.filter(order => String(order.reference_id) === String(senha));
+      // Se existir pelo menos um pedido, e todos estiverem finalizados, remove a senha.
+      if (orders.length > 0) {
+        return orders.some(order => order.status !== 'entregue' && order.status !== 'cancelar');
+      }
+      // Se não houver nenhum pedido, mantenha a senha (para aguardar que o pedido chegue)
+      return true;
+    });
+    if (updatedSenhas.length !== monitoredSenhas.length) {
+      setMonitoredSenhas(updatedSenhas);
+    }
+  }, [pedidos, monitoredSenhas]);
+  
   // Adiciona a senha monitorada quando o usuário clicar em "Continuar"
   const handleContinuar = () => {
     const senha = senhaInput.trim();
