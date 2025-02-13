@@ -169,12 +169,8 @@ const Entregues = () => {
           {pedidos && pedidos.map((pedido, index) => {
             const statusClass = statusMap[pedido.status.toLowerCase()] || '';
             return (
-
               <div className="conteudo-wrapper2" key={pedido.reference_id}>
                 {/* Checkbox à esquerda */}
-
-
-
                 <div className="div-checkbox">
                   <div className="checkbox-container">
                     <div className="checkbox-container2">
