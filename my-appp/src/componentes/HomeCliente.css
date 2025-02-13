@@ -1,0 +1,134 @@
+/* Reset básico */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Container geral da página */
+.home-container {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Cabeçalho */
+.header-menu {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Wrapper do conteúdo principal */
+.content-wrapper {
+  margin-top: 20px;
+}
+
+/* Botão para acompanhar outro pedido */
+.btn-acompanhar {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+}
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+/* Pedido Wrapper */
+.pedido-wrapper {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Conteúdo do pedido */
+.pedido-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+.pedido-info p {
+  margin: 5px 0;
+}
+.pedido-description {
+  font-style: italic;
+  color: #555;
+}
+
+/* Indicador de status (círculo) */
+.status-indicator {
+  margin-left: 15px;
+}
+.status-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.status-circle.andamento {
+  background-color: orange;
+}
+.status-circle.pronto {
+  background-color: green;
+}
+.status-circle.cancelar,
+.status-circle.entregue {
+  background-color: gray;
+}
+
+/* Faixa de status abaixo do pedido */
+.status-banner {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+}
+.status-banner.andamento {
+  background-color: orange;
+}
+.status-banner.pronto {
+  background-color: green;
+}
+.status-banner.cancelar,
+.status-banner.entregue {
+  background-color: gray;
+}
+
+/* Mensagens de erro e ausência de pedidos */
+.error {
+  color: red;
+  margin-top: 10px;
+}
+.no-orders {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}

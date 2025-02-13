@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Entregues from './componentes/Entregues'
 import Registro from './componentes/login/Registro';
 import Home from './componentes/Home';
+import HomeCliente from './componentes/HomeCliente';
 import Prefixos from './componentes/Prefixos';
 import Login from './componentes/login/Loginpage';
 import Credenciais from './componentes/credenciais/Credenciais';
@@ -15,6 +16,7 @@ const App = () => {
 		<Router>
 			<Routes>
 				<Route path="/inicio" element={<Home />} />
+				<Route path="/inicio-cliente" element={<HomeCliente />} />
 				<Route path="/entregues" element={<Entregues />} />
 				<Route path="/prefixo" element={<Prefixos />} />
 				<Route path="/credenciais" element={<Credenciais />} />
