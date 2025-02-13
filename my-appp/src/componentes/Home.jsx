@@ -217,6 +217,7 @@ const Home = () => {
       <div className="imagem-titulo-home"></div>
 
       <div className="contagem-pedidos-mobile">
+      
     <ul className="ul-pedidos-mobile">
       {contagem.map((item, index) => (
         <li className="li-pedidos-mobile" key={index}>{item}</li>
