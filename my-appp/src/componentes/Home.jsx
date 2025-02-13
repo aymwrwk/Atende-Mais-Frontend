@@ -87,7 +87,7 @@ const Home = () => {
 
       if (!token) {
         setError('Usuário não autenticado');
-        navigate('/login');
+        navigate('/inicio');
         return;
       }
 
@@ -182,7 +182,7 @@ const Home = () => {
             'Authorization': `Bearer ${token}`,
           },
         });
-
+      console.log('Tentando alterar status:', { pedidoId, hora, novoStatus });
       console.log(response.data); // Mensagem de sucesso
 
       // Atualiza o status localmente após sucesso na requisição
@@ -280,15 +280,18 @@ const Home = () => {
                   <h2 className="senhaTexto3" style={{ fontSize: '16px' }}>Senha</h2>
                   <h1 className="senha3" style={{ fontSize: '25px' }}>{pedido.reference_id}</h1>
                 </div>
-                <div className="checkbox-detalhes"><p className="texto-checkbox">Pronto</p>
+                <div className="checkbox-detalhes">
+                  <p className="texto-checkbox">Pronto</p>
                   <label>
                     <input
                       type="checkbox"
                       className="checkbox-detalhe"
                       checked={pedido.status === 'pronto'}
-                          onChange={() =>
-                            alterarStatus(pedido.reference_id, pedido.hora, 'pronto')
-                          }
+                      onChange={() => {
+                        console.log("Pedido clicado:", pedido); // Inspecione este objeto
+                        const novoStatus = 'pronto'; // Force para 'pronto' sempre
+                        alterarStatus(pedido.reference_id, pedido.hora, novoStatus);
+                      }}
                     />
                   </label>
                 </div>

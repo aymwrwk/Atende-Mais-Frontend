@@ -19,7 +19,7 @@
 }
 
 .checkbox-detalhes {
-
+  z-index: 1;
   margin-left: 90px;
   width: 70%;
   padding: 25px;
@@ -73,6 +73,10 @@ font-size: 15px;
 }
 
 .checkbox-detalhe {
+  opacity: 1 !important;
+  z-index: 1;
+  cursor: pointer;
+  accent-color: #4CAF50; /* Cor verde para visualização */
   width: 16px;
   height: 16px;
 }
@@ -195,6 +199,7 @@ p {
   position: absolute;
   top: 2%;
 }
+
 
 .container-lista1 {
   width: 90%;
@@ -543,8 +548,6 @@ p {
     height: 100vh !important;
 
   }
-
-
 
   .texto-checkbox{
     margin-top: 40px;

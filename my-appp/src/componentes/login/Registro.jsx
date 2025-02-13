@@ -42,7 +42,7 @@ const Registro = ({ onLoginSuccess }) => {
         if (onLoginSuccess) {
           onLoginSuccess(name);
           console.log("Registro realizado com sucesso! Redirecionando para /home");
-          navigate('/home');
+          navigate('/inicio');
         }
         console.log("Registro realizado com sucesso!");
       }

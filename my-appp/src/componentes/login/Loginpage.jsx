@@ -29,10 +29,10 @@ const LoginPage = ({ onLoginSuccess }) => {
 
         if (onLoginSuccess) {
           onLoginSuccess(email);
-          console.log("Login realizado com sucesso! Redirecionando para /home");
-          navigate('/home');
+          console.log("Login realizado com sucesso!");
         }
         console.log("Login realizado com sucesso!");
+        navigate('/inicio');
       }
     } catch (err) {
       console.error("Erro ao fazer login:", err);
