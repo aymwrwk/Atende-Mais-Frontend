@@ -3,9 +3,10 @@ import axios from 'axios';
 import './HomeCliente.css';
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const HomeCliente = () => {
+  const { idEstabelecimento } = useParams(); // Aqui você pega o idEstabelecimento da URL
   const navigate = useNavigate();
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,15 +40,8 @@ const HomeCliente = () => {
   // Função para buscar os pedidos do backend
   const buscarPedidos = async () => {
     try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        setError("Usuário não autenticado");
-        navigate('/login');
-        return;
-      }
       const response = await axios.get(
-        'https://atende-mais.shop:8080/api/v1/pedido/lista-pedidos',
-        { headers: { 'Authorization': `Bearer ${token}` } }
+        `https://atende-mais.shop:8080/api/v1/pedido/${idEstabelecimento}/pedidos-clientes`,
       );
       setPedidos(response.data);
     } catch (err) {
@@ -65,7 +59,7 @@ const HomeCliente = () => {
 
   useEffect(() => {
     buscarPedidos();
-  }, []);
+  }, [idEstabelecimento]); // Atualiza a busca quando o idEstabelecimento mudar
 
   // Configuração do WebSocket para atualizações em tempo real
   useEffect(() => {

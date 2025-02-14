@@ -213,17 +213,17 @@ const Home = () => {
           </ul>
         </nav>
       </header>
-     
+
       <div className="imagem-titulo-home"></div>
 
       <div className="contagem-pedidos-mobile">
-      
-    <ul className="ul-pedidos-mobile">
-      {contagem.map((item, index) => (
-        <li className="li-pedidos-mobile" key={index}>{item}</li>
-      ))}
-    </ul>
-  </div>
+
+        <ul className="ul-pedidos-mobile">
+          {contagem.map((item, index) => (
+            <li className="li-pedidos-mobile" key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
 
       <div className="pedido-container">
         {pedidos.length === 0 ? (
@@ -282,11 +282,13 @@ const Home = () => {
                       type="checkbox"
                       className="checkbox-detalhe"
                       checked={pedido.status === 'pronto'}
-                      onChange={() => {
-                        console.log("Pedido clicado:", pedido); // Inspecione este objeto
-                        const novoStatus = 'pronto'; // Force para 'pronto' sempre
-                        alterarStatus(pedido.reference_id, pedido.hora, novoStatus);
-                      }}
+                      onChange={() =>
+                        alterarStatus(
+                          pedido.reference_id,
+                          pedido.hora,
+                          pedido.status === 'pronto' ? 'andamento' : 'pronto'
+                        )
+                      }
                     />
                   </label>
                 </div>

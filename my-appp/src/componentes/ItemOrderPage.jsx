@@ -117,15 +117,13 @@ const ItemOrderPage = () => {
     const xmlItems = itemsWithQuantity
       .map(
         (item) => `
-      <items>
         <item>
           <id>${password}</id>
           <description>${item.description}</description>
           <quantity>${item.quantity}</quantity>
           <amount>5.00</amount>
         </item>
-      </items>
-      `
+      `.trim() // Remove espaços extras no início e fim de cada item
       )
       .join('');
 
@@ -134,13 +132,18 @@ const ItemOrderPage = () => {
       return;
     }
 
-    const xml = `<pedidos>${xmlItems}</pedidos>`;
+    const xml = `
+    <pedidos>
+      <items>
+        ${xmlItems}
+      </items>
+    </pedidos>`.trim() // Remove espaços extras no início e fim de cada item;
     console.log('XML to be sent:', xml);
 
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        navigate('/inicio');
+        navigate('/login');
         return;
       }
       const response = await fetch('https://atende-mais.shop:8080/api/v1/pedido/notificacoes', {
@@ -179,14 +182,14 @@ const ItemOrderPage = () => {
           </div>
           {(index === 0 || index === 1) && (
             <div className="testeitem" style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '30px', textAlign: 'center' }}>
-              <label className='espeto-div-item'  onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer', marginTop: '-40px', width:'100%' }}>
+              <label className='espeto-div-item' onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer', marginTop: '-40px', width: '100%' }}>
                 Espeto:
                 <div className='escolher-espeto'
                   onClick={(e) => {
                     e.stopPropagation();
                     handleSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '5px', cursor: 'pointer', color: 'blue',  }}
+                  style={{ display: 'inline-block', marginLeft: '5px', cursor: 'pointer', color: 'blue', }}
                 >
                   {item.skewer || 'Escolher espeto'}
                 </div>
@@ -222,7 +225,7 @@ const ItemOrderPage = () => {
                     e.stopPropagation();
                     handleAdditionalSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue' , marginTop: '-2px', fontSize: '15px' }}
+                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue', marginTop: '-2px', fontSize: '15px' }}
                 >
                   {item.additionalSkewer || 'Escolher espeto adicional'}
                 </div>
@@ -291,7 +294,7 @@ const ItemOrderPage = () => {
             border: 'none',
             borderRadius: '5px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
-    
+
           }}
         >
           Enviar Pedido
