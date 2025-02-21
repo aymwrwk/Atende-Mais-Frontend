@@ -669,7 +669,7 @@ p {
 }
 
 .conteudo-wrapper{
-
+margin-top: 20px;
   position: relative; 
 }
 
@@ -692,7 +692,7 @@ p {
 
 .quantidade-all {
   position: relative;
-  top: -30px;
+  top: -40px;
   text-align: left;
   margin-left: 10px;
 }
@@ -749,6 +749,7 @@ height: 17.1vh;
 
 
 .checkbox-container {
+  margin-top: 10px;
   padding: 1px;
   margin-right: 10px;
   z-index: 10;

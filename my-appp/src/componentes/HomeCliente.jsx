@@ -155,14 +155,22 @@ const HomeCliente = () => {
   }
 
   return (
-    <div className="home-container">
-      <header className="header-menu">
-        <nav>
-          <ul className="menu">
-            {/* Itens de navegação, se necessário */}
-          </ul>
-        </nav>
-      </header>
+    <div className="header">
+    <header class="header-menu">
+      <nav>
+        <ul class="menu">
+          <li><a href="/entregues">Entregues</a></li>
+          <li><a href="/prefixo">Prefixos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div className="imagem-titulo-home"></div>
+
+    <div className="contagem-pedidos-mobile">
+
+     
+    </div>
 
       <div className="content-wrapper">
         <button className="btn-acompanhar" onClick={handleAcompanharOutro}>
@@ -180,7 +188,7 @@ const HomeCliente = () => {
                 onChange={(e) => setSenhaInput(e.target.value)}
                 placeholder="Senha do pedido"
               />
-              <button onClick={handleContinuar}>Continuar</button>
+              <button className='button-continuar-cliente' onClick={handleContinuar}>Continuar</button>
             </div>
           </div>
         )}
@@ -194,8 +202,10 @@ const HomeCliente = () => {
             <div className="pedido-wrapper" key={index}>
               <div className="pedido-content">
                 <div className="pedido-info">
-                  <p><strong>Quantidade:</strong> {pedido.quantity}</p>
-                  <p><strong>Senha:</strong> {pedido.reference_id}</p>
+                  <div className='divquantidade-senha-cliente'>
+                    <p><strong>Quantidade:</strong> {pedido.quantity}</p>
+                    <p><strong>Senha:</strong> {pedido.reference_id}</p>
+                  </div>
                   <p className="pedido-description">{pedido.description}</p>
                 </div>
                 <div className="status-indicator">

@@ -38,6 +38,15 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  .div-conteiner-itemorder {
+    width:100% !important;
+    max-width: 900px !important;
+    padding: 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
   .div-conteiner-itemorder:nth-of-type(n+3) .descricao-item-div {
     margin-left: 140px; /* Aumente o valor conforme necessário */
     text-align: left; /* Garante que o texto fique alinhado à esquerda */
@@ -58,13 +67,12 @@ body {
 
 
 .div-conteiner-itemorder {
- 
-  border: 1px solid #ccc;
-  padding: 25px;
-  margin-bottom: 10px;
-  border-radius: 7px;
-  position: relative;
-  background-color: #ffffff !important;
+    border: 1px solid #ccc;
+    padding: 25px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    position: relative;
+    background-color: #ffffff !important;
 }
 
 .itens-centro {
@@ -81,7 +89,6 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
-
 
 .label-espeto,
 .label-espeto-adicional {

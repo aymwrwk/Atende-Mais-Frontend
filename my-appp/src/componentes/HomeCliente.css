@@ -5,6 +5,23 @@
   box-sizing: border-box;
 }
 
+.divquantidade-senha-cliente {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  gap: 20px;               /* Espaçamento entre "Quantidade" e "Senha" */
+}
+
+.divquantidade-senha-cliente > p {
+  margin: 0; /* Remove margens automáticas para que o alinhamento fique correto */
+  margin-left: 30px !important;
+  font-size: 15px !important;
+}
+
+.pedido-description{
+  font-size: 19px !important;
+}
+
 /* Container geral da página */
 .home-container {
   width: 100%;
@@ -62,16 +79,20 @@
 
 /* Pedido Wrapper */
 .pedido-wrapper {
+margin-left: 16px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 20px;
   overflow: hidden;
-  width: 100%;
+  width: 92%;
+ 
 }
+
+
 
 /* Conteúdo do pedido */
 .pedido-content {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,7 +149,36 @@
   margin-top: 10px;
 }
 .no-orders {
+  color: red;
   text-align: center;
   font-size: 18px;
   margin-top: 20px;
 }
+
+.button-continuar-cliente{
+  margin-left: 120px;
+}
+
+@media screen and (max-width: 480px) {
+.button-continuar-cliente{
+  margin-left: 120px !important;
+}
+}
+@media screen and (max-width: 420px) {
+  .button-continuar-cliente{
+    margin-left: 95px !important;
+  }
+  }
+  @media screen and (max-width: 370px) {
+    .button-continuar-cliente{
+      margin-left: 85px !important;
+    }
+    }
+
+    @media screen and (max-width: 340px) {
+      .button-continuar-cliente{
+        margin-left: 70px !important;
+      }
+      }
+      
+    
