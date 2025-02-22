@@ -5,7 +5,11 @@
   box-sizing: border-box;
 }
 
+
+
+
 .divquantidade-senha-cliente {
+  
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center;     /* Centraliza verticalmente */
@@ -16,6 +20,7 @@
   margin: 0; /* Remove margens automáticas para que o alinhamento fique correto */
   margin-left: 30px !important;
   font-size: 15px !important;
+  color: #555 !important;
 }
 
 .pedido-description{
@@ -39,6 +44,7 @@
 /* Wrapper do conteúdo principal */
 .content-wrapper {
   margin-top: 20px;
+  
 }
 
 /* Botão para acompanhar outro pedido */
@@ -79,6 +85,7 @@
 
 /* Pedido Wrapper */
 .pedido-wrapper {
+ margin-top: 20px;
 margin-left: 16px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -87,8 +94,9 @@ margin-left: 16px;
   width: 92%;
  
 }
-
-
+strong{
+  color: #555 !important;
+}
 
 /* Conteúdo do pedido */
 .pedido-content {
@@ -103,7 +111,7 @@ margin-left: 16px;
 }
 .pedido-description {
   font-style: italic;
-  color: #555;
+  color: #000000;
 }
 
 /* Indicador de status (círculo) */

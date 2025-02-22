@@ -168,9 +168,15 @@ const ItemOrderPage = () => {
   };
 
   return (
-    // O onClick neste container é capturado pelo listener do document,
-    // mas os cliques nos menus e botões chamam e.stopPropagation() para não fechar os menus
     <div style={{ padding: '20px' }}>
+    <header class="header-menu-item">
+        <nav>
+          <ul class="menu-item">
+            <li><a href="/inicio">Inicio</a></li>
+            <li><a href="/entregues">Entregues</a></li>
+          </ul>
+        </nav>
+      </header>
       {items.map((item, index) => (
         <div
           className="div-conteiner-itemorder"

@@ -41,42 +41,42 @@ const LoginPage = ({ onLoginSuccess }) => {
   };
 
   return (
-    <body className='header-login-azul'>
-      <div className='container-login'>
-        <h1 className='title-principal-login'>Login</h1>
-
-        <form onSubmit={handleSubmit} className='form'>
-          <div className='inputContainer'>
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setemail(e.target.value)}
-              required
-              className='input'
-              placeholder="Usuário"
-            />
-          </div>
-          <div className='inputContainer'>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className='input'
-              placeholder="Senha"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className='togglePassword'
-            >
-              {/* ícone do olho */}
-            </button>
-          </div>
-
-          <button type="submit" className='button'>Login</button>
-          {error && <p className='error'>{error}</p>}
-        </form>
+    <body className='body-login'>
+      <div className='bg-login'>
+        <div className='container-login'>
+          <h1 className='title-principal-login'>Login</h1>
+          <form onSubmit={handleSubmit} className='form'>
+            <div className='inputContainer'>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+                required
+                className='input'
+                placeholder="Usuário"
+              />
+            </div>
+            <div className='inputContainer'>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className='input'
+                placeholder="Senha"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className='togglePassword'
+              >
+                {/* ícone do olho */}
+              </button>
+            </div>
+            <button type="submit" className='button'>Login</button>
+            {error && <p className='error'>{error}</p>}
+          </form>
+        </div>
       </div>
     </body>
   );

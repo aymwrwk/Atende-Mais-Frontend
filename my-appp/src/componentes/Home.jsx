@@ -202,7 +202,7 @@ const Home = () => {
         <nav>
           <ul class="menu">
             <li><a href="/entregues">Entregues</a></li>
-            <li><a href="/prefixo">Prefixos</a></li>
+            <li><a href="/item">Novo Pedido</a></li>
           </ul>
         </nav>
       </header>
