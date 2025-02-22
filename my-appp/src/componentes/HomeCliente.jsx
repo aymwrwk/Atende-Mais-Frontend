@@ -159,8 +159,7 @@ const HomeCliente = () => {
     <header class="header-menu">
       <nav>
         <ul class="menu">
-          <li><a href="/entregues">Entregues</a></li>
-          <li><a href="/prefixo">Prefixos</a></li>
+          <li style={{ padding: '10px' }}>Atende Mais</li>
         </ul>
       </nav>
     </header>

@@ -152,7 +152,7 @@ const Entregues = () => {
         <nav>
           <ul class="menu">
             <li><a href="/inicio">Inicio</a></li>
-            <li><a href="/prefixo">Prefixos</a></li>
+            <li><a href="/item">Novo Pedido</a></li>
           </ul>
         </nav>
       </header>
