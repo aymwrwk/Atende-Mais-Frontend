@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import './Home.css';
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 import { useNavigate } from 'react-router-dom';
-
-const Header = () => {
-  const [classOn, setClassOn] = useState(false);
-}
 
 const Home = () => {
   const [statusMap] = useState({
@@ -20,6 +16,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [pedidos, setPedidos] = useState([]);
+  const timersRef = useRef({});
   const [contagem, setContagem] = useState([]);
   const [loading, setLoading] = useState(true);
   const [classOn, setClassOn] = useState(false);
@@ -160,48 +157,44 @@ const Home = () => {
   }
 
 
-  // Função para alterar o status do pedido
-  const alterarStatus = async (pedidoId, hora, novoStatus) => {
+  const alterarStatus = async (pedidoId, hora, index, novoStatus) => {
     try {
-      // Obter o token do localStorage
       const token = localStorage.getItem('token');
-
       if (!token) {
         setError('Usuário não autenticado');
         navigate('/login');
         return;
       }
 
-      const response = await axios.post('https://atende-mais.shop:8080/api/v1/pedido/alterar-status', {
-        pedidoId: pedidoId,
-        novoStatus: novoStatus,
-        hora: hora // Enviando o timestamp junto com o pedidoId
-      },
+      const response = await axios.post(
+        'https://atende-mais.shop:8080/api/v1/pedido/alterar-status',
+        { pedidoId, novoStatus, hora },
         {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
+          headers: { 'Authorization': `Bearer ${token}` },
+        }
+      );
       console.log('Tentando alterar status:', { pedidoId, hora, novoStatus });
-      console.log(response.data); // Mensagem de sucesso
+      console.log(response.data);
 
-      // Atualiza o status localmente após sucesso na requisição
-      const pedidosAtualizados = pedidos.map(pedido =>
-        pedido.reference_id === pedidoId && pedido.hora === hora
-          ? { ...pedido, status: novoStatus }
-          : pedido
+      // Atualiza o status localmente apenas para o pedido clicado
+      const pedidosAtualizados = pedidos.map((pedido, idx) =>
+        idx === index ? { ...pedido, status: novoStatus } : pedido
       );
       setPedidos(pedidosAtualizados);
 
-      // Requisita uma nova busca de pedidos após 5 segundos
-      setTimeout(() => {
-        // buscarPedidos();
+      // Gerencia o timer individualmente usando a chave única com index
+      const pedidoKey = `${pedidoId}-${hora}-${index}`;
+      if (timersRef.current[pedidoKey]) {
+        clearTimeout(timersRef.current[pedidoKey]);
+      }
+      timersRef.current[pedidoKey] = setTimeout(() => {
+        buscarPedidos();
+        delete timersRef.current[pedidoKey];
       }, 3000);
     } catch (error) {
       console.error('Erro ao alterar status:', error);
     }
   };
-
 
   return (
     <div className="header">
@@ -230,11 +223,7 @@ const Home = () => {
           <p className="mensagem-sem-pedidos">Ainda não há pedidos</p>
         ) : (
           pedidos.map((pedido, index) => (
-
-            <div className="conteudo-wrapper" key={index}>
-              {/* Checkbox à esquerda */}
-
-
+            <div className="conteudo-wrapper" key={`${pedido.reference_id}-${pedido.hora}-${index}`}>
               <div className="div-checkbox">
                 <div className="checkbox-container">
                   <div className="checkbox-container">
@@ -243,7 +232,14 @@ const Home = () => {
                         type="checkbox"
                         className="checkbox-entregue"
                         checked={pedido.status === 'entregue'}
-                        onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'entregue' ? 'pronto' : 'entregue')}
+                        onChange={() =>
+                          alterarStatus(
+                            pedido.reference_id,
+                            pedido.hora,
+                            index,
+                            pedido.status === 'entregue' ? 'pronto' : 'entregue'
+                          )
+                        }
                       />
                       <h1 className="texto-entregue">Entregue</h1>
                     </label>
@@ -252,21 +248,26 @@ const Home = () => {
                         type="checkbox"
                         className="checkbox-cancelar"
                         checked={pedido.status === 'cancelar'}
-                        onChange={() => alterarStatus(pedido.reference_id, pedido.hora, pedido.status === 'cancelar' ? 'pronto' : 'cancelar')}
+                        onChange={() =>
+                          alterarStatus(
+                            pedido.reference_id,
+                            pedido.hora,
+                            index,
+                            pedido.status === 'cancelar' ? 'pronto' : 'cancelar'
+                          )
+                        }
                       />
                       <h1 className="texto-cancelar">Cancelar</h1>
                     </label>
                   </div>
                 </div>
               </div>
-
-
+          
               <div className="conteudo-detalhes">
-
                 <div className="status-container">
                   <div className={`indicador-status ${pedido.status}`}></div>
                 </div>
-
+          
                 <div className="quantidade-all">
                   <h2 className="quantidadeTexto">Quantidade</h2>
                   <h2 className="quantidade">{pedido.quantity}</h2>
@@ -286,6 +287,7 @@ const Home = () => {
                         alterarStatus(
                           pedido.reference_id,
                           pedido.hora,
+                          index, // Certifique-se de passar o index aqui também!
                           pedido.status === 'pronto' ? 'andamento' : 'pronto'
                         )
                       }
