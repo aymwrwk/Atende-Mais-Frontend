@@ -3,6 +3,7 @@ import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 import axios from 'axios';
 import './Entregues.css';
+import Header from "./Header";
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 const Entregues = () => {
@@ -148,13 +149,14 @@ const Entregues = () => {
   return (
 
     <div className="header">
+      
       <header class="header-menu">
-        <nav>
-          <ul class="menu">
-            <li><a href="/inicio">Inicio</a></li>
-            <li><a href="/item">Novo Pedido</a></li>
-          </ul>
-        </nav>
+      <Header />
+      <div className="random-div">
+        <p className= "p-header-center">
+           Entregues
+           </p>
+      </div>
       </header>
 
       <div className="titl">
@@ -242,7 +244,11 @@ const Entregues = () => {
             );
           })}
         </ul>
-        <p className="mensagem-sem-pedidos1">Ainda não há pedidos entregues ou cancelados</p>
+        <br />
+        <br />
+        <div className="div-mensagem-sem-pedido1">
+          <p className="mensagem-sem-pedidos1">Ainda não há pedidos entregues ou cancelados</p>
+        </div>
       </div>
       <div className="div-containers-lista2">
         <div className="container-lista2">

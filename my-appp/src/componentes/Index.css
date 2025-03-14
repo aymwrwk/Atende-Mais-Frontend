@@ -5,6 +5,26 @@
 }
 
 
+.random-div {
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;  /* Fica no topo da tela */
+  left: 50%;  /* Centraliza horizontalmente */
+  transform: translateX(-50%);  /* Ajusta para garantir que a div esteja centralizada */
+  
+  padding: 15px;
+  border-radius: 10px;
+  
+}
+
+.p-header-center {
+  color: white;  /* Cor do texto */
+  font-size: 18px;
+  text-align: center; /* Centraliza o texto dentro da div */
+}
+
+
+
 
 * {
 
@@ -88,14 +108,20 @@ font-size: 15px;
   font-weight: bold; /* Deixe o texto em negrito, se necessário */
 }
 
+.div-mensagem-sem-pedido{
+  
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .mensagem-sem-pedidos {
-  display: none;
-  color: #858383fd;
-  position: absolute;
-  top: 20%;
-  font-size: 25px;
-  text-align: center;
+ 
+  color: #383838fd;
+  font-size: 16px;
+ 
+  
 }
 
 
@@ -107,6 +133,7 @@ a {
 
 
 .header-menu {
+
   width: 100%;
   font: 1rem;
   text-transform: uppercase;
@@ -115,7 +142,7 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px;
+ 
 
 }
 

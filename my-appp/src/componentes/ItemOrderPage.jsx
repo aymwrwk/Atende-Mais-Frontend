@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ItemOrderPage.css';
+import Header from "./Header";
+
 
 const ItemOrderPage = () => {
   const [items, setItems] = useState([
@@ -167,15 +169,22 @@ const ItemOrderPage = () => {
     }
   };
 
+
+  
   return (
-    <div style={{ padding: '20px' }}>
-    <header class="header-menu-item">
-        <nav>
-          <ul class="menu-item">
-            <li><a href="/inicio">Inicio</a></li>
-            <li><a href="/entregues">Entregues</a></li>
-          </ul>
-        </nav>
+    <div style={{  }}>
+       
+
+    <header class="header-menu">
+    <Header /> 
+    
+    
+    <div className="random-div">
+        <p className= "p-header-center">
+             Item
+           </p>
+      </div>
+   
       </header>
       {items.map((item, index) => (
         <div
