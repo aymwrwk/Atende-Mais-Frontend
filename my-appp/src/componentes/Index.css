@@ -1,19 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@300..800&display=swap');
 
 :root {
-    --AuthFont: "Open Sans", system-ui;
+  --AuthFont: "Open Sans", system-ui;
 }
+
+
+.random-div {
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  /* Fica no topo da tela */
+  left: 50%;
+  /* Centraliza horizontalmente */
+  transform: translateX(-50%);
+  /* Ajusta para garantir que a div esteja centralizada */
+
+  padding: 15px;
+  border-radius: 10px;
+
+}
+
+.p-header-center {
+  color: white;
+  /* Cor do texto */
+  font-size: 18px;
+  text-align: center;
+  /* Centraliza o texto dentro da div */
+}
+
 
 
 
 * {
 
- font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0px;
   padding: 0px;
   box-sizing: border-box !important;
   overflow-x: hidden !important;
-   /* outline: 1px solid red;*/
+  /* outline: 1px solid red;*/
 
 
 }
@@ -33,7 +58,7 @@
 }
 
 .checkbox-detalhes label {
- 
+
   width: 70%;
 
   position: absolute;
@@ -45,12 +70,12 @@
   font-weight: bold;
 }
 
-.horario-texto{
-font-size: 15px;
+.horario-texto {
+  font-size: 15px;
   width: 70%;
 
   position: absolute;
-  top:25%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -59,12 +84,12 @@ font-size: 15px;
 }
 
 .horario {
- 
+
   margin-left: 90px;
   width: 70%;
   padding: 25px;
   position: absolute;
-  top:25%;
+  top: 25%;
   left: 52%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -76,26 +101,37 @@ font-size: 15px;
   opacity: 1 !important;
   z-index: 1;
   cursor: pointer;
-  accent-color: #4CAF50; /* Cor verde para visualização */
+  accent-color: #4CAF50;
+  /* Cor verde para visualização */
   width: 16px;
   height: 16px;
 }
 
 .texto-checkbox {
   font-size: 14px;
-  margin-bottom: 8px; /* Espaçamento entre o texto e o checkbox */
-  color: #333; /* Cor do texto */
-  font-weight: bold; /* Deixe o texto em negrito, se necessário */
+  margin-bottom: 8px;
+  /* Espaçamento entre o texto e o checkbox */
+  color: #333;
+  /* Cor do texto */
+  font-weight: bold;
+  /* Deixe o texto em negrito, se necessário */
 }
 
+.div-mensagem-sem-pedido3 {
+  margin-top: -150px;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  flex-direction: column; /* Garante que o conteúdo interno fique empilhado */
+  height: 50vh; /* Ajuste conforme necessário */
+  width: 100%; /* Ocupa toda a largura */
+  text-align: center; /* Centraliza o texto */
+ 
+}
 
-.mensagem-sem-pedidos {
-  display: none;
-  color: #858383fd;
-  position: absolute;
-  top: 20%;
-  font-size: 25px;
-  text-align: center;
+.mensagem-sem-pedidos3 {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 
@@ -107,6 +143,7 @@ a {
 
 
 .header-menu {
+
   width: 100%;
   font: 1rem;
   text-transform: uppercase;
@@ -115,7 +152,7 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px;
+
 
 }
 
@@ -143,9 +180,7 @@ a {
   margin: 0;
 }
 
-.ul-pedidos-celular {
-
-}
+.ul-pedidos-celular {}
 
 ul,
 li,
@@ -213,25 +248,21 @@ p {
   position: absolute;
 }
 
-.ul-pedidos-celular {
- 
-}
+.ul-pedidos-celular {}
 
 
-@media screen and (max-width: 1750px) {
-  
-
-}
+@media screen and (max-width: 1750px) {}
 
 
 @media screen and (max-width: 1645px) {
-  
+
+
 
   .conteudo-detalhes {
     height: 17.1vh !important;
-   
-    }
-  
+
+  }
+
 
 
 
@@ -251,7 +282,7 @@ p {
 
 @media screen and (max-width: 1477px) {
 
- 
+
 
   .senha-all {
     top: -98px;
@@ -263,7 +294,7 @@ p {
 
 @media screen and (max-width: 1420px) {
 
- 
+
 
   .senha-all {
     top: -98px;
@@ -376,6 +407,7 @@ p {
     left: 950% !important;
   }
 }
+
 /* Reset básico */
 * {
   margin: 0;
@@ -388,26 +420,30 @@ p {
 @media screen and (max-width: 1000px) {
   .pedido-container {
     right: 130px !important;
-    width: 85% !important; /* Adapta a largura */
+    width: 85% !important;
+    /* Adapta a largura */
   }
 
   .conteudo-wrapper {
     right: 10px !important;
-    width: 44% !important; /* Ajuste de largura */
+    width: 44% !important;
+    /* Ajuste de largura */
   }
 
   .senha-all {
     top: -98px;
-    left: 830% !important; /* Reduzindo deslocamento */
+    left: 830% !important;
+    /* Reduzindo deslocamento */
   }
 }
 
 /* Ajustes para telas menores que 990px */
 @media screen and (max-width: 990px) {
+
   .contagem-pedidos,
   .ul-pedidos,
   .li-pedidos {
-  display: none;
+    display: none;
   }
 
   .div-containers-lista {
@@ -420,23 +456,29 @@ p {
 
   .pedido-container {
     right: 1px !important;
-    width: 98% !important; /* Adapta a largura */
+    width: 98% !important;
+    /* Adapta a largura */
   }
 
   .senha-all {
-    top: -103px ;
-    left: 1410% ; /* Ajuste no deslocamento */
+    top: -103px;
+    left: 1410%;
+    /* Ajuste no deslocamento */
 
-    
+
   }
 
   .conteudo-wrapper {
-    width: 150% !important; /* Aumenta para ocupar toda a largura */
-    margin: 0 auto; /* Centraliza o conteúdo */
-    max-width: none !important; /* Remove restrições de largura máxima */
-    flex-grow: 1 !important; /* Se estiver em um layout flexível, deixa crescer */
- 
-}
+    width: 150% !important;
+    /* Aumenta para ocupar toda a largura */
+    margin: 0 auto;
+    /* Centraliza o conteúdo */
+    max-width: none !important;
+    /* Remove restrições de largura máxima */
+    flex-grow: 1 !important;
+    /* Se estiver em um layout flexível, deixa crescer */
+
+  }
 
 
   .senha {
@@ -450,25 +492,28 @@ p {
 }
 
 
- .senha-all {
-    top: -103px !important;
-    left: 1410% !important; /* Ajuste no deslocamento */
+.senha-all {
+  top: -103px !important;
+  left: 1410% !important;
+  /* Ajuste no deslocamento */
 
-    
-  }
+
+}
 
 /* Ajustes para telas menores que 810px */
 @media screen and (max-width: 810px) {
   .pedido-container {
     right: 0px !important;
-    width: 100% !important; /* Adaptação para largura */
+    width: 100% !important;
+    /* Adaptação para largura */
   }
 
-  
+
 
   .senha-all {
     top: -148px !important;
-    left: 450% !important; /* Ajuste no deslocamento */
+    left: 450% !important;
+    /* Ajuste no deslocamento */
     height: 20vh !important;
     padding: 15px;
   }
@@ -479,23 +524,27 @@ p {
 
   .div-descricao {
     top: 43% !important;
-      margin-left: 83px !important;
-      width: 60% !important;
-      
-    }
+    margin-left: 83px !important;
+    width: 60% !important;
+
+  }
 
   .pedido-container {
     right: 0px !important;
-    width: 100% !important; /* Adaptação para largura */
+    width: 100% !important;
+    /* Adaptação para largura */
   }
 
 
   .senha {
     font-size: 1.5em !important;
     font-weight: bold !important;
-    position: absolute !important; /* Define posição absoluta */
-    top: 15px !important; /* Alinha ao topo */
-    right: 15px; /* Alinha à direita */
+    position: absolute !important;
+    /* Define posição absoluta */
+    top: 15px !important;
+    /* Alinha ao topo */
+    right: 15px;
+    /* Alinha à direita */
   }
 }
 
@@ -503,19 +552,20 @@ p {
 @media screen and (max-width: 550px) {
   .pedido-container {
     right: 0px !important;
-    width: 100% !important; /* Ajuste da largura */
+    width: 100% !important;
+    /* Ajuste da largura */
   }
 
-  
-.div-descricao {
-  top: 41% !important;
-  margin-left: 87px !important;
-  width: 63% !important;
-  
-}
+
+  .div-descricao {
+    top: 41% !important;
+    margin-left: 87px !important;
+    width: 63% !important;
+
+  }
 
 
-  .descricao{
+  .descricao {
     padding: 10px !important;
   }
 
@@ -524,11 +574,24 @@ p {
 
   }
 }
-       
+
 
 /* Ajustes para telas menores que 480px */
 @media screen and (max-width: 480px) {
-   .status-container {
+
+  .div-mensagem-sem-pedido {
+    
+    
+    overflow: hidden !important;
+    position: absolute;
+    top: 20% !important;
+    left: 50% !important;
+    transform: translate(-50%, -20%) !important;
+    margin: 0px !important;
+    
+  }
+
+  .status-container {
     width: 70% !important;
     height: 156px !important;
   }
@@ -540,23 +603,25 @@ p {
 
   }
 
-  .texto-checkbox{
+  .texto-checkbox {
     margin-top: 40px;
     font-size: 0.8rem !important;
   }
 
+
   .quantidade-all {
-    position: absolute !important;
-    top: -5px !important;
-    text-align: left;
-    margin-left: 50px !important;
+
+    left: 140px !important;
+    top: 0px;
+
   }
 
-  .quantidadeTexto{
-    font-size: 0.8rem!important;
+
+  .quantidadeTexto {
+    font-size: 0.8rem !important;
   }
-  
-  .quantidade{
+
+  .quantidade {
     margin-top: 14px !important;
   }
 
@@ -564,18 +629,18 @@ p {
     margin-left: 70px !important;
     width: 70%;
     top: 10% !important;
-    
-  
+
+
   }
 
-  .label-entregue{
+  .label-entregue {
     margin-bottom: 0px;
     width: 100% !important;
     margin-top: 10px !important;
-    padding:10px 5px!important;
-    
+    padding: 10px 5px !important;
+
   }
-  
+
   .checkbox-container {
     margin-top: 10px !important;
     margin-right: 1px !important;
@@ -585,42 +650,47 @@ p {
     gap: 48px;
   }
 
-  .texto-entregue{
-    font-size: 13px !important;
-  }
-  
-  .texto-cancelar{
+  .texto-entregue {
     font-size: 13px !important;
   }
 
-  .label-cancelar{
-   
-    
-    padding: 10px 5px!important;
+  .texto-cancelar {
+    font-size: 13px !important;
   }
-  
+
+  .label-cancelar {
+
+
+    padding: 10px 5px !important;
+  }
+
+  .conteudo-wrapper{
+    margin-left: -5px !important;
+  }
 
   .pedido-container {
-
-    width: 100% !important; /* Ajuste da largura */
+    left: 0px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    /* Ajuste da largura */
   }
 
   .div-descricao {
-  top: 35% !important;
+    top: 35% !important;
     margin-left: 70px !important;
     width: 65% !important;
-    
+
   }
 
   .descricao {
     font-size: 1.0rem !important;
   }
 
-  .senha-all3{
+  .senha-all3 {
     top: 5px !important;
   }
 
-  .senhaTexto3{
+  .senhaTexto3 {
     margin-right: 2px !important;
     font-size: 0.8rem !important;
   }
@@ -628,9 +698,9 @@ p {
   .senha3 {
     margin-top: -15px !important;
     font-size: 22px !important;
-    
+
   }
-     
+
 }
 
 
@@ -641,6 +711,7 @@ p {
 
 .container-contador,
 .pedido-container {
+ 
   margin: 20px auto;
   width: 55%;
   /* Aumente de 45% para 60% ou mais conforme necessário */
@@ -652,7 +723,7 @@ p {
 }
 
 .pedido-container ul {
-  
+
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -668,14 +739,14 @@ p {
   width: 100%;
 }
 
-.conteudo-wrapper{
-margin-top: 20px;
-  position: relative; 
+.conteudo-wrapper {
+  margin-right: -18px;
+  position: relative;
 }
 
-.conteudo-wrapper2{
+.conteudo-wrapper2 {
   padding: 10px;
-  position: relative; 
+  position: relative;
 }
 
 .quantidadeTexto {
@@ -687,14 +758,16 @@ margin-top: 20px;
 .quantidade {
   position: relative;
   top: -10px;
-  margin-left: 30px;
+  margin-left: 3px;
 }
 
 .quantidade-all {
-  position: relative;
-  top: -40px;
+  position: absolute;
+  left: 180px;
+  /* Fica na extrema esquerda do container */
+  top: 0px;
+  /* Ajuste conforme necessário */
   text-align: left;
-  margin-left: 10px;
 }
 
 .senhTexto {
@@ -706,7 +779,7 @@ margin-top: 20px;
 }
 
 .conteudo-wrapper {
-height: 20vh;
+  height: 20vh;
   width: 70% !important;
   display: flex;
 
@@ -714,13 +787,14 @@ height: 20vh;
 
 .conteudo-wrapper2 {
   height: 20vh;
-    width: 70% !important;
-    display: flex;
-  
-  }
+  width: 70% !important;
+  display: flex;
 
-.pedido-container{
-  width: 90%; /* Garanta que o pai tenha largura de 100% */  
+}
+
+.pedido-container {
+  width: 90%;
+  /* Garanta que o pai tenha largura de 100% */
   margin: 0 auto;
   padding: 0 20px;
   position: absolute;
@@ -732,15 +806,15 @@ height: 20vh;
 
 
 .conteudo-detalhes {
-  
-height: 17.1vh;
+  z-index: 1000;
+  height: 17.1vh;
   display: grid;
   grid-template-columns: auto 1fr;
 
   align-items: center;
   border-radius: 8px;
-  
-   
+
+
   background: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.103) 7px 5px 5px 0px;
   flex-grow: 1;
@@ -778,7 +852,7 @@ height: 17.1vh;
   left: 1840% !important;
 
   position: relative;
- 
+
 
 }
 
@@ -789,12 +863,12 @@ height: 17.1vh;
   top: -10px;
 }
 
-.senhaTexto{
-  font-size: 0.9em; 
+.senhaTexto {
+  font-size: 0.9em;
 }
 
 .div-descricao {
-  
+
   margin-left: 90px;
   width: 70%;
   padding: 10px;
@@ -809,14 +883,14 @@ height: 17.1vh;
 
 
 .descricao {
-margin-top: 65px;
+  margin-top: 65px;
   font-size: 18px;
 
   top: 25px;
 }
 
 .status-container {
-  
+
   top: -0px;
 
   left: -1px;
@@ -851,4 +925,4 @@ margin-top: 65px;
 
 .indicador-status.entregue {
   background: linear-gradient(0deg, #b40f35, #F6194E);
-} 
+}

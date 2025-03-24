@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./Home.css";
-import SockJS from "sockjs-client";
-import { Client } from "@stomp/stompjs";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import './Home.css';
+import SockJS from 'sockjs-client';
+import { Client } from '@stomp/stompjs';
+import { useNavigate } from 'react-router-dom';
+import Header from "./Header";
 
-const Header = () => {
+/*const Header = () => {
   const [classOn, setClassOn] = useState(false);
-  return null;
-};
+}
+const toggleMenu = () => {
+  setMenuAberto(!menuAberto);
+};*/
 
 const Home = () => {
+  const [menuAberto, setMenuAberto] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+
+
+  
   const [statusMap] = useState({
     andamento: 'andamento',
     pronto: 'pronto',
@@ -18,6 +27,7 @@ const Home = () => {
     cancelar: 'cancelar',
   });
 
+ 
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [pedidos, setPedidos] = useState([]);
@@ -203,15 +213,18 @@ const Home = () => {
 
   return (
     <div className="header">
-      <header class="header-menu">
-        <nav>
-          <ul class="menu">
-            <li><a href="/entregues">Entregues</a></li>
-            <li><a href="/item">Novo Pedido</a></li>
-          </ul>
-        </nav>
+      
+      <header className="header-menu">
+      <Header menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+  
+    
       </header>
-
+      <div className="random-div">
+        <p className={`p-header-center ${menuAberto ? 'menu-aberto' : ''}`}>
+             Início
+           </p>
+      </div>
+      
       <div className="imagem-titulo-home"></div>
 
       <div className="contagem-pedidos-mobile">
@@ -222,10 +235,18 @@ const Home = () => {
           ))}
         </ul>
       </div>
+     
+     
 
       <div className="pedido-container">
         {pedidos.length === 0 ? (
-          <p className="mensagem-sem-pedidos">Ainda não há pedidos</p>
+        
+       
+
+        <div className="div-mensagem-sem-pedido3">
+        <p className="mensagem-sem-pedidos3">Ainda não há pedidos</p>
+      </div>
+          
         ) : (
           pedidos.map((pedido, index) => (
             <div className="conteudo-wrapper" key={`${pedido.reference_id}-${pedido.hora}-${index}`}>

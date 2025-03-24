@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ItemOrderPage.css';
+import Header from "./Header";
+
 
 const ItemOrderPage = () => {
   const [items, setItems] = useState([
@@ -167,17 +169,26 @@ const ItemOrderPage = () => {
     }
   };
 
+
+  
   return (
-    <div style={{ padding: '20px' }}>
-    <header class="header-menu-item">
-        <nav>
-          <ul class="menu-item">
-            <li><a href="/inicio">Inicio</a></li>
-            <li><a href="/entregues">Entregues</a></li>
-          </ul>
-        </nav>
+    <div style={{  }}>
+       
+
+    <header class="header-menu">
+    <Header /> 
+    
+    
+    <div className="random-div">
+        <p className= "p-header-center">
+             Item
+           </p>
+      </div>
+   
       </header>
+      <br />
       {items.map((item, index) => (
+        
         <div
           className="div-conteiner-itemorder"
           key={index}
@@ -187,15 +198,15 @@ const ItemOrderPage = () => {
             <p className="descricao-item">{item.description}</p>
           </div>
           {(index === 0 || index === 1) && (
-            <div className="testeitem" style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '30px', textAlign: 'center' }}>
-              <label className='espeto-div-item' onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer', marginTop: '-40px', width: '100%' }}>
+            <div className="testeitem" style={{ display: 'flex', alignItems: 'center', gap: '0px', marginTop: '0px', textAlign: 'center' }}>
+              <label className='espeto-div-item' onClick={(e) => e.stopPropagation()} >
                 Espeto:
                 <div className='escolher-espeto'
                   onClick={(e) => {
                     e.stopPropagation();
                     handleSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '5px', cursor: 'pointer', color: 'blue', }}
+                  style={{ display: 'inline-block', marginTop: '0px', marginLeft: '5px', cursor: 'pointer', color: 'blue', }}
                 >
                   {item.skewer || 'Escolher espeto'}
                 </div>
@@ -231,7 +242,7 @@ const ItemOrderPage = () => {
                     e.stopPropagation();
                     handleAdditionalSkewerClick(index);
                   }}
-                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue', marginTop: '-2px', fontSize: '15px' }}
+                  style={{ display: 'inline-block', marginLeft: '10px', cursor: 'pointer', color: 'blue', marginTop: '-2px', }}
                 >
                   {item.additionalSkewer || 'Escolher espeto adicional'}
                 </div>
@@ -263,7 +274,7 @@ const ItemOrderPage = () => {
             </div>
           )}
           <div className='div-botoes-mais-menos' style={{ marginTop: '10px', marginBottom: '-20px' }}>
-            <button
+            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px'}}
               onClick={(e) => {
                 e.stopPropagation();
                 handleQuantityChange(index, -1);
@@ -272,7 +283,7 @@ const ItemOrderPage = () => {
               -
             </button>
             <span style={{ margin: '5px', fontSize: '25px', color: 'red' }}>{item.quantity}</span>
-            <button
+            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px'}}
               onClick={(e) => {
                 e.stopPropagation();
                 handleQuantityChange(index, 1);
@@ -294,16 +305,19 @@ const ItemOrderPage = () => {
         <button
           onClick={() => setShowConfirmation(true)}
           style={{
-            marginLeft: '130px',
-            padding: '10px',
+            marginLeft: '170px',
+            padding: '8px',
             backgroundColor: '#017BFF',
             border: 'none',
-            borderRadius: '5px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+            color: 'white',
+            fontSize:'16px',
+            fontWeight: '550',
+            borderRadius: '18px',
+            boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3)',
 
           }}
         >
-          Enviar Pedido
+          Enviar
         </button>
       </div>
 
@@ -311,13 +325,13 @@ const ItemOrderPage = () => {
         <div className="confirmacao-pedido">
           <div style={{ backgroundColor: 'white', padding: '60px', borderRadius: '5px' }}>
             <h4 className="h4-confirmacao-do-pedido">Confirmação do Pedido</h4>
-            <ul>
+            <ul className='ul-item-menu'>
               {items
                 .filter((item) => item.quantity > 0)
                 .map((item, index) => (
-                  <li
+                  <li className='li-confirmacao-item'
                     key={index}
-                    style={{ padding: '20px', fontSize: '20px', fontWeight: 'bolder' }}
+                    style={{}}
                   >
                     {`${item.quantity}x ${item.description}`}
                   </li>
@@ -325,8 +339,10 @@ const ItemOrderPage = () => {
             </ul>
             <div>
               <strong className="h4-senha-do-pedido">Senha do Pedido:</strong>
-              <span
+              <br />
+              <span className='senha-item'
                 style={{
+                  marginTop: '10px',
                   marginLeft: '10px',
                   fontSize: '28px',
                   fontWeight: 'bolder',
@@ -337,36 +353,28 @@ const ItemOrderPage = () => {
               </span>
             </div>
             <br />
-            <br />
-            <button
-              style={{
-                marginLeft: '55px',
-                padding: '10px',
-                backgroundColor: '#0c8d39',
-                border: 'none',
-                borderRadius: '7px',
-                color: 'white'
-              }}
-              onClick={async () => {
-                await sendOrder();
-                // O resetOrder() já é chamado dentro do sendOrder em caso de sucesso
-              }}
-            >
-              Sim
-            </button>
-            <button
-              style={{
-                marginLeft: '50px',
-                padding: '10px',
-                backgroundColor: '#b40f35',
-                border: 'none',
-                borderRadius: '7px',
-                color: 'white'
-              }}
-              onClick={() => setShowConfirmation(false)}
-            >
-              Não
-            </button>
+            
+            <div className='div-botoes-item'>
+              <button className='button-confirmacao-item-sim'
+                style={{
+                }}
+                onClick={async () => {
+                  await sendOrder();
+                  // O resetOrder() já é chamado dentro do sendOrder em caso de sucesso
+                }}
+              >
+                Sim
+              </button>
+              <button className='button-confirmacao-item-nao'
+                style={{
+              
+                }}
+                onClick={() => setShowConfirmation(false)}
+              >
+                Não
+              </button>
+            </div>
+           
           </div>
         </div>
       )}
