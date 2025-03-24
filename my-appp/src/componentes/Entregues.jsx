@@ -18,16 +18,15 @@ const Entregues = () => {
     cancelar: 'cancelar', // status adicional, se necessário
   });
 
-  // Mock dos dados de pedidos
+ 
   const pedidosMock = [
     { reference_id: '123', status: 'andamento', quantity: 2, description: 'Jantinha com espeto de frango com bacon', hora: '10:00' },
     { reference_id: '456', status: 'pronto', quantity: 1, description: 'Táboa carne e Batata Frita', hora: '11:00' },
     { reference_id: '789', status: 'entregue', quantity: 3, description: 'Batata Especial', hora: '12:00' },
   ];
-  // Função para buscar pedidos do backend
+
   const buscarPedidos = async () => {
     try {
-      // Obter o token do localStorage
       const token = localStorage.getItem('token');
 
       if (!token) {
@@ -44,19 +43,16 @@ const Entregues = () => {
         }
       );
 
-      // Verifique a estrutura da resposta (ajuste conforme seu backend)
       console.log("Resposta da API:", response.data);
-      setPedidos(response.data); // Ou response.data.prefixos se for um objeto
-      //setPedidos(pedidosMock);
+      setPedidos(response.data);
 
     } catch (err) {
       setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
     } finally {
-      setLoading(false); // Atualiza o estado de carregamento
+      setLoading(false);
     }
   };
 
-  // UseEffect para buscar pedidos e contagem ao montar o componente
   useEffect(() => {
     buscarPedidos();
   }, []);

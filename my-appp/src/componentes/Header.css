@@ -28,7 +28,6 @@ header {
 }
 
 .menu-hamburguer {
-  
   position: absolute; /* Mantém o botão fixo na tela */
   top: -0,5px;
   left: 0;
@@ -50,8 +49,8 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20vw;
-  height: 60vh;
+  min-width: 250px;
+  height: 45vh;
   background-color: black;
   color: #fff;
   padding: 2rem 1rem 1rem 1rem;
@@ -63,6 +62,7 @@ header {
 }
 
 .menu-close {
+
   background-color: black;
   padding: 10px;
   position: fixed; /* Mantém o botão fixo na tela */
@@ -104,14 +104,21 @@ header {
   */
 
 .logout-container {
-
-  margin-top: auto;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  border-top: 1px solid #444;
+  /*position: absolute;
+  top: 82%;
+  width: 90%;*/
+  position: absolute;
+        /* Fica na extrema esquerda do container */
+  top: 20rem;     /* Ajuste conforme necessário */
+  text-align: left;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #444 !important;
+  width: 85%;
 }
 
 .logout-button {
+  margin-left: 60px;
   font-weight: 500;
   font-size: 1.1rem;
   background: none;
@@ -132,15 +139,16 @@ header {
 }
 
 .logout-icon {
+  
   margin-top: 0.5rem;
-  margin-right: 2rem;
+  margin-right: 0.5rem;
 }
-
+/*
 @media screen and (max-width: 908px) {
   .menu {
-
     width: 60vw !important;
-
-
   }
-}
+
+
+
+}*/

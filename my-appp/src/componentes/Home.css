@@ -128,6 +128,13 @@ p {
 
   }
   
+  .ul-pedidos{
+    font-size: 1.2em !important;
+    margin-left: 95px;
+     color: black;
+     margin-top: 150px;
+   }
+
 
   @media screen and (max-width: 1645px) {
 

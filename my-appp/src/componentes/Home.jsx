@@ -227,6 +227,7 @@ const Home = () => {
              Início
            </p>
       </div>
+      
       <div className="imagem-titulo-home"></div>
 
       <div className="contagem-pedidos-mobile">
@@ -237,15 +238,18 @@ const Home = () => {
           ))}
         </ul>
       </div>
+     
+     
 
       <div className="pedido-container">
-      <br />
-      <br />
         {pedidos.length === 0 ? (
         
-          <div className="div-mensagem-sem-pedido">
-            <p className="mensagem-sem-pedidos">Ainda não há pedidos</p>
-          </div>
+       
+
+        <div className="div-mensagem-sem-pedido3">
+        <p className="mensagem-sem-pedidos3">Ainda não há pedidos</p>
+      </div>
+          
         ) : (
           pedidos.map((pedido, index) => (
 
