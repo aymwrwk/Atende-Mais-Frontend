@@ -3,6 +3,7 @@ import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 import axios from 'axios';
 import './Entregues.css';
+import Header from "./Header";
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 const Entregues = () => {
@@ -17,16 +18,15 @@ const Entregues = () => {
     cancelar: 'cancelar', // status adicional, se necessário
   });
 
-  // Mock dos dados de pedidos
+ 
   const pedidosMock = [
     { reference_id: '123', status: 'andamento', quantity: 2, description: 'Jantinha com espeto de frango com bacon', hora: '10:00' },
     { reference_id: '456', status: 'pronto', quantity: 1, description: 'Táboa carne e Batata Frita', hora: '11:00' },
     { reference_id: '789', status: 'entregue', quantity: 3, description: 'Batata Especial', hora: '12:00' },
   ];
-  // Função para buscar pedidos do backend
+
   const buscarPedidos = async () => {
     try {
-      // Obter o token do localStorage
       const token = localStorage.getItem('token');
 
       if (!token) {
@@ -43,19 +43,16 @@ const Entregues = () => {
         }
       );
 
-      // Verifique a estrutura da resposta (ajuste conforme seu backend)
       console.log("Resposta da API:", response.data);
-      setPedidos(response.data); // Ou response.data.prefixos se for um objeto
-      //setPedidos(pedidosMock);
+      setPedidos(response.data);
 
     } catch (err) {
       setError("Erro ao buscar pedidos: " + (err.response ? err.response.data : err.message));
     } finally {
-      setLoading(false); // Atualiza o estado de carregamento
+      setLoading(false);
     }
   };
 
-  // UseEffect para buscar pedidos e contagem ao montar o componente
   useEffect(() => {
     buscarPedidos();
   }, []);
@@ -77,6 +74,7 @@ const Entregues = () => {
 
           setTimeout(() => {
             buscarPedidos();
+            contarPedidos();
           }, 3000);
         });
       },
@@ -147,13 +145,14 @@ const Entregues = () => {
   return (
 
     <div className="header">
+      
       <header class="header-menu">
-        <nav>
-          <ul class="menu">
-            <li><a href="/inicio">Inicio</a></li>
-            <li><a href="/item">Novo Pedido</a></li>
-          </ul>
-        </nav>
+      <Header />
+      <div className="random-div">
+        <p className= "p-header-center">
+           Entregues
+           </p>
+      </div>
       </header>
 
       <div className="titl">
@@ -241,7 +240,11 @@ const Entregues = () => {
             );
           })}
         </ul>
-        <p className="mensagem-sem-pedidos1">Ainda não há pedidos entregues ou cancelados</p>
+        <br />
+        <br />
+        <div className="div-mensagem-sem-pedido1">
+          <p className="mensagem-sem-pedidos1">Ainda não há pedidos entregues ou cancelados</p>
+        </div>
       </div>
       <div className="div-containers-lista2">
         <div className="container-lista2">

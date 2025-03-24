@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import './Home.css';
 import SockJS from 'sockjs-client';
@@ -12,7 +12,6 @@ import Header from "./Header";
 const toggleMenu = () => {
   setMenuAberto(!menuAberto);
 };*/
-
 const Home = () => {
   const [menuAberto, setMenuAberto] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
