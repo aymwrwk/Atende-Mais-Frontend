@@ -1,9 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import axios from 'axios';
-import './Home.css';
-import SockJS from 'sockjs-client';
-import { Client } from '@stomp/stompjs';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Home.css";
+import SockJS from "sockjs-client";
+import { Client } from "@stomp/stompjs";
+import { useNavigate } from "react-router-dom";
+
+const Header = () => {
+  const [classOn, setClassOn] = useState(false);
+  return null;
+};
 
 const Home = () => {
   const [statusMap] = useState({
@@ -262,7 +267,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-          
+
               <div className="conteudo-detalhes">
                 <div className="status-container">
                   <div className={`indicador-status ${pedido.status}`}></div>

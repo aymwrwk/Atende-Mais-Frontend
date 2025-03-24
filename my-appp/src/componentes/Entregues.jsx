@@ -77,7 +77,6 @@ const Entregues = () => {
 
           setTimeout(() => {
             buscarPedidos();
-            contarPedidos();
           }, 3000);
         });
       },
