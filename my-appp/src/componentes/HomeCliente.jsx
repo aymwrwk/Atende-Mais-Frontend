@@ -46,8 +46,8 @@ const HomeCliente = () => {
       setPedidos(response.data);
     } catch (err) {
       if (err.response) {
-        setError(err.response.status === 401 
-          ? "Você não tem autorização para acessar esses pedidos." 
+        setError(err.response.status === 401
+          ? "Você não tem autorização para acessar esses pedidos."
           : "Erro ao buscar pedidos: " + err.response.data);
       } else {
         setError("Erro ao buscar pedidos: " + err.message);
@@ -73,7 +73,7 @@ const HomeCliente = () => {
           console.log("Notificação recebida:", message.body);
           setTimeout(() => {
             buscarPedidos();
-          }, 3000);
+          }); //, 3000
         });
       },
       onDisconnect: () => {
@@ -132,7 +132,7 @@ const HomeCliente = () => {
       setMonitoredSenhas(updatedSenhas);
     }
   }, [pedidos, monitoredSenhas]);
-  
+
   // Adiciona a senha monitorada quando o usuário clicar em "Continuar"
   const handleContinuar = () => {
     const senha = senhaInput.trim();
@@ -156,32 +156,26 @@ const HomeCliente = () => {
 
   return (
     <div className="header">
-    <header class="header-menu">
-      <nav>
-        <ul class="menu">
-          <li style={{ padding: '10px' }}>Atende Mais</li>
-        </ul>
-      </nav>
-    </header>
-
-    <div className="imagem-titulo-home"></div>
-
-    <div className="contagem-pedidos-mobile">
-
-     
-    </div>
-
+      <header class="header-menu">
+        <nav>
+          <ul class="menu">
+            <li style={{ padding: '10px' }}>Atende Mais</li>
+          </ul>
+        </nav>
+      </header>
+      <div className="imagem-titulo-home"></div>
+      <div className="contagem-pedidos-mobile">
+      </div>
       <div className="content-wrapper">
         <button className="btn-acompanhar" onClick={handleAcompanharOutro}>
           Acompanhar outro pedido
         </button>
-
         {/* Modal de senha */}
         {showModal && (
           <div className="modal-overlay">
             <div className="modal">
               <h2>Digite a senha do pedido</h2>
-              <input 
+              <input
                 type="text"
                 value={senhaInput}
                 onChange={(e) => setSenhaInput(e.target.value)}
@@ -191,9 +185,7 @@ const HomeCliente = () => {
             </div>
           </div>
         )}
-
         {error && <p className="error">{error}</p>}
-
         {filteredPedidos.length === 0 ? (
           <p className="no-orders">Não há pedidos para a(s) senha(s) monitorada(s).</p>
         ) : (

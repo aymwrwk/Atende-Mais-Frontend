@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-//import styles from './Loginpage.css'; // Certifique-se de que este caminho está correto
 import './Loginpage.css';
 
 const LoginPage = ({ onLoginSuccess }) => {

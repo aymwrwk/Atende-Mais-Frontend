@@ -14,12 +14,9 @@ header {
   /* Mantém a relação com o .menu-hamburguer */
 }
 
-
 .header-menu>p {
   position: absolute;
   z-index: 1001;
-
-
 }
 
 .menu li.ativo {
@@ -28,8 +25,9 @@ header {
 }
 
 .menu-hamburguer {
-  position: absolute; /* Mantém o botão fixo na tela */
-  top: -0,5px;
+  position: absolute;
+  /* Mantém o botão fixo na tela */
+  top: -0, 5px;
   left: 0;
   font-size: 2.2rem;
   border: none;
@@ -41,8 +39,10 @@ header {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
-  padding: 0px; /* Opcional: garante um espaço clicável maior */
-  z-index: 999; /* Garante que fique acima de outros elementos */
+  padding: 0px;
+  /* Opcional: garante um espaço clicável maior */
+  z-index: 999;
+  /* Garante que fique acima de outros elementos */
 }
 
 .menu {
@@ -58,14 +58,13 @@ header {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-
 }
 
 .menu-close {
-
   background-color: black;
   padding: 10px;
-  position: fixed; /* Mantém o botão fixo na tela */
+  position: fixed;
+  /* Mantém o botão fixo na tela */
   top: -1rem;
   left: 0px;
   font-size: 2.2rem;
@@ -78,8 +77,10 @@ header {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
-  padding: 10px; /* Opcional: garante um espaço clicável maior */
-  z-index: 1001; /* Garante que fique acima de outros elementos */
+  padding: 10px;
+  /* Opcional: garante um espaço clicável maior */
+  z-index: 1001;
+  /* Garante que fique acima de outros elementos */
 }
 
 .menu ul {
@@ -97,19 +98,11 @@ header {
   cursor: pointer;
 }
 
-/* 
-  .menu li:hover {
-    color: #007bff;
-  }
-  */
-
 .logout-container {
-  /*position: absolute;
-  top: 82%;
-  width: 90%;*/
   position: absolute;
-        /* Fica na extrema esquerda do container */
-  top: 20rem;     /* Ajuste conforme necessário */
+  /* Fica na extrema esquerda do container */
+  top: 20rem;
+  /* Ajuste conforme necessário */
   text-align: left;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -139,16 +132,6 @@ header {
 }
 
 .logout-icon {
-  
   margin-top: 0.5rem;
   margin-right: 0.5rem;
 }
-/*
-@media screen and (max-width: 908px) {
-  .menu {
-    width: 60vw !important;
-  }
-
-
-
-}*/

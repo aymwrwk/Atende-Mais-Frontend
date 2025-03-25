@@ -22,7 +22,8 @@
 .container-login {
   position: relative;
   z-index: 5;
-  background: rgba(43, 43, 43, 0.979); /* Fundo branco translúcido */
+  background: rgba(43, 43, 43, 0.979);
+  /* Fundo branco translúcido */
   border-radius: 8px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
   max-width: 400px;
@@ -117,7 +118,7 @@
   .bg-login::before {
     clip-path: path('M0,0 C-200,200 -400,40 50,550 Q450,100 800,500 T2000,200 L1800,0 Z') !important;
   }
-  
+
   .container-login {
     padding: 1.5rem;
   }

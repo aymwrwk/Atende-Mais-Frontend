@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './ItemOrderPage.css';
 import Header from "./Header";
 
-
 const ItemOrderPage = () => {
   const [items, setItems] = useState([
     { description: 'Jantinha', quantity: 0, skewer: '', additionalSkewer: '' },
@@ -169,26 +168,18 @@ const ItemOrderPage = () => {
     }
   };
 
-
-  
   return (
-    <div style={{  }}>
-       
-
-    <header class="header-menu">
-    <Header /> 
-    
-    
-    <div className="random-div">
-        <p className= "p-header-center">
-             Item
-           </p>
-      </div>
-   
+    <div style={{}}>
+      <header class="header-menu">
+        <Header />
+        <div className="random-div">
+          <p className="p-header-center">
+            Item
+          </p>
+        </div>
       </header>
       <br />
       {items.map((item, index) => (
-        
         <div
           className="div-conteiner-itemorder"
           key={index}
@@ -234,7 +225,6 @@ const ItemOrderPage = () => {
                   ))}
                 </div>
               )}
-
               <label className='espeto-adicional-div' onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer' }}>
                 Espeto Adicional:
                 <div
@@ -274,7 +264,7 @@ const ItemOrderPage = () => {
             </div>
           )}
           <div className='div-botoes-mais-menos' style={{ marginTop: '10px', marginBottom: '-20px' }}>
-            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px'}}
+            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px' }}
               onClick={(e) => {
                 e.stopPropagation();
                 handleQuantityChange(index, -1);
@@ -283,7 +273,7 @@ const ItemOrderPage = () => {
               -
             </button>
             <span style={{ margin: '5px', fontSize: '25px', color: 'red' }}>{item.quantity}</span>
-            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px'}}
+            <button style={{ margin: '5px', fontSize: '25px', background: '#017BFF', border: 'none', padding: '2px 10px', borderRadius: '5px' }}
               onClick={(e) => {
                 e.stopPropagation();
                 handleQuantityChange(index, 1);
@@ -310,20 +300,18 @@ const ItemOrderPage = () => {
             backgroundColor: '#017BFF',
             border: 'none',
             color: 'white',
-            fontSize:'16px',
+            fontSize: '16px',
             fontWeight: '550',
             borderRadius: '18px',
             boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3)',
-
           }}
         >
           Enviar
         </button>
       </div>
-
       {showConfirmation && (
         <div className="confirmacao-pedido">
-          <div style={{ backgroundColor: 'white', padding: '60px', borderRadius: '5px' }}>
+          <div className="teste-confi" style={{ backgroundColor: 'white', padding: '60px', borderRadius: '5px' }}>
             <h4 className="h4-confirmacao-do-pedido">Confirmação do Pedido</h4>
             <ul className='ul-item-menu'>
               {items
@@ -337,7 +325,7 @@ const ItemOrderPage = () => {
                   </li>
                 ))}
             </ul>
-            <div>
+            <div className='div-senha-item'>
               <strong className="h4-senha-do-pedido">Senha do Pedido:</strong>
               <br />
               <span className='senha-item'
@@ -353,7 +341,6 @@ const ItemOrderPage = () => {
               </span>
             </div>
             <br />
-            
             <div className='div-botoes-item'>
               <button className='button-confirmacao-item-sim'
                 style={{
@@ -367,18 +354,16 @@ const ItemOrderPage = () => {
               </button>
               <button className='button-confirmacao-item-nao'
                 style={{
-              
+
                 }}
                 onClick={() => setShowConfirmation(false)}
               >
                 Não
               </button>
             </div>
-           
           </div>
         </div>
       )}
-
       {successMessage && <div className="success-message">{successMessage}</div>}
     </div>
   );

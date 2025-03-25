@@ -13,7 +13,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-
   margin-bottom: 40px;
 }
 
@@ -31,13 +30,12 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-.top-bar{
-  position: relative !important;
-  top: 100% !important;
-  left: 58% !important;
-  transform: translate(-60%, 15%) !important;
-  
-}
+  .top-bar {
+    position: relative !important;
+    top: 100% !important;
+    left: 58% !important;
+    transform: translate(-60%, 15%) !important;
+  }
 
   .div-conteiner-itemorder:nth-of-type(-n+2) .descricao-item-div {
     margin-left: 0px;
@@ -118,14 +116,12 @@ body {
     top: 20% !important;
     left: 42% !important;
     transform: translate(-105%, 40%) !important;
-
   }
 }
 
 .div-conteiner-itemorder:nth-of-type(-n+2) .div-botoes-mais-menos {
   margin-left: 0;
   margin-top: 90px !important;
-  
 }
 
 .div-conteiner-itemorder:nth-of-type(-n+2) {
@@ -174,7 +170,6 @@ body {
 }
 
 .div-conteiner-itemorder {
-
   padding: 25px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -224,19 +219,14 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 .testeitem {
   display: flex;
-  justify-content: space-between; /* Coloca os elementos nas extremidades */
+  justify-content: space-between;
+  /* Coloca os elementos nas extremidades */
   align-items: center;
   width: 100%;
 }
-
-/*
-.testeitem {
-  position: relative;
-  top: -37px;
-}
-*/
 
 .espeto-div-item {
   padding: 10px;
@@ -255,7 +245,6 @@ body {
   position: absolute;
   top: 30%;
   left: 80%;
- 
   transform: translate(-60%, -50%);
   text-align: center;
   width: 250px;
@@ -278,13 +267,11 @@ body {
   }
 }
 
-
 .descricao-item {
   font-size: 15px !important;
   font-weight: bolder;
   font-size: 18px;
   padding: 5px;
-  
 }
 
 button {
@@ -335,16 +322,9 @@ button {
   border-bottom: none;
 }
 
-.top-bar{ 
+.top-bar {}
 
-}
-
-.top-bar button {
-
-}
-
-
-
+.top-bar button {}
 
 .confirmacao-pedido {
   position: fixed;
@@ -371,19 +351,15 @@ button {
   z-index: 200;
 }
 
+.escolher-espeto {}
 
-.escolher-espeto {
- 
-
-}
-
-.testeitem { display: flex;
+.testeitem {
+  display: flex;
   align-items: center;
-    gap: 10px;
-    margin-top: 30px;
-    text-align:center;
-   }
-
+  gap: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
 
 .confirmacao-pedido>div {
   background-color: white;
@@ -391,14 +367,13 @@ button {
   border-radius: 5px;
 }
 
-.h4-confirmacao-do-pedido{
+.h4-confirmacao-do-pedido {
   width: 300px;
   font-size: 20px;
   color: #333;
   font-weight: bold;
   position: absolute;
   transform: translate(0%, -160%);
-
 }
 
 .h4-senha-do-pedido {
@@ -408,28 +383,30 @@ button {
   font-weight: bold;
   position: absolute;
   top: 52%;
-  
   transform: translate(5%, -10%);
 }
 
-.senha-item{
+.senha-item {
   position: absolute;
   top: 55%;
   transform: translate(140%, -20%);
 }
 
-.li-confirmacao-item{
+.li-confirmacao-item {
+  height: 40px;
+  overflow: hidden;
   font-size: 18px;
   width: 220px;
 }
 
-.div-botoes-item{
+.div-botoes-item {
   top: 49%;
   left: 50%;
   transform: translate(0%, 90%)
 }
 
-.button-confirmacao-item-sim{
+.button-confirmacao-item-sim {
+  margin-top: 30px;
   padding: 10px 35px;
   background-color: #0c8d39;
   border: none;
@@ -437,12 +414,14 @@ button {
   color: white;
 }
 
-.button-confirmacao-item-nao{
+.button-confirmacao-item-nao {
   padding: 10px 35px;
   background-color: #dd1f1f;
   border: none;
   border-radius: 7px;
   color: white;
-  }
+}
 
-  
+.teste-confi{
+  height: 300px;
+}

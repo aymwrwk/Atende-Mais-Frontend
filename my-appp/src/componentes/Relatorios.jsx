@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Relatorios.css';
 import Header from "./Header";
 
 const Reports = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [setError] = useState('');
   const [viewType, setViewType] = useState('daily'); // 'daily' ou 'weekly'
   const [message, setMessage] = useState('');
-  const token = 'seu_token_aqui';
+
+  axios.defaults.withCredentials = true;
 
   // useEffect que limpa a mensagem após 4 segundos sempre que ela for definida
   useEffect(() => {
@@ -41,26 +46,40 @@ const Reports = () => {
     }
     setMessage("Baixando relatório...");
     const formattedDate = date.toISOString().split('T')[0];
+    try {
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
 
-    axios
-      .get(`http://localhost:8080/relatorio/getRelatorio?dataString=${formattedDate}`, {
-        responseType: 'blob',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `relatorio_${formattedDate}.pdf`);
-        document.body.appendChild(link);
-        link.click();
-        setMessage("Relatório baixado com sucesso!");
-      })
-      .catch(error => {
-        setMessage("Erro ao baixar relatório.");
-      });
+      if (!token) {
+        setError('Usuário não autenticado');
+        navigate('/login');
+        return;
+      }
+
+      axios
+        .get(`https://atende-mais.shop:8080/api/v1/relatorio/getRelatorio?dataString=${formattedDate}`, {
+          responseType: 'blob',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+        .then(response => {
+          const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', `relatorio_${formattedDate}.pdf`);
+          document.body.appendChild(link);
+          link.click();
+          setMessage("Relatório baixado com sucesso!");
+        })
+        .catch(error => {
+          setMessage("Erro ao baixar relatório.");
+        });
+    } catch (err) {
+      setError("Erro ao buscar relatório: " + (err.response ? err.response.data : err.message));
+    } finally {
+      setLoading(false); // Atualiza o estado de carregamento
+    }
   };
 
   const getWeeklyGroups = () => {
@@ -95,27 +114,42 @@ const Reports = () => {
     setMessage("Baixando relatório...");
     const formattedDate = sundayDate.toISOString().split('T')[0];
 
-    axios
-      .get(`http://localhost:8080/relatorio/getRelatorio?dataString=${formattedDate}`, {
-        responseType: 'blob',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        const url = window.URL.createObjectURL(
-          new Blob([response.data], { type: 'application/pdf' })
-        );
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `relatorio_${new Date().toISOString()}.pdf`);
-        document.body.appendChild(link);
-        link.click();
-        setMessage("Relatório baixado com sucesso!");
-      })
-      .catch(error => {
-        setMessage("Erro ao baixar relatório.");
-      });
+    try {
+      // Obter o token do localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError('Usuário não autenticado');
+        navigate('/login');
+        return;
+      }
+
+      axios
+        .get(`https://atende-mais.shop:8080/api/v1/relatorio/getRelatorio?dataString=${formattedDate}`, {
+          responseType: 'blob',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+        .then(response => {
+          const url = window.URL.createObjectURL(
+            new Blob([response.data], { type: 'application/pdf' })
+          );
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', `relatorio_${new Date().toISOString()}.pdf`);
+          document.body.appendChild(link);
+          link.click();
+          setMessage("Relatório baixado com sucesso!");
+        })
+        .catch(error => {
+          setMessage("Erro ao baixar relatório.");
+        });
+    } catch (err) {
+      setError("Erro ao buscar relatório: " + (err.response ? err.response.data : err.message));
+    } finally {
+      setLoading(false); // Atualiza o estado de carregamento
+    }
   };
 
   return (
@@ -135,7 +169,6 @@ const Reports = () => {
           </li>
         </ul>
       </div>
-
       {/* Botões para alternar entre Diário e Semanal */}
       <div className='div-botoes-relatorios' style={{ marginBottom: '20px' }}>
         <button className='button-relatorios'
@@ -183,7 +216,6 @@ const Reports = () => {
             ))}
           </div>
         )}
-
         {viewType === 'weekly' && (
           <div className='div-conteudo-semanal'>
             {Object.entries(getWeeklyGroups()).map(([month, sundays]) => (
@@ -211,7 +243,6 @@ const Reports = () => {
             ))}
           </div>
         )}
-
         {/* Exibição de mensagens */}
         {message && (
           <div className='mensagem-erro-ralatorio' style={{ marginTop: '20px', color: 'red' }}>

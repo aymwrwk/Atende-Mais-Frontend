@@ -7,23 +7,15 @@ import Header from "./Header";
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 const Entregues = () => {
-  const [classOn, setClassOn] = useState(false);
   const [pedidos, setPedidos] = useState([]);
-  const [contagem, setContagem] = useState([]);
+  const [contagem] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [statusMap, setStatusMap] = useState({
+  const [statusMap] = useState({
     andamento: 'andamento', //amarelo
     pronto: 'pronto', //verde
     entregue: 'entregue', //vermelho
     cancelar: 'cancelar', // status adicional, se necessário
   });
-
- 
-  const pedidosMock = [
-    { reference_id: '123', status: 'andamento', quantity: 2, description: 'Jantinha com espeto de frango com bacon', hora: '10:00' },
-    { reference_id: '456', status: 'pronto', quantity: 1, description: 'Táboa carne e Batata Frita', hora: '11:00' },
-    { reference_id: '789', status: 'entregue', quantity: 3, description: 'Batata Especial', hora: '12:00' },
-  ];
 
   const buscarPedidos = async () => {
     try {
@@ -74,8 +66,7 @@ const Entregues = () => {
 
           setTimeout(() => {
             buscarPedidos();
-            contarPedidos();
-          }, 3000);
+          }, 1000);
         });
       },
 
@@ -141,18 +132,15 @@ const Entregues = () => {
     }
   };
 
-
   return (
-
     <div className="header">
-      
       <header class="header-menu">
-      <Header />
-      <div className="random-div">
-        <p className= "p-header-center">
-           Entregues
-           </p>
-      </div>
+        <Header />
+        <div className="random-div">
+          <p className="p-header-center">
+            Entregues
+          </p>
+        </div>
       </header>
 
       <div className="titl">
@@ -209,7 +197,6 @@ const Entregues = () => {
                   </div>
                 </div>
 
-
                 <div className="conteudo-detalhes">
 
                   <div className="status-container2">
@@ -255,15 +242,12 @@ const Entregues = () => {
 
               ))}
 
-
             </ul>
           </div>
         </div>
         <div className="container-lista2"></div>
       </div>
     </div>
-
-
 
   );
 };

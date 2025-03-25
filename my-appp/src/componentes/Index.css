@@ -14,10 +14,8 @@
   /* Centraliza horizontalmente */
   transform: translateX(-50%);
   /* Ajusta para garantir que a div esteja centralizada */
-
   padding: 15px;
   border-radius: 10px;
-
 }
 
 .p-header-center {
@@ -28,19 +26,13 @@
   /* Centraliza o texto dentro da div */
 }
 
-
-
-
 * {
-
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0px;
   padding: 0px;
   box-sizing: border-box !important;
   overflow-x: hidden !important;
   /* outline: 1px solid red;*/
-
-
 }
 
 .checkbox-detalhes {
@@ -58,9 +50,7 @@
 }
 
 .checkbox-detalhes label {
-
   width: 70%;
-
   position: absolute;
   top: 70%;
   left: 50%;
@@ -73,18 +63,15 @@
 .horario-texto {
   font-size: 15px;
   width: 70%;
-
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-
   font-weight: bold;
 }
 
 .horario {
-
   margin-left: 90px;
   width: 70%;
   padding: 25px;
@@ -120,13 +107,18 @@
 .div-mensagem-sem-pedido3 {
   margin-top: -150px;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  flex-direction: column; /* Garante que o conteúdo interno fique empilhado */
-  height: 50vh; /* Ajuste conforme necessário */
-  width: 100%; /* Ocupa toda a largura */
-  text-align: center; /* Centraliza o texto */
- 
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  flex-direction: column;
+  /* Garante que o conteúdo interno fique empilhado */
+  height: 50vh;
+  /* Ajuste conforme necessário */
+  width: 100%;
+  /* Ocupa toda a largura */
+  text-align: center;
+  /* Centraliza o texto */
 }
 
 .mensagem-sem-pedidos3 {
@@ -134,16 +126,12 @@
   font-weight: bold;
 }
 
-
-
 a {
   color: white;
   text-decoration: none;
 }
 
-
 .header-menu {
-
   width: 100%;
   font: 1rem;
   text-transform: uppercase;
@@ -152,25 +140,19 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-
-
 }
 
 .menu {
   display: flex;
-
 }
 
 .menu>li {
   margin-left: 10px;
-
 }
 
 .menu>li>a {
   display: block;
   padding: 10px;
-
-
 }
 
 .menu>li:hover {}
@@ -188,7 +170,6 @@ p {
   margin: 0px;
   padding: 0px;
   list-style: none;
-
 }
 
 .imagem-menu-logo {
@@ -235,7 +216,6 @@ p {
   top: 2%;
 }
 
-
 .container-lista1 {
   width: 90%;
   height: 45%;
@@ -250,123 +230,76 @@ p {
 
 .ul-pedidos-celular {}
 
-
 @media screen and (max-width: 1750px) {}
 
-
 @media screen and (max-width: 1645px) {
-
-
-
   .conteudo-detalhes {
     height: 17.1vh !important;
-
   }
-
-
-
-
 }
 
-
 @media screen and (max-width: 1549px) {
-
-
   .senha-all {
     top: -98px;
     left: 1550% !important;
-
   }
-
 }
 
 @media screen and (max-width: 1477px) {
-
-
-
   .senha-all {
     top: -98px;
     left: 1450% !important;
-
   }
-
 }
 
 @media screen and (max-width: 1420px) {
-
-
-
   .senha-all {
     top: -98px;
     left: 1400% !important;
-
   }
-
 }
 
 @media screen and (max-width: 1375px) {
-
-
-
   .descricao {
     font-size: 15px !important;
     padding: 10px !important;
   }
 
-
   .senha-all {
     top: -98px;
     left: 1300% !important;
-
   }
-
 }
 
 @media screen and (max-width: 1300px) {
-
-
   .senha-all {
     top: -98px;
     left: 1250% !important;
-
   }
-
 }
 
-
 @media screen and (max-width: 1270px) {
-
-
   .senha-all {
     top: -98px;
     left: 1170% !important;
-
   }
 }
 
 @media screen and (max-width: 1250px) {
-
-
   .senha-all {
     top: -98px;
     left: 1130% !important;
-
   }
 }
 
 @media screen and (max-width: 1200px) {
-
-
   .senha-all {
     top: -98px;
     left: 1070% !important;
-
   }
-
 }
 
 @media screen and (max-width: 1141px) {
-
   .descricao {
     font-size: 16px !important;
     padding: 10px !important;
@@ -375,13 +308,10 @@ p {
   .senha-all {
     top: -98px;
     left: 1000% !important;
-
   }
 }
 
-
 @media screen and (max-width: 1100px) {
-
   .descricao {
     font-size: 15px !important;
   }
@@ -389,7 +319,6 @@ p {
   .senha-all {
     top: -98px;
     left: 950% !important;
-
   }
 }
 
@@ -464,8 +393,6 @@ p {
     top: -103px;
     left: 1410%;
     /* Ajuste no deslocamento */
-
-
   }
 
   .conteudo-wrapper {
@@ -477,9 +404,7 @@ p {
     /* Remove restrições de largura máxima */
     flex-grow: 1 !important;
     /* Se estiver em um layout flexível, deixa crescer */
-
   }
-
 
   .senha {
     text-align: left !important;
@@ -491,13 +416,10 @@ p {
   }
 }
 
-
 .senha-all {
   top: -103px !important;
   left: 1410% !important;
   /* Ajuste no deslocamento */
-
-
 }
 
 /* Ajustes para telas menores que 810px */
@@ -507,8 +429,6 @@ p {
     width: 100% !important;
     /* Adaptação para largura */
   }
-
-
 
   .senha-all {
     top: -148px !important;
@@ -521,12 +441,10 @@ p {
 
 /* Ajustes para telas menores que 700px */
 @media screen and (max-width: 700px) {
-
   .div-descricao {
     top: 43% !important;
     margin-left: 83px !important;
     width: 60% !important;
-
   }
 
   .pedido-container {
@@ -534,7 +452,6 @@ p {
     width: 100% !important;
     /* Adaptação para largura */
   }
-
 
   .senha {
     font-size: 1.5em !important;
@@ -556,14 +473,11 @@ p {
     /* Ajuste da largura */
   }
 
-
   .div-descricao {
     top: 41% !important;
     margin-left: 87px !important;
     width: 63% !important;
-
   }
-
 
   .descricao {
     padding: 10px !important;
@@ -571,24 +485,18 @@ p {
 
   .descricao {
     font-size: 14px !important;
-
   }
 }
 
-
 /* Ajustes para telas menores que 480px */
 @media screen and (max-width: 480px) {
-
   .div-mensagem-sem-pedido {
-    
-    
     overflow: hidden !important;
     position: absolute;
     top: 20% !important;
     left: 50% !important;
     transform: translate(-50%, -20%) !important;
     margin: 0px !important;
-    
   }
 
   .status-container {
@@ -600,7 +508,6 @@ p {
     position: relative !important;
     top: -20px !important;
     height: 7vh !important;
-
   }
 
   .texto-checkbox {
@@ -608,14 +515,10 @@ p {
     font-size: 0.8rem !important;
   }
 
-
   .quantidade-all {
-
     left: 140px !important;
     top: 0px;
-
   }
-
 
   .quantidadeTexto {
     font-size: 0.8rem !important;
@@ -629,8 +532,6 @@ p {
     margin-left: 70px !important;
     width: 70%;
     top: 10% !important;
-
-
   }
 
   .label-entregue {
@@ -638,7 +539,6 @@ p {
     width: 100% !important;
     margin-top: 10px !important;
     padding: 10px 5px !important;
-
   }
 
   .checkbox-container {
@@ -659,12 +559,10 @@ p {
   }
 
   .label-cancelar {
-
-
     padding: 10px 5px !important;
   }
 
-  .conteudo-wrapper{
+  .conteudo-wrapper {
     margin-left: -5px !important;
   }
 
@@ -679,7 +577,6 @@ p {
     top: 35% !important;
     margin-left: 70px !important;
     width: 65% !important;
-
   }
 
   .descricao {
@@ -698,11 +595,8 @@ p {
   .senha3 {
     margin-top: -15px !important;
     font-size: 22px !important;
-
   }
-
 }
-
 
 .oie {
   position: absolute;
@@ -711,7 +605,6 @@ p {
 
 .container-contador,
 .pedido-container {
- 
   margin: 20px auto;
   width: 55%;
   /* Aumente de 45% para 60% ou mais conforme necessário */
@@ -723,7 +616,6 @@ p {
 }
 
 .pedido-container ul {
-
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -782,14 +674,12 @@ p {
   height: 20vh;
   width: 70% !important;
   display: flex;
-
 }
 
 .conteudo-wrapper2 {
   height: 20vh;
   width: 70% !important;
   display: flex;
-
 }
 
 .pedido-container {
@@ -803,24 +693,17 @@ p {
   justify-content: space-between;
 }
 
-
-
 .conteudo-detalhes {
   z-index: 1000;
   height: 17.1vh;
   display: grid;
   grid-template-columns: auto 1fr;
-
   align-items: center;
   border-radius: 8px;
-
-
   background: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.103) 7px 5px 5px 0px;
   flex-grow: 1;
 }
-
-
 
 .checkbox-container {
   margin-top: 10px;
@@ -845,15 +728,10 @@ p {
   z-index: 10;
 }
 
-
-
 .senha-all {
   top: -108px;
   left: 1840% !important;
-
   position: relative;
-
-
 }
 
 .senha {
@@ -868,7 +746,6 @@ p {
 }
 
 .div-descricao {
-
   margin-left: 90px;
   width: 70%;
   padding: 10px;
@@ -881,24 +758,19 @@ p {
   font-weight: bold;
 }
 
-
 .descricao {
   margin-top: 65px;
   font-size: 18px;
-
   top: 25px;
 }
 
 .status-container {
-
   top: -0px;
-
   left: -1px;
   /*min-height: 151px; /* Defina conforme necessário */
   width: 55px;
   height: 100% !important;
 }
-
 
 .indicador-status {
   text-align: center;

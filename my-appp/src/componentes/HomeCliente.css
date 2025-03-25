@@ -5,25 +5,25 @@
   box-sizing: border-box;
 }
 
-
-
-
 .divquantidade-senha-cliente {
-  
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
-  gap: 20px;               /* Espaçamento entre "Quantidade" e "Senha" */
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  gap: 20px;
+  /* Espaçamento entre "Quantidade" e "Senha" */
 }
 
-.divquantidade-senha-cliente > p {
-  margin: 0; /* Remove margens automáticas para que o alinhamento fique correto */
+.divquantidade-senha-cliente>p {
+  margin: 0;
+  /* Remove margens automáticas para que o alinhamento fique correto */
   margin-left: 30px !important;
   font-size: 15px !important;
   color: #555 !important;
 }
 
-.pedido-description{
+.pedido-description {
   font-size: 19px !important;
 }
 
@@ -44,7 +44,6 @@
 /* Wrapper do conteúdo principal */
 .content-wrapper {
   margin-top: 20px;
-  
 }
 
 /* Botão para acompanhar outro pedido */
@@ -64,12 +63,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
+
 .modal {
   background: #fff;
   padding: 20px;
@@ -77,6 +77,7 @@
   width: 90%;
   max-width: 400px;
 }
+
 .modal input {
   width: 100%;
   padding: 8px;
@@ -85,30 +86,32 @@
 
 /* Pedido Wrapper */
 .pedido-wrapper {
- margin-top: 20px;
-margin-left: 16px;
+  margin-top: 20px;
+  margin-left: 16px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   width: 92%;
- 
+
 }
-strong{
+
+strong {
   color: #555 !important;
 }
 
 /* Conteúdo do pedido */
 .pedido-content {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
 }
+
 .pedido-info p {
   margin: 5px 0;
 }
+
 .pedido-description {
   font-style: italic;
   color: #000000;
@@ -118,17 +121,21 @@ strong{
 .status-indicator {
   margin-left: 15px;
 }
+
 .status-circle {
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
+
 .status-circle.andamento {
   background-color: orange;
 }
+
 .status-circle.pronto {
   background-color: green;
 }
+
 .status-circle.cancelar,
 .status-circle.entregue {
   background-color: gray;
@@ -140,12 +147,15 @@ strong{
   padding: 10px;
   color: #fff;
 }
+
 .status-banner.andamento {
   background-color: orange;
 }
+
 .status-banner.pronto {
   background-color: green;
 }
+
 .status-banner.cancelar,
 .status-banner.entregue {
   background-color: gray;
@@ -156,6 +166,7 @@ strong{
   color: red;
   margin-top: 10px;
 }
+
 .no-orders {
   color: red;
   text-align: center;
@@ -163,30 +174,30 @@ strong{
   margin-top: 20px;
 }
 
-.button-continuar-cliente{
+.button-continuar-cliente {
   margin-left: 120px;
 }
 
 @media screen and (max-width: 480px) {
-.button-continuar-cliente{
-  margin-left: 120px !important;
+  .button-continuar-cliente {
+    margin-left: 120px !important;
+  }
 }
-}
+
 @media screen and (max-width: 420px) {
-  .button-continuar-cliente{
+  .button-continuar-cliente {
     margin-left: 95px !important;
   }
-  }
-  @media screen and (max-width: 370px) {
-    .button-continuar-cliente{
-      margin-left: 85px !important;
-    }
-    }
+}
 
-    @media screen and (max-width: 340px) {
-      .button-continuar-cliente{
-        margin-left: 70px !important;
-      }
-      }
-      
-    
+@media screen and (max-width: 370px) {
+  .button-continuar-cliente {
+    margin-left: 85px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .button-continuar-cliente {
+    margin-left: 70px !important;
+  }
+}

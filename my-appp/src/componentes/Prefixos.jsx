@@ -13,36 +13,36 @@ const GerenciarPrefixos = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    
+
     if (token) {
       fetchPrefixos();
     } else {
       setError('Faça login primeiro'); // Redirecione para login se necessário
     }
   }, [localStorage.getItem('token')]); // Recarrega quando o token mudar
-  
+
   const fetchPrefixos = async () => {
     try {
       // Obter o token do localStorage
       const token = localStorage.getItem('token');
-      
+
       if (!token) {
         setError('Usuário não autenticado');
         return;
       }
-  
-      const response = await axios.get('https://atende-mais.shop:8080/api/v1/prefixos/buscar-prefixo', 
+
+      const response = await axios.get('https://atende-mais.shop:8080/api/v1/prefixos/buscar-prefixo',
         {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
         }
       );
-  
+
       // Verifique a estrutura da resposta (ajuste conforme seu backend)
       console.log("Resposta da API:", response.data);
       setPrefixos(response.data); // Ou response.data.prefixos se for um objeto
-  
+
     } catch (err) {
       console.error("Erro detalhado:", err.response); // Log detalhado
       setError('Erro ao buscar prefixos');
@@ -99,37 +99,27 @@ const GerenciarPrefixos = () => {
     }
   };
 
-  const [classOn, setClassOn] = useState(false);
-
   return (
     <div className="">
       <header class="header-menu">
-      <Header />
-      <div className="random-div">
-        <p className= "p-header-center">
-             Início
-           </p>
-      </div>
+        <Header />
+        <div className="random-div">
+          <p className="p-header-center">
+            Início
+          </p>
+        </div>
       </header>
       <div className="imagem-titulo">
       </div>
       <div className="imagem-tituloo">
       </div>
       <div className="imagem-titulooo">
-
-<ul>
-<li><a href="/inicio">Início</a></li>
-
-</ul>
-
-</div>
-
-     
-        <h1 className='titulo-pagina-prefixos'>Gerenciar Prefixos</h1>
-
-   
-        <p className='descricao-titulo'>Os prefixos são as primeiras palavras de um produto. Por exemplo, em <strong>Jantinha</strong> com Espeto de Cupim, o prefixo é <strong>Jantinha</strong>; e em Batata Simples, o prefixo é <strong>Batata</strong>. Eles servem para agrupar e organizar itens semelhantes, facilitando a identificação e categorização.</p>
-      
+        <ul>
+          <li><a href="/inicio">Início</a></li>
+        </ul>
+      </div>
+      <h1 className='titulo-pagina-prefixos'>Gerenciar Prefixos</h1>
+      <p className='descricao-titulo'>Os prefixos são as primeiras palavras de um produto. Por exemplo, em <strong>Jantinha</strong> com Espeto de Cupim, o prefixo é <strong>Jantinha</strong>; e em Batata Simples, o prefixo é <strong>Batata</strong>. Eles servem para agrupar e organizar itens semelhantes, facilitando a identificação e categorização.</p>
       <div className='conatiner-main-prefixos'>
         <h1 className='h1-principal2'>Adicionar Prefixos</h1>
         {error && <p style={{ color: 'red' }}>{error}</p>} {/* Exibe mensagem de erro se houver */}

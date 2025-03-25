@@ -6,19 +6,8 @@ import { Client } from '@stomp/stompjs';
 import { useNavigate } from 'react-router-dom';
 import Header from "./Header";
 
-/*const Header = () => {
-  const [classOn, setClassOn] = useState(false);
-}
-const toggleMenu = () => {
-  setMenuAberto(!menuAberto);
-};*/
 const Home = () => {
   const [menuAberto, setMenuAberto] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-
-
-  
   const [statusMap] = useState({
     andamento: 'andamento',
     pronto: 'pronto',
@@ -26,26 +15,14 @@ const Home = () => {
     cancelar: 'cancelar',
   });
 
- 
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const [pedidos, setPedidos] = useState([]);
   const timersRef = useRef({});
   const [contagem, setContagem] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [classOn, setClassOn] = useState(false);
 
   axios.defaults.withCredentials = true;
-
-  // Mock dos dados de pedidos
-  const pedidosMock = [
-    { reference_id: '123', status: 'andamento', quantity: 2, description: 'Jantinha com espeto de frango com bacon + espeto adicional de frango', hora: '10:00' },
-    { reference_id: '456', status: 'pronto', quantity: 1, description: 'Jantinha com espeto de frango com bacon', hora: '11:00' },
-    { reference_id: '789', status: 'entregue', quantity: 3, description: 'Pedido 3', hora: '12:00' },
-  ];
-
-  // Mock dos dados de contagem
-  const contagemMock = ["Batata 5", "Jantinha 10", "Táboa 15"]; // Exemplo de contagens
 
   // Função para buscar pedidos do backend
   const buscarPedidos = async () => {
@@ -88,8 +65,6 @@ const Home = () => {
     }
   };
 
-  //const respostaBackend = null; // Simulando uma resposta nula
-
   // Função para buscar pedidos do backend
   const contarPedidos = async () => {
     try {
@@ -130,7 +105,6 @@ const Home = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-
     const client = new Client({
       webSocketFactory: () => new SockJS('https://atende-mais.shop:8080/wss-notifications?token=' + token),
 
@@ -146,7 +120,7 @@ const Home = () => {
           setTimeout(() => {
             buscarPedidos();
             contarPedidos();
-          }, 3000);
+          }, 1000);
         });
       },
 
@@ -169,7 +143,6 @@ const Home = () => {
   if (loading) {
     return <h1>Carregando pedidos...</h1>;
   }
-
 
   const alterarStatus = async (pedidoId, hora, index, novoStatus) => {
     try {
@@ -212,18 +185,15 @@ const Home = () => {
 
   return (
     <div className="header">
-      
       <header className="header-menu">
-      <Header menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
-  
-    
+        <Header menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
       </header>
       <div className="random-div">
         <p className={`p-header-center ${menuAberto ? 'menu-aberto' : ''}`}>
-             Início
-           </p>
+          Início
+        </p>
       </div>
-      
+
       <div className="imagem-titulo-home"></div>
 
       <div className="contagem-pedidos-mobile">
@@ -234,18 +204,11 @@ const Home = () => {
           ))}
         </ul>
       </div>
-     
-     
-
       <div className="pedido-container">
         {pedidos.length === 0 ? (
-        
-       
-
-        <div className="div-mensagem-sem-pedido3">
-        <p className="mensagem-sem-pedidos3">Ainda não há pedidos</p>
-      </div>
-          
+          <div className="div-mensagem-sem-pedido3">
+            <p className="mensagem-sem-pedidos3">Ainda não há pedidos</p>
+          </div>
         ) : (
           pedidos.map((pedido, index) => (
             <div className="conteudo-wrapper" key={`${pedido.reference_id}-${pedido.hora}-${index}`}>
@@ -287,12 +250,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-
               <div className="conteudo-detalhes">
                 <div className="status-container">
                   <div className={`indicador-status ${pedido.status}`}></div>
                 </div>
-          
                 <div className="quantidade-all">
                   <h2 className="quantidadeTexto">Quantidade</h2>
                   <h2 className="quantidade">{pedido.quantity}</h2>
@@ -322,11 +283,8 @@ const Home = () => {
                 <div className="div-descricao">
                   <p className="descricao">{pedido.description}</p>
                 </div>
-
               </div>
             </div>
-
-
           ))
         )}
       </div>
@@ -336,7 +294,6 @@ const Home = () => {
             <ul className="ul-pedidos">
               {contagem.map((item, index) => (
                 <li className="li-pedidos" key={index}>{item}</li>
-
               ))}
             </ul>
           </div>
@@ -344,7 +301,6 @@ const Home = () => {
         <div className="container-lista1"></div>
       </div>
     </div>
-
   );
 };
 

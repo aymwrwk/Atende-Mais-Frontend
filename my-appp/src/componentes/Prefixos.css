@@ -4,8 +4,6 @@ body {
   padding: 0;
 }
 
-
-
 .imagem-tituloo,
 .imagem-titulooo {
   display: none;
@@ -118,7 +116,7 @@ strong {
 
 .header-prefixos nav ul li a {
   position: relative;
- 
+
 }
 
 .header-prefixos nav ul li a .FiLogOut {
@@ -147,9 +145,7 @@ strong {
 
 @media screen and (max-width: 1366px) {
   .h1-principal2 {
-  
-  text-align: center !important;
-   
+    text-align: center !important;
   }
 
   .vertical-listt {
@@ -159,12 +155,9 @@ strong {
   }
 }
 
-
-
 @media screen and (max-width: 480px) {
-
   .input-prefixoo {
-   top: 48% !important;
+    top: 48% !important;
   }
 
   .button-adicionar-prefixoo {
@@ -177,13 +170,12 @@ strong {
     font-size: 14.5px !important;
     width: 82vw !important;
     top: 7% !important;
-    
+
   }
 
   .h1-principal2 {
     top: 42% !important;
   }
-  
 
   .vertical-listt {
     margin-right: 200px !important;
@@ -192,7 +184,6 @@ strong {
   }
 
   .lii {
-    
     padding: 0px !important;
     width: 20%;
     margin-bottom: 10px;
@@ -209,7 +200,7 @@ strong {
   }
 }
 
-.container-titulo-pagina-prefixos{
+.container-titulo-pagina-prefixos {
   max-width: 1470px;
   margin: 0 auto;
   padding: 20px;
@@ -231,14 +222,12 @@ strong {
   color: white;
 }
 
-
-
 .descricao-titulo {
   border: 1px solid rgba(109, 108, 108, 0.233);
   border-radius: 5px;
   background-color: #e5e5e5;
- padding: 20px;
- margin: 20px;
+  padding: 20px;
+  margin: 20px;
   font-size: 16.5px;
   text-align: justify, center;
   width: 87vw;
@@ -251,22 +240,16 @@ strong {
   font-size: 2.4em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: bolder;
- 
-width: 100%;
+  width: 100%;
   position: absolute;
   top: 33%;
   left: 49.3%;
   transform: translate(-50%, -50%);
   text-align: center;
-
   font-weight: bold;
-  
 }
 
-
 @media screen and (max-width: 1950px) {
-
-  
   .input-prefixoo {
     left: 35% !important;
     width: 20%;
@@ -278,18 +261,9 @@ width: 100%;
     width: 10%;
     height: 4.5vh;
   }
-
-  
-
-}
-  
-@media screen and (max-width: 1750px) {
-
-
- 
-
 }
 
+@media screen and (max-width: 1750px) {}
 
 @media (max-width: 1550px) {
   .input-prefixoo {
@@ -333,16 +307,14 @@ width: 100%;
     height: 4.5vh;
   }
 
-  .container-titulo-pagina-prefixos{
+  .container-titulo-pagina-prefixos {
     height: 17% !important;
-    }
-  
-    .descricao-titulo{
-      padding: 16px !important;
-      font-size: 15.5px !important;
-    }
-  
+  }
 
+  .descricao-titulo {
+    padding: 16px !important;
+    font-size: 15.5px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -358,28 +330,22 @@ width: 100%;
     height: 4vh;
   }
 
-  .container-titulo-pagina-prefixos{
-  height: 15% !important;
+  .container-titulo-pagina-prefixos {
+    height: 15% !important;
   }
 
-  .descricao-titulo{
-    
+  .descricao-titulo {
     font-size: 14.5px !important;
   }
-
 }
 
+.conteiner-adicionar-prefixos {}
 
-
-.conteiner-adicionar-prefixos{
- 
-  
+.input-prefixoo,
+.button-adicionar-prefixoo {
+  margin: 10px;
+  /* Espaçamento entre os elementos */
 }
-
-.input-prefixoo, .button-adicionar-prefixoo {
-  margin: 10px; /* Espaçamento entre os elementos */
-}
-
 
 .input-prefixoo {
   font-weight: bolder;
@@ -392,7 +358,6 @@ width: 100%;
   padding-left: 10px;
   position: absolute;
   top: 35%;
-  
   height: 5vh;
   left: 38%;
 }
@@ -404,11 +369,12 @@ width: 100%;
   box-shadow: rgba(0, 0, 0, 0.205) 5px 1px 8px;
   border-radius: 0px 15px 15px 0px;
   border: none;
-  min-width: 10%; 
+  min-width: 10%;
   height: 5vh;
   left: 54%;
   top: 35%;
-  transform: translateX(-50%); /* Centraliza horizontalmente */
+  transform: translateX(-50%);
+  /* Centraliza horizontalmente */
   background-color: #e4c411;
   position: absolute;
   transition: all 0.6s ease;

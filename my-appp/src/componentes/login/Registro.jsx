@@ -4,14 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 
 const Registro = ({ onLoginSuccess }) => {
-  // Estados para os campos do formulário
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(''); // Será enviado como "telefone"
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
