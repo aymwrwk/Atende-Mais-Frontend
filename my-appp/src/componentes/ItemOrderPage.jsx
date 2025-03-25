@@ -168,8 +168,15 @@ const ItemOrderPage = () => {
     }
   };
 
+  document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  document.addEventListener('touchmove', function(e) {}, { passive: true });
+
+
   return (
-    <div style={{}}>
+    <div className='body-item' style={{ }}>
       <header class="header-menu">
         <Header />
         <div className="random-div">
@@ -311,8 +318,9 @@ const ItemOrderPage = () => {
       </div>
       {showConfirmation && (
         <div className="confirmacao-pedido">
-          <div className="teste-confi" style={{ backgroundColor: 'white', padding: '60px', borderRadius: '5px' }}>
+          <div className="teste-confi" style={{/* backgroundColor: 'white', padding: '60px', borderRadius: '5px' */}}>
             <h4 className="h4-confirmacao-do-pedido">Confirmação do Pedido</h4>
+         
             <ul className='ul-item-menu'>
               {items
                 .filter((item) => item.quantity > 0)
@@ -321,6 +329,7 @@ const ItemOrderPage = () => {
                     key={index}
                     style={{}}
                   >
+                    
                     {`${item.quantity}x ${item.description}`}
                   </li>
                 ))}

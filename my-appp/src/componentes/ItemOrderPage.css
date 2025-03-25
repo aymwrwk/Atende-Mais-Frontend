@@ -2,6 +2,26 @@ body {
   background-color: #f5f5f5;
 }
 
+/* *{
+  border: 2px solid red !important;
+}
+*/
+
+.body-item {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+html, body {
+  overflow-y: auto !important;
+  scroll-behavior: smooth !important;
+}
+
+
+.menu-dropdown {
+  position: absolute !important; /* Mude de fixed para absolute se necessário */
+}
+
 .header-menu-item {
   margin-top: -20px;
   margin-left: -20px;
@@ -32,9 +52,9 @@ body {
 @media screen and (max-width: 480px) {
   .top-bar {
     position: relative !important;
-    top: 100% !important;
-    left: 58% !important;
-    transform: translate(-60%, 15%) !important;
+    top: 0% !important;
+    left: 50% !important;
+    transform: translate(-50%, 15%) !important;
   }
 
   .div-conteiner-itemorder:nth-of-type(-n+2) .descricao-item-div {
@@ -53,6 +73,7 @@ body {
     min-height: 220px !important;
     /* Ajuste para telas menores */
   }
+
 
   .espeto-adicional-div {
     font-size: 14px !important;
@@ -368,12 +389,13 @@ button {
 }
 
 .h4-confirmacao-do-pedido {
+  font-size: 24px;
   width: 300px;
-  font-size: 20px;
   color: #333;
   font-weight: bold;
-  position: absolute;
-  transform: translate(0%, -160%);
+  position: fixed;
+  top: 52%;
+  transform: translate(4%, -450%);
 }
 
 .h4-senha-do-pedido {
@@ -381,28 +403,35 @@ button {
   width: 300px;
   color: #333;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   top: 52%;
-  transform: translate(5%, -10%);
+  transform: translate(-83%, 40%);
 }
 
 .senha-item {
   position: absolute;
   top: 55%;
-  transform: translate(140%, -20%);
+  transform: translate(-355%, 30%);
+}
+
+.ul-item-menu{
+ margin-top: -50px;
+ height: 15vh;
+ width: 300px;
 }
 
 .li-confirmacao-item {
-  height: 40px;
-  overflow: hidden;
-  font-size: 18px;
-  width: 220px;
+
 }
 
 .div-botoes-item {
-  top: 49%;
-  left: 50%;
-  transform: translate(0%, 90%)
+  font-size: 24px;
+  width: 300px;
+  color: #333;
+  font-weight: bold;
+  position: fixed;
+  top: 52%;
+  transform: translate(12%, 85%);
 }
 
 .button-confirmacao-item-sim {
@@ -423,5 +452,14 @@ button {
 }
 
 .teste-confi{
-  height: 300px;
+  width: calc(100% - 40px); /* Garante a margem de 20px em cada lado */
+  max-width: 380px; /* Define um limite máximo */
+  height: 350px; /* Mantém a altura fixa */
+  margin: 20px auto; /* Centraliza horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

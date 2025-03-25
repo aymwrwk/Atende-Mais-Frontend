@@ -506,8 +506,9 @@ p {
 
   .checkbox-detalhe {
     position: relative !important;
-    top: -20px !important;
-    height: 7vh !important;
+    top: -18px !important;
+    height: 8vh !important;
+  
   }
 
   .texto-checkbox {
@@ -542,7 +543,7 @@ p {
   }
 
   .checkbox-container {
-    margin-top: 10px !important;
+    margin-top: 7px !important;
     margin-right: 1px !important;
     z-index: 10;
     display: flex;
