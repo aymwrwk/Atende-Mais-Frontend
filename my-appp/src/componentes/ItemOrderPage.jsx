@@ -3,7 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import './ItemOrderPage.css';
 import Header from "./Header";
 
+
+
+
+
+
 const ItemOrderPage = () => {
+  
   const [items, setItems] = useState([
     { description: 'Jantinha', quantity: 0, skewer: '', additionalSkewer: '' },
     { description: 'Jantinha', quantity: 0, skewer: '', additionalSkewer: '' },
@@ -29,6 +35,8 @@ const ItemOrderPage = () => {
     document.addEventListener('click', handleDocumentClick);
     return () => document.removeEventListener('click', handleDocumentClick);
   }, []);
+
+  
 
   const handlePasswordChange = (value) => {
     setPassword(value);
@@ -168,11 +176,8 @@ const ItemOrderPage = () => {
     }
   };
 
-  document.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-  }, { passive: false });
-  
-  document.addEventListener('touchmove', function(e) {}, { passive: true });
+
+
 
 
   return (
