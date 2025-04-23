@@ -3,11 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './ItemOrderPage.css';
 import Header from "./Header";
 
-
-
-
-
-
 const ItemOrderPage = () => {
   
   const [items, setItems] = useState([
@@ -16,8 +11,8 @@ const ItemOrderPage = () => {
     { description: 'Batata', quantity: 0 },
     { description: 'Batata especial', quantity: 0 },
     { description: 'Porção de disco', quantity: 0 },
-    { description: 'Taboa de calabresa', quantity: 0 },
-    { description: 'Taboa de carne', quantity: 0 },
+    { description: 'Tabua de calabresa', quantity: 0 },
+    { description: 'Tabua de carne', quantity: 0 },
   ]);
   const [password, setPassword] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);

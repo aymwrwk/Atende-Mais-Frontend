@@ -158,9 +158,7 @@ const HomeCliente = () => {
     <div className="header">
       <header class="header-menu">
         <nav>
-          <ul class="menu">
             <li style={{ padding: '10px' }}>Atende Mais</li>
-          </ul>
         </nav>
       </header>
       <div className="imagem-titulo-home"></div>
