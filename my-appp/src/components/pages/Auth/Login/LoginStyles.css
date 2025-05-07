@@ -1,0 +1,40 @@
+/* Importação da fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Correção para o problema de overflow */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilo para o background com imagem */
+.login-background {
+  background-image: url('../../../../assets/imgs/login-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Camada de overlay para melhorar a visibilidade do conteúdo */
+.login-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.0); /* Ajuste a opacidade conforme necessário */
+  z-index: 1;
+}
+
+/* Garantir que o conteúdo fique sobre o overlay */
+.login-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Aplicar a fonte Montserrat com !important para sobrescrever outras definições */
+.font-montserrat,
+.font-montserrat * {
+  font-family: 'Montserrat', sans-serif !important;
+} 

@@ -1,0 +1,215 @@
+/* Estilos Globais */
+* {
+  font-weight: bolder;
+  padding: 0;
+  margin: 0;
+}
+
+ul, li, p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Mensagem para pedidos vazios */
+.mensagem-sem-pedidos1,
+.mensagem-sem-pedidos {
+  display: none;
+}
+
+/* Layout de contêineres */
+.div-containers-lista2 {
+  background-color: black !important;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 23%;
+  min-width: 320px;
+  min-height: 46vh;
+  height: 46vh;
+  right: 3%;
+  position: absolute;
+  top: 11%;
+  padding: 100px;
+  display: grid;
+  place-items: center;
+}
+
+.container-lista2 {
+  width: 125%;
+  height: 90%;
+  background-image: url('../assets/imgs/status1.png');
+  background-size: 90%;
+  margin-left: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 10%;
+  position: absolute;
+}
+
+/* Checkboxes de Status */
+.label-entregue2,
+.label-pronto2,
+.label-cancelar2 {
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.103) 0px 2px 10px 0px;
+}
+
+.label-pronto2 {
+  margin-top: 8px;
+}
+
+.label-entregue2 {
+  margin-bottom: 0px;
+}
+
+/* Botões de status */
+.divbotoes2 {
+  position: absolute;
+  left: 6%;
+}
+
+.botao-cancelar2,
+.botao-pronto2,
+.botao-entregue2 {
+  background-color: #0E0D11;
+  padding: 50px;
+}
+
+/* Status visual dos pedidos */
+.status-container2 {
+  top: -0px;
+  left: -1px;
+  width: 55px;
+}
+
+.indicador-status {
+  flex-shrink: 0;
+  border-radius: 5px 0px 0px 5px;
+  background-color: grey;
+  width: 60px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.indicador-status.andamento2 {
+  background: linear-gradient(0deg, #FFCF4B, #ffe394);
+}
+
+.indicador-status.pronto2 {
+  background: linear-gradient(0deg, #0c8d39, #1BAA4D);
+}
+
+.indicador-status.entregue2 {
+  background: linear-gradient(0deg, #b40f35, #F6194E);
+}
+
+.indicador-status2 {
+  text-align: center;
+}
+
+/* Ocultar elementos em dispositivos móveis por padrão */
+.ul-pedidos-celular {
+  display: none;
+}
+
+@media screen and (max-width: 1060px) {
+  /*.pedido-container {
+    right: 90px !important;
+    position: relative;
+    width: 47% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }*/
+}
+
+@media screen and (max-width: 1050px) {
+ /* .pedido-container2 {
+    right: 130px !important;
+    width: 94% !important;
+  }
+*/
+}
+
+@media screen and (max-width: 990px) {
+  .contagem-pedidos,
+  .ul-pedidos,
+  .li-pedidos {
+    display: none !important;
+  }
+
+  .div-containers-lista,
+  .div-containers-lista2 {
+    display: none !important;
+  }
+
+  .pedidos-lista-celular {
+    display: block !important;
+  }
+
+  /*.pedido-container2 {
+    right: 100px !important;
+    width: 85% !important;
+  }
+
+  .senha {
+    text-align: left !important;
+    margin-top: 3px !important;
+  }*/
+
+  .pedidos-lista-celular {
+    display: block !important;
+    top: 20% !important;
+    position: absolute !important;
+    left: 1% !important;
+    color: black;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    font-weight: bolder !important;
+  }
+
+  .li-pedidos-celular {
+    display: none;
+    margin-left: 20px !important;
+  }
+
+  .ul-pedidos-celular {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .label-pronto2,
+  .label-entregue2,
+  .label-cancelar2 {
+    border-radius: 7px !important;
+    padding: 4px !important;
+  }
+
+  /*
+  .quantidade-all2 {
+    position: absolute !important;
+    top: 5px !important;
+    text-align: left;
+    margin-left: -30px !important;
+  }
+
+  .senha-all4 {
+    right: 20px !important;
+    top: 15px !important;
+  }
+
+  .status-container2 {
+    width: 70% !important;
+    height: 156px !important;
+  }
+
+  .pedido-container2 {
+    right: 160px !important;
+    width: 150% !important;
+  }*/
+}

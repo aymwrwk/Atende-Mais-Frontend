@@ -1,0 +1,296 @@
+/* Importação da fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+  background-color: #f5f5f5;
+  touch-action: pan-y !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.header {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.header::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.0);
+  background-image: url('../../../assets/imgs/item-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  z-index: 0; /* Atrás do conteúdo */
+  pointer-events: none; /* Garante que não bloqueia cliques */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos de base para listas e texto */
+ul, li, p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  z-index: 2;
+}
+
+/* Estilos para mobile */
+@media screen and (max-width: 480px) {
+  .ul-pedidos-mobile {
+    font-size: 0.8rem;
+    padding: 10px;
+    gap: 30px;
+    display: flex !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    position: relative; /* Necessário para o z-index funcionar */
+    z-index: 2; /* Valor maior que o fundo rotacionado (que está com z-index: 0) */
+  }
+}
+
+/* Lista de pedidos mobile */
+.ul-pedidos-mobile {
+  display: none;
+}
+
+/* Estilos para checkboxes e botões */
+.checkbox-container {
+  position: relative;
+  margin-top: 30px; /* Movendo para baixo */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Mais espaçamento entre os checkboxes */
+}
+
+.label-entregue {
+  margin-top: 20px;
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.103) 0px 2px 10px 0px;
+}
+
+.label-cancelar {
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.103) 0px 2px 10px 0px;
+}
+
+.divbotoes {
+  position: absolute;
+  left: 6%;
+}
+
+.botao-cancelar, .botao-entregue {
+  background-color: #0E0D11;
+  padding: 50px;
+}
+
+/* Elementos do layout */
+.imagem-menu-logo {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  align-items: end;
+  background-color: aliceblue;
+  padding: 20px;
+}
+
+/* Container da lista lateral */
+.div-containers-lista {
+  box-shadow: rgba(0, 0, 0, 0.664) 0px 2px 30px 2px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 23%;
+  min-width: 320px;
+  min-height: 86vh;
+  display: grid;
+  place-items: center;
+  height: 86vh;
+  right: 4.3%;
+  position: absolute;
+  top: 9%;
+  padding: 100px;
+  background-color: #0E0D11 !important;
+}
+
+.container-lista {
+  background-image: url('../assets/imgs/container.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 65%;
+  height: 50%;
+  position: absolute;
+  top: 2%;
+}
+
+.container-lista1 {
+  width: 90%;
+  height: 45%;
+  background-image: url('../assets/imgs/status1.png');
+  background-size: 100%;
+  margin-left: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 55%;
+  position: absolute;
+}
+
+/* Lista de pedidos desktop */
+.ul-pedidos {
+  font-size: 1.2em !important;
+  margin-left: 95px;
+  color: black;
+  margin-top: 150px;
+}
+
+/* Informações dos pedidos */
+.senha-all3 {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  /*text-align: right;*/
+}
+
+.senha3 {
+  margin-top: -200px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/* Media queries para diferentes tamanhos de tela */
+@media screen and (max-width: 1745px) {
+  .status-container {}
+}
+
+@media screen and (max-width: 1645px) {
+  .ul-pedidos {
+    font-size: 1.2em !important;
+    margin-left: 75px;
+    color: black;
+    margin-top: 150px;
+  }
+
+  .conteudo-detalhes {
+    height: 17.1vh !important;
+  }
+
+  .senha-all {
+    top: -101px !important;
+    left: 1650% !important;
+  }
+}
+
+@media screen and (max-width: 1549px) {
+  .senha-all {
+    top: -98px;
+    left: 1550% !important;
+  }
+}
+
+@media screen and (max-width: 1477px) {
+  .ul-pedidos {
+    font-size: 1.1em !important;
+    margin-left: 65px;
+    color: black;
+    margin-top: 150px;
+  }
+
+  .senha-all {
+    top: -98px;
+    left: 1450% !important;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .senha-all {
+    top: -98px;
+    left: 1400% !important;
+  }
+}
+
+@media screen and (max-width: 1375px) {
+  .senha-all {
+    top: -98px;
+    left: 1300% !important;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .senha-all {
+    top: -98px;
+    left: 1250% !important;
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .senha-all {
+    top: -98px;
+    left: 1170% !important;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .senha-all {
+    top: -98px;
+    left: 1130% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .senha-all {
+    top: -98px;
+    left: 1070% !important;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+
+  .senha-all {
+    top: -98px;
+    left: 1000% !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .senha-all {
+    top: -98px;
+    left: 950% !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1060px) {
+  .pedido-container {
+    right: 90px !important;
+    position: relative;
+    width: 47% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .senha-all {
+    top: -98px;
+    left: 950% !important;
+  }
+}
+
+/* Ajuste para telas menores */
+@media screen and (max-width: 480px) {
+  .checkbox-container {
+    margin-top: 40px; /* Mais espaço em telas menores */
+  }
+}
