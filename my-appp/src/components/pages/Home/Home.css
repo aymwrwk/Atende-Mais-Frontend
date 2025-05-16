@@ -25,8 +25,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   transform: rotate(180deg);
-  z-index: 0; /* Atrás do conteúdo */
-  pointer-events: none; /* Garante que não bloqueia cliques */
+  z-index: 0; 
+  pointer-events: none;
 }
 
 * {
@@ -34,7 +34,6 @@ body {
   margin: 0;
 }
 
-/* Estilos de base para listas e texto */
 ul, li, p {
   margin: 0px;
   padding: 0px;
@@ -42,34 +41,46 @@ ul, li, p {
   z-index: 2;
 }
 
-/* Estilos para mobile */
-@media screen and (max-width: 480px) {
+@media (min-width: 400px) and (max-width: 1000px) {
   .ul-pedidos-mobile {
-    font-size: 0.8rem;
-    padding: 10px;
+    font-size: 13px;
+    padding: 8px;
     gap: 30px;
     display: flex !important;
     margin-top: 0px !important;
     margin-bottom: 10px;
-    background-color: #ffffff;
+    background-color: #ffffffe3;
     color: rgb(0, 0, 0);
-    position: relative; /* Necessário para o z-index funcionar */
-    z-index: 2; /* Valor maior que o fundo rotacionado (que está com z-index: 0) */
+    position: relative;
+    z-index: 2; 
   }
 }
 
-/* Lista de pedidos mobile */
+@media (min-width: 501px) and (max-width: 1000px) {
+  .ul-pedidos-mobile {
+    font-size: 13px;
+    padding: 8px;
+    gap: 30px;
+    display: flex !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+    background-color: #ffffffe3;
+    color: rgb(0, 0, 0);
+    position: relative;
+    z-index: 2;
+  }
+}
+
 .ul-pedidos-mobile {
   display: none;
 }
 
-/* Estilos para checkboxes e botões */
 .checkbox-container {
   position: relative;
-  margin-top: 30px; /* Movendo para baixo */
+  margin-top: 30px; 
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Mais espaçamento entre os checkboxes */
+  gap: 15px;
 }
 
 .label-entregue {
@@ -97,7 +108,6 @@ ul, li, p {
   padding: 50px;
 }
 
-/* Elementos do layout */
 .imagem-menu-logo {
   display: flex;
   justify-content: end;
@@ -107,7 +117,6 @@ ul, li, p {
   padding: 20px;
 }
 
-/* Container da lista lateral */
 .div-containers-lista {
   box-shadow: rgba(0, 0, 0, 0.664) 0px 2px 30px 2px;
   background-size: 100%;
@@ -150,20 +159,18 @@ ul, li, p {
   position: absolute;
 }
 
-/* Lista de pedidos desktop */
 .ul-pedidos {
-  font-size: 1.2em !important;
-  margin-left: 95px;
-  color: black;
-  margin-top: 150px;
+  font-size: 22px !important;
+  font-weight: 300;
+  margin-left: 76px;
+  color: rgba(0, 0, 0, 0.829);
+  margin-top: 130px;
 }
 
-/* Informações dos pedidos */
 .senha-all3 {
   position: absolute;
   top: 7px;
   right: 10px;
-  /*text-align: right;*/
 }
 
 .senha3 {
@@ -172,17 +179,13 @@ ul, li, p {
   font-weight: bold;
 }
 
-/* Media queries para diferentes tamanhos de tela */
-@media screen and (max-width: 1745px) {
-  .status-container {}
-}
-
 @media screen and (max-width: 1645px) {
   .ul-pedidos {
-    font-size: 1.2em !important;
-    margin-left: 75px;
-    color: black;
-    margin-top: 150px;
+    font-size: 20px !important;
+    font-weight: 300;
+    margin-left: 62px;
+    color: rgba(0, 0, 0, 0.829);
+    margin-top: 140px;
   }
 
   .conteudo-detalhes {
@@ -204,10 +207,11 @@ ul, li, p {
 
 @media screen and (max-width: 1477px) {
   .ul-pedidos {
-    font-size: 1.1em !important;
-    margin-left: 65px;
-    color: black;
-    margin-top: 150px;
+    font-size: 18px !important;
+    font-weight: 300;
+    margin-left: 62px;
+    color: rgba(0, 0, 0, 0.829);
+    margin-top: 140px;
   }
 
   .senha-all {
@@ -288,9 +292,8 @@ ul, li, p {
   }
 }
 
-/* Ajuste para telas menores */
 @media screen and (max-width: 480px) {
   .checkbox-container {
-    margin-top: 40px; /* Mais espaço em telas menores */
+    margin-top: 40px;
   }
 }

@@ -1,4 +1,3 @@
-/* Estilos Globais */
 * {
   font-weight: bolder;
   padding: 0;
@@ -11,13 +10,11 @@ ul, li, p {
   list-style: none;
 }
 
-/* Mensagem para pedidos vazios */
 .mensagem-sem-pedidos1,
 .mensagem-sem-pedidos {
   display: none;
 }
 
-/* Layout de contêineres */
 .div-containers-lista2 {
   background-color: black !important;
   background-size: 100%;
@@ -48,7 +45,6 @@ ul, li, p {
   position: absolute;
 }
 
-/* Checkboxes de Status */
 .label-entregue2,
 .label-pronto2,
 .label-cancelar2 {
@@ -66,7 +62,6 @@ ul, li, p {
   margin-bottom: 0px;
 }
 
-/* Botões de status */
 .divbotoes2 {
   position: absolute;
   left: 6%;
@@ -79,7 +74,6 @@ ul, li, p {
   padding: 50px;
 }
 
-/* Status visual dos pedidos */
 .status-container2 {
   top: -0px;
   left: -1px;
@@ -112,27 +106,8 @@ ul, li, p {
   text-align: center;
 }
 
-/* Ocultar elementos em dispositivos móveis por padrão */
 .ul-pedidos-celular {
   display: none;
-}
-
-@media screen and (max-width: 1060px) {
-  /*.pedido-container {
-    right: 90px !important;
-    position: relative;
-    width: 47% !important;
-    padding: 10px !important;
-    box-sizing: border-box !important;
-  }*/
-}
-
-@media screen and (max-width: 1050px) {
- /* .pedido-container2 {
-    right: 130px !important;
-    width: 94% !important;
-  }
-*/
 }
 
 @media screen and (max-width: 990px) {
@@ -150,16 +125,6 @@ ul, li, p {
   .pedidos-lista-celular {
     display: block !important;
   }
-
-  /*.pedido-container2 {
-    right: 100px !important;
-    width: 85% !important;
-  }
-
-  .senha {
-    text-align: left !important;
-    margin-top: 3px !important;
-  }*/
 
   .pedidos-lista-celular {
     display: block !important;
@@ -189,27 +154,4 @@ ul, li, p {
     border-radius: 7px !important;
     padding: 4px !important;
   }
-
-  /*
-  .quantidade-all2 {
-    position: absolute !important;
-    top: 5px !important;
-    text-align: left;
-    margin-left: -30px !important;
-  }
-
-  .senha-all4 {
-    right: 20px !important;
-    top: 15px !important;
-  }
-
-  .status-container2 {
-    width: 70% !important;
-    height: 156px !important;
-  }
-
-  .pedido-container2 {
-    right: 160px !important;
-    width: 150% !important;
-  }*/
 }

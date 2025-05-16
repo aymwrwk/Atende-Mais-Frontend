@@ -177,7 +177,7 @@ html, body {
     margin: -4px 0 -4px;
     position: absolute !important;
     top: 70% !important;
-    left: 70.5% !important;
+    left: 67.6% !important;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 220px !important;
@@ -331,7 +331,7 @@ html, body {
   .espeto-adicional-div {
     margin: -4px 0 -4px;
     position: absolute;
-    top: 90%;
+    top: 86% !important;
     right: 32px !important;
     transform: translate(0, -50%) ;
     width: 220px;
@@ -568,7 +568,7 @@ input:active {
   right: 10px;
   left: auto ;
   transform: translate(0, -50%) ;
-  width: 220px;
+  width: 220px !important;
 }
 
 .espeto-adicional-div div {

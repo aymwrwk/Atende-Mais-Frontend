@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,30 +12,24 @@
   text-transform: uppercase;
   position: absolute;
   top: 0;
-  /* Fica no topo da tela */
   left: 50%;
-  /* Centraliza horizontalmente */
   transform: translateX(-50%);
-  /* Ajusta para garantir que a div esteja centralizada */
   padding: 15px;
   border-radius: 10px;
 }
 
 .p-header-center {
   color: white;
-  /* Cor do texto */
   font-size: 18px;
   text-align: center;
-  /* Centraliza o texto dentro da div */
 }
 
 * {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   margin: 0px;
   padding: 0px;
   box-sizing: border-box !important;
   overflow-x: hidden !important;
-  /* outline: 1px solid red;*/
 }
 
 .checkbox-detalhes {
@@ -44,8 +38,8 @@
   width: 70%;
   padding: 20px;
   position: absolute;
-  top: 16%;
-  left: 52.8%;
+  top: 13%;
+  left: 34.8%;
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 1.2em;
@@ -78,36 +72,26 @@
   z-index: 1;
   cursor: pointer;
   accent-color: #4CAF50;
-  /* Cor verde para visualização */
   width: 16px;
   height: 16px;
 }
 
 .texto-checkbox {
-  font-size: 14px;
-  margin-bottom: 8px;
-  /* Espaçamento entre o texto e o checkbox */
-  color: #333;
-  /* Cor do texto */
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #2e2e2e;
   font-weight: bold;
-  /* Deixe o texto em negrito, se necessário */
 }
 
 .div-mensagem-sem-pedido3 {
   margin-top: -150px;
   display: flex;
   justify-content: center;
-  /* Centraliza horizontalmente */
   align-items: center;
-  /* Centraliza verticalmente */
   flex-direction: column;
-  /* Garante que o conteúdo interno fique empilhado */
   height: 50vh;
-  /* Ajuste conforme necessário */
   width: 100%;
-  /* Ocupa toda a largura */
   text-align: center;
-  /* Centraliza o texto */
 }
 
 .mensagem-sem-pedidos3 {
@@ -177,16 +161,11 @@ p {
   background-repeat: no-repeat;
   border-radius: 10px;
   width: 23%;
-  /* Largura inicial em porcentagem */
   min-width: 320px;
-  /* Largura mínima fixa em pixels */
   min-height: 86vh;
-  /* Largura mínima fixa em pixels */
   display: grid;
   place-items: center;
-  /* Centraliza horizontalmente e verticalmente */
   height: 86vh;
-  /* Altura total da viewport */
   right: 6%;
   position: absolute;
   top: 9%;
@@ -219,17 +198,6 @@ p {
 
 .ul-pedidos-celular {}
 
-@media screen and (max-width: 1060px) {
-  /*.pedido-container {
-    right: 110px !important;
-    position: relative;
-    width: 90% !important;
-    padding: 10px !important;
-    box-sizing: border-box !important;
-  }*/
-}
-
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -237,20 +205,6 @@ p {
   overflow-x: hidden;
 }
 
-/* Ajustes para telas menores que 1000px */
-@media screen and (max-width: 1000px) {
-  /*.pedido-container {
-    right: 130px !important;
-    width: 85% !important;
-  }
-
-  .conteudo-wrapper {
-    right: 10px !important;
-    width: 44% !important;
-  }*/
-}
-
-/* Ajustes para telas menores que 990px */
 @media (min-width:811px) and (max-width: 990px) {
 
   .contagem-pedidos,
@@ -266,72 +220,8 @@ p {
   .pedidos-lista-celular {
     display: none;
   }
-
-  /*
-  .pedido-container {
-    right: 1px !important;
-    width: 98% !important;
-  }
-
-  .senha-all {
-    top: -103px;
-    left: 1410%;
-  }
-
-  .conteudo-wrapper {
-    width: 150% !important;
-    margin: 0 auto;
-    max-width: none !important;
-    flex-grow: 1 !important;
-  }
-
-  .senha {
-    text-align: left !important;
-    margin-top: 3px !important;
-  }*/
-
 }
 
-/* Ajustes para telas menores que 700px */
-@media screen and (max-width: 700px) {
-  /*
-  .div-descricao {
-    top: 43% !important;
-    margin-left: 83px !important;
-    width: 60% !important;
-  }
-
-  .pedido-container {
-    right: 0px !important;
-    width: 100% !important;
-  }
-
-  .senha {
-    font-size: 1.5em !important;
-    font-weight: bold !important;
-    position: absolute !important;
-    top: 15px !important;
-    right: 15px;
-  }*/
-}
-
-/* Ajustes para telas menores que 550px */
-@media screen and (max-width: 550px) {
- 
- /* .pedido-container {
-    right: 0px !important;
-    width: 100% !important;
-      
-  }
-
-  .div-descricao {
-    top: 41% !important;
-    margin-left: 87px !important;
-    width: 63% !important;
-  }*/
-}
-
-/* Ajustes para telas menores que 480px */
 @media (min-width:390px) and (max-width: 480px) {
   .div-mensagem-sem-pedido {
     overflow: hidden !important;
@@ -341,77 +231,6 @@ p {
     transform: translate(-50%, -20%) !important;
     margin: 0px !important;
   }
-
-  /*.status-container {
-    width: 70% !important;
-    height: 156px !important;
-  }*/
-
-  /*.checkbox-detalhe {
-    position: relative !important;
-    top: -18px !important;
-    height: 8vh !important;
-  
-  }
-
-  .texto-checkbox {
-    margin-top: 40px;
-    font-size: 0.8rem !important;
-  }
-
-  .quantidade-all {
-    left: 140px !important;
-    top: 0px;
-  }
-
-  .checkbox-detalhes {
-    margin-left: 70px !important;
-    width: 70%;
-    top: 10% !important;
-  }
-
-  .label-entregue {
-    margin-bottom: 0px;
-    width: 100% !important;
-    margin-top: 10px !important;
-    padding: 10px 5px !important;
-  }
-
-  .checkbox-container {
-    margin-top: 7px !important;
-    margin-right: 1px !important;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .texto-entregue {
-    font-size: 13px !important;
-  }
-
-  .texto-cancelar {
-    font-size: 13px !important;
-  }
-
-  .label-cancelar {
-    padding: 10px 5px !important;
-  }
-
-  .conteudo-wrapper {
-    margin-left: -5px !important;
-  }
-
-  .pedido-container {
-    left: 0px !important;
-    width: 100% !important;
-    margin: 0 !important;
-  }
-
-  .quantidade-all {
-    top: 5px !important;
-  }*/
-
 }
 
 .oie {
@@ -419,14 +238,14 @@ p {
   left: -1%;
 }
 
-.container-contador/*,
-.pedido-container */{
+.container-contador
+
+/*,
+.pedido-container */
+  {
   margin: 20px auto;
   width: 55%;
-  /* Aumente de 45% para 60% ou mais conforme necessário */
   min-width: 300px;
-  /* Ajuste a largura mínima se necessário */
-
   margin-right: auto;
   margin-left: 250px;
 }
@@ -437,7 +256,6 @@ p {
   flex-direction: column;
   align-items: flex-start;
   gap: 40px;
-  /* Espaçamento entre as caixas */
   padding: 0;
   margin: 0;
 }
@@ -448,22 +266,12 @@ p {
 }
 
 .conteudo-wrapper {
-  padding: 10px;
-  position: relative;
+  padding: 0px;
 }
 
 .conteudo-wrapper2 {
-  padding: 10px;
-  position: relative;
+  padding: 0px;
 }
-
-/*.quantidade-all {
-  position: absolute;
-  left: 180px;
-  top: 0px;
-   Ajuste conforme necessário 
-  text-align: left;
-}*/
 
 .senhTexto {
   margin-right: 3px;
@@ -472,21 +280,6 @@ p {
   position: relative;
   top: -4px;
 }
-/*
-.conteudo-wrapper {
-  height: 20vh;
-  width: 70% !important;
-  display: flex;
-}
-
-.pedido-container {
-  width: 80%;
-  position: relative;
-  right: 13.5% !important;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}*/
 
 .conteudo-detalhes {
   z-index: 1000;
@@ -495,7 +288,7 @@ p {
   grid-template-columns: auto 1fr;
   align-items: center;
   border-radius: 8px;
-  background: #f9f9f9;
+  background: #f9f9f9ef;
   box-shadow: rgba(0, 0, 0, 0.103) 7px 5px 5px 0px;
   flex-grow: 1;
 }
@@ -540,23 +333,9 @@ p {
   font-size: 0.9em;
 }
 
-/*.div-descricao {
-  margin-left: 90px;
-  width: 70%;
-  padding: 10px;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-}*/
-
 .status-container {
   top: -0px;
   left: -1px;
-  /*min-height: 151px; /* Defina conforme necessário */
   width: 55px;
   height: 100% !important;
 }
@@ -571,17 +350,16 @@ p {
   background-color: grey;
   width: 60px;
   height: 100%;
-  /*position: absolute;*/
   top: 0;
   left: 0;
 }
 
 .indicador-status.andamento {
-  background: linear-gradient(0deg, #FFCF4B, #ffe394);
+  background: linear-gradient(0deg, #ffbc04, #ffd96f);
 }
 
 .indicador-status.pronto {
-  background: linear-gradient(0deg, #0c8d39, #1BAA4D);
+  background: linear-gradient(0deg, #088b36, #09c54b);
 }
 
 .indicador-status.entregue {
