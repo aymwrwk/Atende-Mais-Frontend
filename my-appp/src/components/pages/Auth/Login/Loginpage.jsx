@@ -171,11 +171,10 @@ const LoginPage = ({ onLoginSuccess }) => {
             <p className="mt-10 text-center text-sm text-gray-500" style={fontStyle}>
               Não é membro?{' '}
               <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500" style={fontStyle}>
-                Comece um período de teste gratuito de 14 dias
+                Comece um período de teste gratuito de 30 dias
               </a>
             </p>
-
-            {/* Botão de diagnóstico */}
+            {/*
             <div className="mt-4 text-center">
               <button
                 onClick={() => navigate('/login-debug')}
@@ -183,7 +182,7 @@ const LoginPage = ({ onLoginSuccess }) => {
               >
                 Diagnóstico de Login
               </button>
-            </div>
+            </div>*/}
           </div>
         </div>
       </div>

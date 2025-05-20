@@ -1,0 +1,22 @@
+/* Garante a aplicação ocupar toda a tela */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Fundo único para toda a app */
+body {
+ background-image: url('../../../assets/imgs/item-bg1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  backdrop-filter: blur(0px);
+  z-index: 0;
+}
+
+.background-image > * {
+  position: relative;
+  z-index: 1;
+} 

@@ -29,8 +29,8 @@ const INITIAL_ITEMS = [
   { description: 'Batata', quantity: 0 },
   { description: 'Batata especial', quantity: 0 },
   { description: 'Porção de disco', quantity: 0 },
-  { description: 'Tabóa de calabresa', quantity: 0 },
-  { description: 'Tabóa de carne', quantity: 0 },
+  { description: 'Tábua de calabresa', quantity: 0 },
+  { description: 'Tábua de carne', quantity: 0 },
 ];
 
 const SKEWER_OPTIONS = [

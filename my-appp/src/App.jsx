@@ -12,6 +12,7 @@ import Prefixos from './components/pages/Prefixos/Prefixos';
 import ItemOrderPage from "./components/pages/ItemOrder/ItemOrderPage";
 import Relatorios from "./components/pages/Relatorios/Relatorios";
 import Teste from "./components/pages/Teste/Teste"
+import Maim from "./components/pages/Expose/Maim";
 
 // Importações dos componentes de autenticação
 import Login from './components/pages/Auth/Login/Loginpage';
@@ -64,6 +65,7 @@ const App = () => {
 				<Route path="/login-debug" element={<LoginTroubleshoot />} />
 				<Route path="/api-test" element={<ApiTest />} />
 				<Route path="/t" element={<Teste />} />
+				<Route path="/expo" element={<Maim/>} />
 
 				{/* Rota padrão - redireciona para login */}
 				<Route path="*" element={<Login />} />
