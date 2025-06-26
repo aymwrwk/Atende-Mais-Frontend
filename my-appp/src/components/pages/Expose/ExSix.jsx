@@ -19,10 +19,10 @@ export default function Example() {
                 </p>
               </div>
               <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
-                <div className="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
+                <div className="items-center justify-center ">
                   <img
-                    className="size-full object-cover object-top"
-                    src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-mobile-friendly.png"
+                    className="size-full object-cover "
+                   src="/src/assets/imgs/cell_item1.png"
                     alt=""
                   />
                 </div>
@@ -80,7 +80,7 @@ export default function Example() {
                 </p>
               </div>
               <div className="relative min-h-[30rem] w-full grow">
-                <div className="absolute bottom-0 left-10 right-0 top-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl">
+                <div className="absolute bottom-0 left-0 right-0 top-10 overflow-hidden  bg-gray-900 shadow-2xl">
                   <div className="flex bg-gray-800/40 ring-1 ring-white/5">
                     <div className="-mb-px flex text-sm/6 font-medium text-gray-400">
                       <div className="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">

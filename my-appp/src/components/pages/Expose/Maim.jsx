@@ -10,7 +10,6 @@ const Maim = () => {
         <div className="background-image">
             <ExTwo />
             <ExFive />
-            <ExSix />
             <ExThree />
             <ExOne />
             <ExFour />
